@@ -433,8 +433,21 @@ nav section {
     border-radius: 0 0 0.5rem 0;
 }
 
+.card-main-options-menu-i, .card-main-data-menu-i {
+    width: 100%;
+    background: var(--btn-color);
+}
 
+.card-main-data-menu div, .card-main-options-menu div {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.card-main-confirm-close {
+    padding-top: 0;
+}
 @media (max-width: 800px) {
 
     .home-main h3,
