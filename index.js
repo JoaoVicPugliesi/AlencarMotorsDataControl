@@ -6,6 +6,7 @@ import fetch_employees_data from "./js/useCases/fetch_employees_data.js"
 import handle_card_navigation from "./js/useCases/handle_card_navigation.js";
 import handle_close_cards from "./js/useCases/handle_close_cards.js";
 import init_main_options_counter from "./js/useCases/init_main_options_counter.js";
+import open_sandwich from "./js/useCases/sandwich.js";
 // import leaderboard_builder from "./js/useCases/leaderboard_builder.js";
 
 const supabase_url = 'https://lntwexedkbcrmayltrwo.supabase.co';
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     handle_close_cards();
     drag_slider();
     init_main_options_counter();
+    open_sandwich();
 });
