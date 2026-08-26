@@ -5,7 +5,7 @@ import display_employees_cards from "./js/useCases/display_employees_cards.js";
 import fetch_employees_data from "./js/useCases/fetch_employees_data.js"
 import handle_card_navigation from "./js/useCases/handle_card_navigation.js";
 import handle_close_cards from "./js/useCases/handle_close_cards.js";
-import toggle_main_options from "./js/useCases/toggle_main_option.js";
+import init_main_options_counter from "./js/useCases/init_main_options_counter.js";
 // import leaderboard_builder from "./js/useCases/leaderboard_builder.js";
 
 const supabase_url = 'https://lntwexedkbcrmayltrwo.supabase.co';
@@ -21,5 +21,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     toggle_input_visibility();
     handle_close_cards();
     drag_slider();
-    toggle_main_options();
+    init_main_options_counter();
 });

@@ -18,7 +18,7 @@ function handle_close_cards(container_selector = '.cards-main-slider') {
             document.querySelectorAll('.card').forEach(c => c.classList.remove('opened'));
             document.querySelectorAll('.card-main-option').forEach(o => o.classList.remove('clicked'));
 
-            localStorage.setItem('chosen_counters', JSON.stringify([]));
+            localStorage.setItem('chosen_counters', JSON.stringify({}));
         }
         const close_data_btn = e.target.closest('.card-main-data-menu-i');
         if (close_data_btn) {
@@ -28,7 +28,7 @@ function handle_close_cards(container_selector = '.cards-main-slider') {
             document.querySelectorAll('.card').forEach(c => c.classList.remove('opened'));
             document.querySelectorAll('.card-main-option').forEach(o => o.classList.remove('clicked'));
 
-            localStorage.setItem('chosen_counters', JSON.stringify([]));
+            localStorage.setItem('chosen_counters', JSON.stringify({}));
         }
     });
 }

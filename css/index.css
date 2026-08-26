@@ -414,6 +414,33 @@ nav section {
     justify-content: space-around;
 }
 
+.card-main-option-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--background-color);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text-font-1);
+}
+
+.qty-count {
+    width: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
 .card-counter-data {
     width: 50%;
     height: 100%;
@@ -510,6 +537,18 @@ nav section {
         font-size: 0.7rem;
     }
 
+     .card-main-option {
+        flex-direction: column;
+        height: 5rem;
+    }
+
+    .card-main-option div, .card-main-option-title h3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .card {
         flex: 0 0 10rem;
         height: 20rem;
@@ -532,10 +571,13 @@ nav section {
         width: 100%;
     }
 
+    .card-main-option-title h3 {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 300px) {
-
+    
     .home-main h3,
     .cards-main h3 {
         font-size: 0.8rem;
@@ -550,5 +592,8 @@ nav section {
     .card-main-data-title h3, .card-main-data-number h3 {
         font-size: 0.8rem;
         width: 100%;
+    }
+    .card-main-option-title h3 {
+        font-size: 0.7rem;
     }
 }

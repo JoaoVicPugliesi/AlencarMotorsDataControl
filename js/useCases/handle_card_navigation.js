@@ -5,7 +5,6 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
     container.addEventListener('click', (e) => {
         const trigger_add = e.target.closest('.card-counter-add');
         if (trigger_add) {
-            // Fix: Include .card-main-data inside the selector string
             document.querySelectorAll('.card, .card-main-options, .card-main-confirm, .card-main-datas').forEach(el => {
                 el.classList.remove('opened');
             });
@@ -13,7 +12,7 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
                 el.classList.remove('clicked');
             });
 
-            localStorage.setItem('chosen_counters', JSON.stringify([]));
+            localStorage.setItem('chosen_counters', JSON.stringify({}));
 
             const card = trigger_add.closest('.card');
             const options_panel = card?.querySelector('.card-main-options');
@@ -32,7 +31,7 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
                 el.classList.remove('clicked');
             });
 
-            localStorage.setItem('chosen_counters', JSON.stringify([]));
+            localStorage.setItem('chosen_counters', JSON.stringify({}));
             const card = trigger_data.closest('.card');
             const options_panel = card?.querySelector('.card-main-data');
             if (options_panel) {
@@ -43,9 +42,8 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
 
         const trigger_advance = e.target.closest('.card-main-options-advance');
         if (trigger_advance) {
-            const counters = JSON.parse(localStorage.getItem('chosen_counters')) || [];
-            if (counters.length === 0) return;
-
+            const counters = JSON.parse(localStorage.getItem('chosen_counters')) || {};
+            if (Object.keys(counters).length === 0) return;
             const card = trigger_advance.closest('.card');
             const confirm_panel = card?.querySelector('.card-main-confirm');
             if (confirm_panel) {

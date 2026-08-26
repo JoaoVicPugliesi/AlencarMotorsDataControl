@@ -3,7 +3,6 @@ import data_numbers from "../../data/data_numbers.js";
 
 function employees_component(id, name, image, post_counter, leads_counter, passantes_counter, leads_atendidos_counter, prospection_counter, spoken_prospection_counter, sales_counter, sales_in_negotiation_counter, cadastros_counter, simulation_counter) {
     const data = data_numbers(post_counter, leads_counter, passantes_counter, leads_atendidos_counter, prospection_counter, spoken_prospection_counter, sales_counter, sales_in_negotiation_counter, cadastros_counter, simulation_counter);
-    console.log(data)
     return `
         <div class="card">
 
@@ -52,21 +51,17 @@ function employees_component(id, name, image, post_counter, leads_counter, passa
                 </div>
 
                 <div class="card-main-options-display">
-                    ${
-                        counters.map((c) => `
+                    ${counters.map((c) => `
                             <div class="card-main-option">
-                                
                                 <div class="card-main-option-title">
                                     <h3>${c.name}</h3>
                                 </div>
 
-                                <div 
-                                    class="card-main-option-btn" 
-                                    data-code="${c.code}"
-                                >
-                                    <div class="card-main-option-btn-point"></div>
+                                <div class="card-main-option-quantity" data-code="${c.code}">
+                                    <button type="button" class="qty-btn btn-minus" aria-label="Decrease quantity"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="qty-count">0</span>
+                                    <button type="button" class="qty-btn btn-plus" aria-label="Increase quantity"><i class="fa-solid fa-plus"></i></button>
                                 </div>
-
                             </div>
                         `).join('')
                     }
@@ -86,13 +81,12 @@ function employees_component(id, name, image, post_counter, leads_counter, passa
                     </div>
 
                     <div>
-                        <h3>Veja os números</h3>
+                        <h3>Veja os dados</h3>
                     </div>
                 </div>
 
                 <div class="card-main-data-display">
-                    ${
-                        data.map((d) => `
+                    ${data.map((d) => `
                             <div class="card-main-data-component">              
                                 <div class="card-main-data-title">
                                     <h3>${d.name}</h3>
@@ -103,7 +97,7 @@ function employees_component(id, name, image, post_counter, leads_counter, passa
                                 </div>
                             </div>
                         `).join('')
-                    }
+        }
                 </div>
             </div>
             <div class="card-img">
