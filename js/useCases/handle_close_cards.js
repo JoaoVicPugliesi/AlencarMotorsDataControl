@@ -17,16 +17,18 @@ function handle_close_cards(container_selector = '.cards-main-slider') {
 
             document.querySelectorAll('.card').forEach(c => c.classList.remove('opened'));
             document.querySelectorAll('.card-main-option').forEach(o => o.classList.remove('clicked'));
-
+            document.querySelectorAll('.qty-count').forEach(o => o.innerHTML = 0);
+            
             localStorage.setItem('chosen_counters', JSON.stringify({}));
         }
         const close_data_btn = e.target.closest('.card-main-data-menu-i');
         if (close_data_btn) {
             const card_data = close_data_btn.closest('.card-main-data');
             card_data?.classList.remove('opened');
-
+            
             document.querySelectorAll('.card').forEach(c => c.classList.remove('opened'));
             document.querySelectorAll('.card-main-option').forEach(o => o.classList.remove('clicked'));
+            document.querySelectorAll('.qty-count').forEach(o => o.innerHTML = 0);
 
             localStorage.setItem('chosen_counters', JSON.stringify({}));
         }

@@ -11,7 +11,7 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
             document.querySelectorAll('.card-main-option').forEach(el => {
                 el.classList.remove('clicked');
             });
-
+            document.querySelectorAll('.qty-count').forEach(o => o.innerHTML = 0);
             localStorage.setItem('chosen_counters', JSON.stringify({}));
 
             const card = trigger_add.closest('.card');
@@ -30,6 +30,7 @@ function handle_card_navigation(container_selector = '.cards-main-slider') {
             document.querySelectorAll('.card-main-option').forEach(el => {
                 el.classList.remove('clicked');
             });
+            document.querySelectorAll('.qty-count').forEach(o => o.innerHTML = 0);
 
             localStorage.setItem('chosen_counters', JSON.stringify({}));
             const card = trigger_data.closest('.card');
