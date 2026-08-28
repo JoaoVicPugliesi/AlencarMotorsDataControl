@@ -2,7 +2,6 @@ import drag_slider from "./js/helpers/drag_slider.js";
 import toggle_input_visibility from "./js/helpers/toggle_input_visibilty.js";
 import display_employees_cards from "./js/useCases/display_employees_cards.js";
 import fetch_employees_data from "./js/useCases/fetch_employees_data.js"
-import make_dashboard from "./js/useCases/make_dashboard.js";
 import open_close_confirm_card from "./js/useCases/open_close_confirm_card.js";
 import open_close_dashboard from "./js/useCases/open_close_dashboard.js";
 import open_sandwich from "./js/useCases/open_sandwich.js";
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     display_employees_cards(employees);
     toggle_input_visibility();
     drag_slider();
-    make_dashboard();
     open_close_confirm_card();
-    open_close_dashboard(employees);
+    open_close_dashboard(employees, db);
 });
