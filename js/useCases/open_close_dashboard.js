@@ -14,7 +14,7 @@ function open_dashboard(employees, db) {
             const input = confirm.querySelector('.card-main-confirm-input input');
             if (Number(employee.password) !== Number(input.value)) return;
             const employee_dashboard_name = document.querySelector('.dashboard-name h3');
-            employee_dashboard_name.textContent = `Olá, ${employee.name}. Esse é o seu Dashboard.`;
+            employee_dashboard_name.textContent = `Olá, ${employee.name}. Esses são seus dados.`;
             const dashboard = document.querySelector('.dashboard');
             const data = await select_monthly_dashboard_data(id, db);
             make_dashboard(data, id);
@@ -29,7 +29,7 @@ function open_dashboard(employees, db) {
 }
 
 function close_dashboard() {
-    const dash_comeback_command = document.querySelector('.dash-comeback-command');
+    const dash_comeback_command = document.querySelector('.dashboard-comeback-command');
     const dashboard = document.querySelector('.dashboard')
     dash_comeback_command.addEventListener('click', () => {
         dashboard.classList.remove('opened');

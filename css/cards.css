@@ -19,7 +19,7 @@
 .cards-main-slider {
     display: flex;
     gap: 1.5rem;
-    width: 50%;
+    width: 80%;
     max-width: max-content;
     overflow-x: auto;
     padding: 1rem;
@@ -133,9 +133,9 @@
     height: 10%;
 }
 
-.card-main-confirm-btn button {
+.card-main-confirm-btn {
     width: 100%;
-    height: 100%;
+    height: 10%;
     outline: none;
     cursor: pointer;
     font-family: var(--text-font-1);

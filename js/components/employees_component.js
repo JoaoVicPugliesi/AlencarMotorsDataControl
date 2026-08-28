@@ -29,7 +29,7 @@ function employees_component(id, name, image) {
                 </div>
 
                 <div class="card-main-confirm-btn" data-id="${id}">
-                    <button>Confirmar</button>
+                    <i class="fa-solid fa-check"></i>
                 </div>
             </div>
             <div class="card-img">
@@ -46,7 +46,7 @@ function employees_component(id, name, image) {
 
             <div class="card-dashboard">
                 <div class="card-dashboard-add">
-                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
             </div>
 

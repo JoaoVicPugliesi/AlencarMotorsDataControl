@@ -11,7 +11,7 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
-.dashboard {
+.dashboard, .dashboard-goals {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -23,6 +23,7 @@
     flex-direction: column;
     gap: 1rem;
     left: -100%;
+    padding: 0.5rem;
 }
 
 .dashboard.opened {
@@ -37,19 +38,22 @@
     cursor: not-allowed;
 }
 
-.dashboard-name {
+.dashboard-name, .dashboard-goals-name {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: var(--text-font-1);
     color: var(--background-color);
+    text-transform: uppercase;
 }
 
-.dashboard-display {
+.dashboard-display, .dashboard-goals-display {
     color: var(--background-color);
     font-family: var(--text-font-1);
+    text-transform: uppercase;
     border-collapse: collapse;
     width: max-content;
     height: 50%;
+    text-align: center;
     max-height: max-content;
     width: 100%;
     max-width: max-content;
@@ -61,24 +65,36 @@
 
 
 .dashboard-display th,
-.dashboard-display td {
+.dashboard-display td,
+.dashboard-goals-display th,
+.dashboard-goals-display td {
     border: 1px solid #333;
-    min-width: 60px;
-    height: 35px;
-    padding: 4px 8px;
-    text-align: center;
+    height: 42px;
+    padding: 0 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Outfit", sans-serif;
 }
 
-.dashboard-display thead th {
+.dashboard-display thead th, .dashboard-goals-display thead th {
     position: sticky;
     top: 0;
 }
 
-.dashboard-display tbody th {
+.dashboard-display tbody th, .dashboard-goals-display tbody th {
     position: sticky;
     left: 0;
-    text-align: left;
     min-width: 220px;
+}
+
+th {
+    text-align: left;
+}
+
+.dashboard-goals-display td:last-child {
+    text-align: left;
 }
 
 .dashboard-display td {
@@ -89,7 +105,7 @@
     outline: 2px solid #4285f4;
 }
 
-.dashboard-commands button {
+.dashboard-commands button, .dashboard-goals-commands button {
     background: var(--text-color);
     color: var(--background-color);
     font-family: var(--text-font-1); 
@@ -108,9 +124,22 @@
     gap: 0.5rem;
 }
 
-.dashboard-commands button {
+.dashboard-commands button, .dashboard-goals-commands button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
+    width: max-content;
+}
+
+.dashboard-goals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: var(--background-color-2);
+    left: -100%;
+}
+
+.dashboard-goals.opened {
+    left: 0;
 }

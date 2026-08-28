@@ -16,7 +16,8 @@
 @media (max-width: 900px) {
     .home-main-header h3,
     .cards-main-header h3,
-    .dashboard-name  {
+    .dashboard-name h3,
+    .dashboard-goals-name h3  {
         font-size: 1.5rem;
     }
 
@@ -102,7 +103,8 @@
     }
     .home-main-header h3,
     .cards-main-header h3,
-    .dashboard-name h3  {
+    .dashboard-name h3,
+    .dashboard-goals-name h3  {
         font-size: 1rem;
     }
 
@@ -129,7 +131,8 @@
 @media (max-width: 300px) {
     .home-main-header h3,
     .cards-main-header h3,
-    .dashboard-name  h3 {
+    .dashboard-name  h3,
+    .dashboard-goals-name h3 {
         font-size: 0.8rem;
     }
 }
