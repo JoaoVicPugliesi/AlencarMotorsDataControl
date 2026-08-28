@@ -1,44 +1,56 @@
 const counters = [
     {
-        name: 'POST',
-        code: 'post_counter'
+        name: 'LEADS CRM',
+        code: 'leads_crm'
     },
     {
-        name: 'LEADS',
-        code: 'leads_counter'
-    },
-    {
-        name: 'PASSANTES',
-        code: 'passantes_counter'
+        name: 'LEADS CARCHAT',
+        code: 'leads_carchat'
     },
     {
         name: 'LEADS ATENDIDOS',
-        code: 'leads_atendidos_counter'
+        code: 'leads_served'
+    },
+    {
+        name: 'LEADS ATD/FALADO',
+        code: 'leads_served_spoken'
     },
     {
         name: 'PROSPECÇÃO',
-        code: 'prospection_counter'
+        code: 'prospection'
     },
     {
         name: 'PROSPECÇÃO FALADA',
-        code: 'spoken_prospection_counter'
+        code: 'spoken_prospection'
     },
     {
-        name: 'VENDAS',
-        code: 'sales_counter'
+        name: 'PASSANTES',
+        code: 'passersby'
     },
     {
-        name: 'VENDAS EM NEGOCIAÇÃO',
-        code: 'sales_in_negotiation_counter'
+        name: 'SIMULAÇÕES REALIZADAS',
+        code: 'simulations_made'
     },
     {
         name: 'CADASTROS',
-        code: 'cadastros_counter'
+        code: 'registrations'
     },
     {
-        name: 'SIMULAÇÕES',
-        code: 'simulation_counter'
-    }
+        name: 'CADASTRO REALIZADO',
+        code: 'registrations_made'
+    },
+    {
+        name: 'CADASTRO APROVADO',
+        code: 'registrations_approved'
+    },
+    {
+        name: 'VENDAS EM NEGOCIAÇÃO',
+        code: 'sales_in_negotiation'
+    },
+    {
+        name: 'VENDAS',
+        code: 'sales'
+    },
 ];
 
 export default counters;

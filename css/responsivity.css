@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --background-color-2: #2596be;
+    --btn-color: #000000;
+    --text-color: #80162d;
+    --anchors-selected-color: #666666;
+
+    --green-color: #176B4D;
+    --gold-color: #D4AF37;
+
+    --text-font-1: 'Outfit', sans-serif;
+}
+
+@media (max-width: 900px) {
+    .home-main-header h3,
+    .cards-main-header h3,
+    .dashboard-name  {
+        font-size: 1.5rem;
+    }
+
+    .header-anchors-sandwich {
+        position: absolute;
+        top: 50%;
+        left: 95%;
+        transform: translate(-95%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .header-anchors-sandwich-btn {
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .header-anchors-sandwich-as {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-anchors-sandwich-as a {
+        width: 100%;
+    }
+
+    .header-anchors-sandwich.active .header-anchors-sandwich-as {
+        display: flex;
+    }
+
+    .header-anchors-sandwich-as a {
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .home-header {
+        height: max-content;
+        justify-content: start;
+        padding: 0.5rem;
+
+        align-items: start;
+        position: fixed;
+        background-color: var(--background-color);
+    }
+
+    .home-main p,
+    .card-name h3 {
+        font-size: 0.8rem;
+    }
+
+    .cards-main {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cards-main-slider {
+        width: 100%;
+    }
+
+    .header-anchors {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .home-main-header h3,
+    .cards-main-header h3,
+    .dashboard-name h3  {
+        font-size: 1rem;
+    }
+
+    .card-main-confirm-message div h3 {
+        font-size: 1rem;
+    }
+
+    .home-main p,
+    .card-name h3 {
+        font-size: 0.7rem;
+    }
+
+    .card {
+        flex: 0 0 10rem;
+        height: 20rem;
+
+        background: var(--background-color);
+        border-radius: 0.5rem;
+
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 300px) {
+    .home-main-header h3,
+    .cards-main-header h3,
+    .dashboard-name  h3 {
+        font-size: 0.8rem;
+    }
+}
