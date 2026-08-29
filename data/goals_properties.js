@@ -12,10 +12,6 @@ const goals_properties = [
         name: "Período"
     },
     {
-        code: "priority",
-        name: "Prioridade"
-    },
-    {
         code: "description",
         name: "Descrição"
     },

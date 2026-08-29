@@ -5,6 +5,7 @@ import fetch_employees_data from "./js/useCases/fetch_employees_data.js"
 import open_close_confirm_card from "./js/useCases/open_close_confirm_card.js";
 import open_close_dashboard from "./js/useCases/open_close_dashboard.js";
 import open_close_dashboard_goals from "./js/useCases/open_close_dashboard_goals.js";
+import open_close_dashboard_graph from "./js/useCases/open_close_dashboard_graph.js";
 import open_sandwich from "./js/useCases/open_sandwich.js";
 // import leaderboard_builder from "./js/useCases/leaderboard_builder.js";
 
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_close_confirm_card();
     open_close_dashboard(employees, db);
     open_close_dashboard_goals(db);
+    open_close_dashboard_graph();
 });

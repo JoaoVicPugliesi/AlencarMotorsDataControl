@@ -43,6 +43,7 @@
     scroll-snap-align: start;
     user-select: none;
     font-family: var(--text-font-1);
+    text-align: center;
 }
 
 .card-main-confirm {

@@ -98,9 +98,6 @@
 }
 
 @media (max-width: 500px) {
-    .dashboard-commands {
-        flex-direction: column;
-    }
     .home-main-header h3,
     .cards-main-header h3,
     .dashboard-name h3,

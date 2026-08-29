@@ -11,7 +11,7 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
-.dashboard, .dashboard-goals {
+.dashboard, .dashboard-goals, .dashboard-graph {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -63,7 +63,6 @@
     justify-content: start;
 }
 
-
 .dashboard-display th,
 .dashboard-display td,
 .dashboard-goals-display th,
@@ -79,14 +78,15 @@
 }
 
 .dashboard-display thead th, .dashboard-goals-display thead th {
-    position: sticky;
     top: 0;
+    background: var(--background-color-2);
 }
 
 .dashboard-display tbody th, .dashboard-goals-display tbody th {
     position: sticky;
+    background: var(--background-color-2);
     left: 0;
-    min-width: 220px;
+    min-width: 10rem;
 }
 
 th {
@@ -105,7 +105,7 @@ th {
     outline: 2px solid #4285f4;
 }
 
-.dashboard-commands button, .dashboard-goals-commands button {
+.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button {
     background: var(--text-color);
     color: var(--background-color);
     font-family: var(--text-font-1); 
@@ -121,17 +121,19 @@ th {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-.dashboard-commands button, .dashboard-goals-commands button {
+.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button  {
     display: flex;
     justify-content: center;
     align-items: center;
     width: max-content;
+    width: 8rem;
 }
 
-.dashboard-goals {
+.dashboard-goals, .dashboard-graph {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -140,6 +142,53 @@ th {
     left: -100%;
 }
 
-.dashboard-goals.opened {
+.dashboard-goals.opened, .dashboard-graph.opened {
     left: 0;
 }
+
+.dashboard-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.dashboard-graph-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.dashboard-graph-painel {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    background: var(--btn-color);
+}
+
+.dashboard-graph-display-header {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.dashboard-card {
+    min-height: 180px;
+    background: var(--background-color);
+    border-radius: 12px;
+}
+
+.dashboard-graph-display-sources {
+    width: 50%;
+    flex: 1;
+    background: var(--background-color);
+    border-radius: 12px;
+}
+
