@@ -8,7 +8,7 @@ function open_dashboard_graph() {
 }
 
 function close_dashboard_graph () {
-    const dashboard_comeback_command = document.querySelector('.dashboard-graph-comeback-command');
+    const dashboard_comeback_command = document.querySelector('.dashboard-graph-display-comeback-command');
     dashboard_comeback_command.addEventListener('click', () => {
         dashboard_graph.classList.remove('opened');
     });

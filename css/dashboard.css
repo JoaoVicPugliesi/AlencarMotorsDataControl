@@ -142,7 +142,7 @@ th {
     left: -100%;
 }
 
-.dashboard-goals.opened, .dashboard-graph.opened {
+.dashboard-goals.opened, .dashboard-graph.opened, .dashboard-graph-painel.opened {
     left: 0;
 }
 
@@ -166,29 +166,68 @@ th {
 
 .dashboard-graph-painel {
     position: absolute;
+    top: 100%;
     left: 0;
+    transform: translateY(-100%);
     height: 100%;
-    width: 20%;
-    background: var(--btn-color);
+    width: max-content;
+    background: var(--text-color);
+    color: var(--background-color);
+    font-family: var(--text-font-1);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 0rem 0.5rem;
+    left: -100%;
+}
+
+.dashboard-graph-painel div {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dashboard-graph-painel div h3 {
+    font-size: 1rem;
 }
 
 .dashboard-graph-display-header {
-    width: 50%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    justify-content: start;
+    align-items: center;
+    width: 80%;
+    max-width: max-content;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
 .dashboard-card {
-    min-height: 180px;
+    min-width: 10rem;   
+    min-height: 10rem;
     background: var(--background-color);
-    border-radius: 12px;
+    border-radius: 0.5rem;
 }
 
 .dashboard-graph-display-sources {
+    border-radius: 0.5rem;
     width: 50%;
-    flex: 1;
-    background: var(--background-color);
-    border-radius: 12px;
+    min-width: 20rem;
+    max-width: 32rem;
+    height: 30%;
+    background: var(--background-color); 
 }
 
+.dashboard-graph-display-commands {
+    display: flex;
+    justify-content: center;
+    padding: 0rem 0.5rem;
+    align-items: center;
+}
+
+.dashboard-graph-display-commands div {
+    cursor: pointer;
+}
