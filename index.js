@@ -6,8 +6,8 @@ import open_close_confirm_card from "./js/useCases/open_close_confirm_card.js";
 import open_close_dashboard from "./js/useCases/open_close_dashboard.js";
 import open_close_dashboard_goals from "./js/useCases/open_close_dashboard_goals.js";
 import open_close_dashboard_graph from "./js/useCases/open_close_dashboard_graph.js";
-import open_close_dashboard_painel from "./js/useCases/open_close_dashboard_painel.js";
 import open_sandwich from "./js/useCases/open_sandwich.js";
+import select_dashboard_goal from "./js/useCases/select_dashboard_goal.js";
 // import leaderboard_builder from "./js/useCases/leaderboard_builder.js";
 
 const supabase_url = 'https://lntwexedkbcrmayltrwo.supabase.co';
@@ -18,12 +18,14 @@ const db = window.supabase.createClient(supabase_url, supabase_key);
 document.addEventListener('DOMContentLoaded', async () => {
     open_sandwich();
     const employees = await fetch_employees_data(db);
+    const dashboard_goal = await select_dashboard_goal(db);
+    console.log(dashboard_goal);
+    localStorage.setItem('dashboard_goals', JSON.stringify(dashboard_goal));
     display_employees_cards(employees);
     toggle_input_visibility();
     drag_slider_caller();
     open_close_confirm_card();
     open_close_dashboard(employees, db);
-    open_close_dashboard_goals(db);
-    open_close_dashboard_graph();
-    open_close_dashboard_painel();
+    open_close_dashboard_goals();
+    open_close_dashboard_graph(employees, db);
 });

@@ -14,10 +14,11 @@
 }
 
 @media (max-width: 900px) {
+
     .home-main-header h3,
     .cards-main-header h3,
     .dashboard-name h3,
-    .dashboard-goals-name h3  {
+    .dashboard-goals-name h3 {
         font-size: 1.5rem;
     }
 
@@ -95,13 +96,18 @@
     .header-anchors {
         display: none;
     }
+
+    .dashboard-graph {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 500px) {
+
     .home-main-header h3,
     .cards-main-header h3,
     .dashboard-name h3,
-    .dashboard-goals-name h3  {
+    .dashboard-goals-name h3 {
         font-size: 1rem;
     }
 
@@ -123,12 +129,17 @@
 
         scroll-snap-align: start;
     }
+
+    .dashboard-graph-content {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 300px) {
+
     .home-main-header h3,
     .cards-main-header h3,
-    .dashboard-name  h3,
+    .dashboard-name h3,
     .dashboard-goals-name h3 {
         font-size: 0.8rem;
     }

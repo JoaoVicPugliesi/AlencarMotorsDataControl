@@ -1,0 +1,54 @@
+async function fetch_all_monthly_data(db) {
+    const now = new Date();
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Sao_Paulo',
+        year: 'numeric',
+        month: '2-digit'
+    }).formatToParts(now);
+
+    const year = parts.find(
+        part => part.type === 'year'
+    ).value;
+
+    const month = parts.find(
+        part => part.type === 'month'
+    ).value;
+
+    const first_day = `${year}-${month}-01`;
+
+    const next_month = new Date(
+        Number(year),
+        Number(month),
+        1
+    );
+
+    const next_year = next_month.getFullYear();
+    const next_month_number = String(
+        next_month.getMonth() + 1
+    ).padStart(2, '0');
+
+    const first_day_next_month =
+        `${next_year}-${next_month_number}-01`;
+
+    const { data, error } = await db
+        .from('employee_daily_stats')
+        .select('*')
+        .gte('date', first_day)
+        .lt('date', first_day_next_month)
+        .order('date', {
+            ascending: true
+        });
+
+    if (error) {
+        console.error(
+            'Error getting dashboard data:',
+            error
+        );
+
+        return null;
+    }
+
+    return data;
+}
+
+export default fetch_all_monthly_data;
