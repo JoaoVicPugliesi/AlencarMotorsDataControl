@@ -26,8 +26,6 @@ async function update_monthly_dashboard_data(id, db) {
         data[counter_code] = value;
     });
 
-    console.log(data);
-
     const { data: result, error } = await db
         .from('employee_daily_stats')
         .upsert (

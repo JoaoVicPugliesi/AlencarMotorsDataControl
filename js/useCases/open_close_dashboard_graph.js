@@ -8,21 +8,29 @@ function open_dashboard_graph(employees, db) {
 
     dashboard_command.addEventListener('click', async () => {
         const data = await fetch_all_monthly_data(db);
-        console.log(data);
         make_dashboard_graph_header(data);
         filter_graph_header(employees, data);
         dashboard_graph.classList.add('opened');
+        const now = new Date();
+        const brazil_day =
+            new Intl.DateTimeFormat('pt-BR', {
+                timeZone: 'America/Sao_Paulo',
+                month: 'numeric',
+                year: 'numeric'
+            }).format(now)
+        const dashboard_header = document.querySelector('.dashboard-header h3:nth-child(2)');
+        dashboard_header.textContent = brazil_day;
     });
 }
 
-function close_dashboard_graph () {
+function close_dashboard_graph() {
     const dashboard_comeback_command = document.querySelector('.dashboard-graph-display-comeback-command');
     dashboard_comeback_command.addEventListener('click', () => {
         dashboard_graph.classList.remove('opened');
     });
 }
 
-function open_close_dashboard_graph (employees, db) {
+function open_close_dashboard_graph(employees, db) {
     open_dashboard_graph(employees, db);
     close_dashboard_graph();
 }

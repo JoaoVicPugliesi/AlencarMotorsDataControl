@@ -7,7 +7,6 @@ function open_dashboard_goals () {
     dashboard_goals_command.addEventListener('click', () => {
         const data = JSON.parse(localStorage.getItem('dashboard_goals'));
         if(!data) return;
-        console.log(data);
         make_dashboard_goals(data.goals_object);
         dashboard_goals.classList.add('opened');
     })

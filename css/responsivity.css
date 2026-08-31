@@ -120,7 +120,7 @@
         font-size: 0.7rem;
     }
 
-    .card {
+    .card, .admin-card {
         flex: 0 0 10rem;
         height: 20rem;
 

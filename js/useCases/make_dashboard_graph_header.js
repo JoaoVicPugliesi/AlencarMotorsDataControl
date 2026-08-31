@@ -7,6 +7,7 @@ const dashboard_graph_display_header = document.querySelector(
 import counters from "../../data/counters.js";
 
 function make_dashboard_graph_header(data) {
+    if(!data) return;
     dashboard_graph_display_header.innerHTML = '';
     const totals = {};
     data.forEach(row => {

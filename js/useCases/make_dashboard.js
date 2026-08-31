@@ -18,7 +18,6 @@ function make_dashboard(data) {
             day: 'numeric'
         }).format(now)
     );
-
     const data_by_day = {};
 
     data.forEach(item => {

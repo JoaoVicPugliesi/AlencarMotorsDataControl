@@ -8,7 +8,6 @@ async function fetch_employees_data(db) {
         return [];
     }
 
-    console.log(data);
     return data;
 }
 

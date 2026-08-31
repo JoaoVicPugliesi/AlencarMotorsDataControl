@@ -7,6 +7,7 @@ function open_dashboard(employees, db) {
     const confirm_btns = document.querySelectorAll('.card-main-confirm-btn');
     confirm_btns.forEach((d) => {
         d.addEventListener('click', async (e) => {
+            const html = document.querySelector('.html');
             const id = d.getAttribute('data-id');
             const employee = find_employee(id, employees);
             if (!employee) return;
@@ -19,6 +20,7 @@ function open_dashboard(employees, db) {
             const data = await select_monthly_dashboard_data(id, db);
             make_dashboard(data, id);
             dashboard.classList.add('opened');
+            html.classList.add('noscroll');
             const save_btn = document.querySelector('.dashboard-save-command');
             save_btn.removeEventListener('click', () => {});
             save_btn.addEventListener('click', async () => {
@@ -31,8 +33,10 @@ function open_dashboard(employees, db) {
 function close_dashboard() {
     const dash_comeback_command = document.querySelector('.dashboard-comeback-command');
     const dashboard = document.querySelector('.dashboard')
+    const html = document.querySelector('.html');
     dash_comeback_command.addEventListener('click', () => {
         dashboard.classList.remove('opened');
+        html.classList.remove('noscroll');
     })
 }
 

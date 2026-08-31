@@ -50,8 +50,6 @@ async function select_monthly_dashboard_data(id, db) {
         return null;
     }
 
-    console.log(data);
-
     return data;
 }
 

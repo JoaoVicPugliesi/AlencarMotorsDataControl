@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --background-color-2: #2596be;
+    --btn-color: #000000;
+    --text-color: #80162d;
+    --anchors-selected-color: #666666;
+    --green-color: #176B4D;
+    --gold-color: #D4AF37;
+    --text-font-1: 'Outfit', sans-serif;
+}
+
+.admins-main-header h3 {
+    font-size: 1.8rem;
+    font-family: var(--text-font-1);
+    text-transform: uppercase;
+}
+
+.admins-main {
+    background: var(--background-color-2);
+}
+
+.admin-card-name {
+    background: var(--text-color);
+}
+
+.admin-card-dashboard-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
