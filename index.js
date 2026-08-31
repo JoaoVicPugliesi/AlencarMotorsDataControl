@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dashboard_goal = await select_dashboard_goal(db);
     localStorage.setItem('dashboard_goals', JSON.stringify(dashboard_goal));
     display_employees_cards(employees);
+    scroll_to_cards();
     toggle_input_visibility();
     drag_slider_caller();
     open_close_confirm_card();
     open_close_dashboard(employees, db);
     open_close_dashboard_goals();
     open_close_dashboard_graph(employees, db);
-    scroll_to_cards();
 });

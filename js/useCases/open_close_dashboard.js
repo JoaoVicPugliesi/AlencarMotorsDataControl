@@ -1,4 +1,5 @@
 import find_employee from "../helpers/find_employee.js";
+import scroll_to_cards from "../helpers/scroll_to_cards.js";
 import make_dashboard from "./make_dashboard.js";
 import select_monthly_dashboard_data from "./select_monthly_dashboard_data.js";
 import update_monthly_dashboard_data from "./update_monthly_dashboard_data.js";
@@ -22,11 +23,13 @@ async function open_dashboard_helper(employees, db, btn) {
     const data = await select_monthly_dashboard_data(id, db);
     make_dashboard(data, id);
     dashboard.classList.add('opened');
+    await new Promise(requestAnimationFrame);
+    scroll_to_cards();
     html.classList.add('noscroll');
     home_header.classList.add('hidden');
     const save_btn =
-        document.querySelector('.dashboard-save-command');
-        save_btn.addEventListener('click', async () => {
+    document.querySelector('.dashboard-save-command');
+    save_btn.addEventListener('click', async () => {
         await update_monthly_dashboard_data(id, db);
     });
 }
