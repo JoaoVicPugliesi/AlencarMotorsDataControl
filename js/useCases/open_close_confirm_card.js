@@ -1,10 +1,15 @@
-function open_confirm_card () {
+function open_confirm_card() {
     const dashboards = document.querySelectorAll('.card-dashboard-add');
+
     dashboards.forEach((d) => {
         d.addEventListener('click', (e) => {
             const card = e.target.closest('.card');
             const card_confirm = card.querySelector('.card-main-confirm');
+            const input = card_confirm.querySelector('.card-main-confirm-input input');
+
             card_confirm.classList.add('opened');
+
+            input.focus();
         });
     });
 }

@@ -1,14 +1,9 @@
 function scroll_to_cards() {
     const cards = document.getElementById('cards');
-    if (cards) {
-        const cards_top = cards.offsetTop;
-        window.scrollTo({
-            top: cards_top,
-            behavior: 'smooth'
-        });
-    }
+    const cards_top = cards.offsetTop;
     window.scrollTo({
-        top: cards_top
+        top: cards_top,
+        behavior: 'smooth'
     });
 }
 

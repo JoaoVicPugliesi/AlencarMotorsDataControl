@@ -53,6 +53,10 @@ nav section {
     background-color: var(--background-color);
 }
 
+.home-header.hidden {
+    display: none;
+}
+
 .home-main {
     width: 100%;
     height: 100%;
