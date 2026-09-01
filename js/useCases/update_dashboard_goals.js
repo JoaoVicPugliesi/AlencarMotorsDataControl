@@ -25,19 +25,47 @@ function update_dashboard_goals(db) {
                 description: description.textContent.trim()
             });
         });
-        const { id } = await select_dashboard_goal(db);
-        const { data, error } = await db
-            .from('dashboard_goals')
-            .update({
-                goals_object
-            })
-            .eq('id', id)
-            .select();
+        const { id, initial_date } = await select_dashboard_goal(db);
+        const currentDate = new Date();
+        const currentMonth =
+            `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+
+        const lastMonth = initial_date.slice(0, 7);
+
+        const sameMonth = lastMonth === currentMonth;
+
+        console.log('Last month:', lastMonth);
+        console.log('Current month:', currentMonth);
+        console.log('Same month:', sameMonth);
+        let data;
+        let error;
+        if (sameMonth) {
+            ({ data, error } = await db
+                .from('dashboard_goals')
+                .update({
+                    goals_object
+                })
+                .eq('id', id)
+                .select());
+        } else {
+            ({ data, error } = await db
+                .from('dashboard_goals')
+                .insert({
+                    initial_date: currentMonth + '-01',
+                    goals_object
+                })
+                .select());
+        }
+
         if (error) {
             console.error('Erro ao salvar metas:', error);
             return;
         }
-        localStorage.setItem('dashboard_goals', JSON.stringify(goals_object));
+
+        localStorage.setItem(
+            'dashboard_goals',
+            JSON.stringify(goals_object)
+        );
     });
 }
 
