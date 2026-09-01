@@ -3,7 +3,8 @@ function make_dashboard_graph_ranking(code, employees, data) {
         '.dashboard-ranking-content'
     );
     if (!dashboard_ranking_content) return;
-    const ranking = employees
+    const filteres_employees = employees.filter((e) => e.role != 'admins');
+    const ranking = filteres_employees
         .map(employee => {
 
             const employeeData = data.filter(
