@@ -1,4 +1,3 @@
-import drag_slider_caller from "./js/helpers/drag_slider.js";
 import scroll_to_cards from "./js/helpers/scroll_to_cards.js";
 import toggle_input_visibility from "./js/helpers/toggle_input_visibilty.js";
 import display_employees_cards from "./js/useCases/display_employees_cards.js";
@@ -16,14 +15,13 @@ const supabase_key = 'sb_publishable_tvJ9_vYavIo_-6sk_ncudQ_AhDelOGY';
 const db = window.supabase.createClient(supabase_url, supabase_key);
 
 document.addEventListener('DOMContentLoaded', async () => {
+    scroll_to_cards();
     open_sandwich();
     const employees = await fetch_employees_data(db);
     const dashboard_goal = await select_dashboard_goal(db);
     localStorage.setItem('dashboard_goals', JSON.stringify(dashboard_goal));
     display_employees_cards(employees);
-    scroll_to_cards();
     toggle_input_visibility();
-    drag_slider_caller();
     open_close_confirm_card();
     open_close_dashboard(employees, db);
     open_close_dashboard_goals();
