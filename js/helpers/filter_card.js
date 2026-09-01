@@ -3,20 +3,20 @@ import make_dashboard_graph_ranking from '../useCases/dashboard/make_dashboard_g
 function filter_card(card, employees, data) {
     const cards = document.querySelectorAll('.dashboard-graph-header-card');
     const dashboard_card_dashboard_completeness = document.querySelector('.dashboard-card-dashboard-completeness');
-    const { goals_object } = JSON.parse(localStorage.getItem('dashboard_goals'));
+    const goals_object = JSON.parse(localStorage.getItem('dashboard_goals'));
     cards.forEach((c) => {
         c.classList.remove('filtered');
     });
     const code = card.dataset.code;
     const total = Number(card.dataset.total);
-    const goalObject = goals_object.find(
+    const goal_object = goals_object.find(
         goal => goal.code === code
     );
-    if (!goalObject) {
+    if (!goal_object) {
         console.log(`Goal not found for ${code}`);
         return;
     };
-    const goal = Number(goalObject.goal);
+    const goal = Number(goal_object.goal);
     const percentage = goal > 0
         ? Math.round((total / goal) * 100)
         : 0;

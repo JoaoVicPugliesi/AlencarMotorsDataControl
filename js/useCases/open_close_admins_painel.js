@@ -4,6 +4,7 @@ import scroll_to_cards from "../helpers/scroll_to_cards.js";
 async function open_admins_painel_helper(employees, btn) {
     const html = document.querySelector('.html');
     const home_header = document.querySelector('.home-header');
+    const admins_main_painel_header = document.querySelector('.admins-main-painel-header h3');
     const id = btn.getAttribute('data-id');
     const employee = find_employee(id, employees);
     if (!employee) return;
@@ -13,6 +14,7 @@ async function open_admins_painel_helper(employees, btn) {
     );
     if (Number(employee.password) !== Number(input.value)) return;
     input.value = '';
+    admins_main_painel_header.textContent = `Olá, ${employee.name}. Você é responsável por definir metas e guiar todos os funcionários.`;
     const painel = document.querySelector('.admins-main-painel');
     painel.classList.add('opened');
     await new Promise(requestAnimationFrame);

@@ -6,7 +6,7 @@ function open_admins_painel_define_goals () {
     goals_command.addEventListener('click', () => {
         const data = JSON.parse(localStorage.getItem('dashboard_goals'));
         if(!data) return;
-        make_dashboard_goals(data.goals_object, 'admins-main-painel-define-goals-dashboard', false);
+        make_dashboard_goals(data, 'admins-main-painel-define-goals-dashboard', false);
         admins_main_painel_define_goals.classList.add('opened');
     });
 }
