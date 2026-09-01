@@ -1,4 +1,4 @@
-import filter_card from "../helpers/filter_card.js";
+import filter_card from '../../helpers/filter_card.js';
 
 function filter_graph_header(employees, data) {
 

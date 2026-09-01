@@ -1,8 +1,8 @@
-import find_employee from "../helpers/find_employee.js";
-import scroll_to_cards from "../helpers/scroll_to_cards.js";
+import find_employee from "../../helpers/find_employee.js";
+import scroll_to_cards from "../../helpers/scroll_to_cards.js";
 import make_dashboard from "./make_dashboard.js";
-import select_monthly_dashboard_data from "./select_monthly_dashboard_data.js";
-import update_monthly_dashboard_data from "./update_monthly_dashboard_data.js";
+import select_monthly_dashboard_data from "../select_monthly_dashboard_data.js";
+import update_monthly_dashboard_data from "../update_monthly_dashboard_data.js";
 
 async function open_dashboard_helper(employees, db, btn) {
     const html = document.querySelector('.html');
@@ -15,6 +15,7 @@ async function open_dashboard_helper(employees, db, btn) {
         '.card-main-confirm-input input'
     );
     if (Number(employee.password) !== Number(input.value)) return;
+    input.value = '';
     const employee_dashboard_name =
     document.querySelector('.dashboard-name h3');
     employee_dashboard_name.textContent =
@@ -24,7 +25,7 @@ async function open_dashboard_helper(employees, db, btn) {
     make_dashboard(data, id);
     dashboard.classList.add('opened');
     await new Promise(requestAnimationFrame);
-    scroll_to_cards();
+    scroll_to_cards('cards');
     html.classList.add('noscroll');
     home_header.classList.add('hidden');
     const save_btn =

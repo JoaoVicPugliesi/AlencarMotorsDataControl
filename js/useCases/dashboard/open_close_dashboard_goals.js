@@ -1,13 +1,12 @@
 import make_dashboard_goals from "./make_dashboard_goals.js";
 
-
 function open_dashboard_goals () {
     const dashboard_goals = document.querySelector('.dashboard-goals');
     const dashboard_goals_command = document.querySelector('.dashboard-goals-command');
     dashboard_goals_command.addEventListener('click', () => {
         const data = JSON.parse(localStorage.getItem('dashboard_goals'));
         if(!data) return;
-        make_dashboard_goals(data.goals_object);
+        make_dashboard_goals(data.goals_object, 'dashboard-goals-display', true);
         dashboard_goals.classList.add('opened');
     })
 }

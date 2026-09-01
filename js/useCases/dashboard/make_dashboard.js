@@ -1,4 +1,4 @@
-import counters from "../../data/counters.js";
+import counters from "../../../data/counters.js";
 
 function make_dashboard(data) {
     const table = document.querySelector('.dashboard-display');

@@ -1,4 +1,4 @@
-import make_dashboard_graph_ranking from "../useCases/make_dashboard_graph_ranking.js";
+import make_dashboard_graph_ranking from '../useCases/dashboard/make_dashboard_graph_ranking.js';
 
 function filter_card(card, employees, data) {
     const cards = document.querySelectorAll('.dashboard-graph-header-card');

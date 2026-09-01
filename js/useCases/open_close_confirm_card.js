@@ -6,9 +6,9 @@ function open_confirm_card(class_name) {
             const card = e.target.closest(`.${class_name}`);
             const card_confirm = card.querySelector(`.${class_name}-main-confirm`);
             const input = card_confirm.querySelector(`.${class_name}-main-confirm-input input`);
-
+            
             card_confirm.classList.add(`opened`);
-
+            
             input.focus();
         });
     });
@@ -20,6 +20,8 @@ function close_confirm_card (class_name) {
         d.addEventListener(`click`, (e) => {
             const card = e.target.closest(`.${class_name}`);
             const card_confirm = card.querySelector(`.${class_name}-main-confirm`);
+            const input = card_confirm.querySelector(`.${class_name}-main-confirm-input input`);
+            input.value = '';
             card_confirm.classList.remove(`opened`);
         });
     });

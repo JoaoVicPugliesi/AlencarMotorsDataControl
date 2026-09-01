@@ -1,7 +1,7 @@
-import goals_properties from "../../data/goals_properties.js";
+import goals_properties from '../../../data/goals_properties.js';
 
-function make_dashboard_goals(data) {
-    const table = document.querySelector('.dashboard-goals-display');
+function make_dashboard_goals(data, class_name, disabled = false) {
+    const table = document.querySelector(`.${class_name}`);
 
     table.innerHTML = '';
 
@@ -47,7 +47,11 @@ function make_dashboard_goals(data) {
 
             const cell = document.createElement('td');
             cell.classList.add('td');
-            cell.classList.add('disabled-day');
+            if(disabled) {
+                cell.classList.add('disabled-day');
+            } else {
+                cell.contentEditable = true
+            }
 
             cell.dataset.property = property;
 

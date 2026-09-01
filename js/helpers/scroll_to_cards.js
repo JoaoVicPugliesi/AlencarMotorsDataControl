@@ -1,8 +1,8 @@
-function scroll_to_cards() {
-    const cards = document.getElementById('cards');
-    const cards_top = cards.offsetTop;
+function scroll_to_cards(id_name) {
+    const component = document.getElementById(`${id_name}`);
+    const component_top = component.offsetTop;
     window.scrollTo({
-        top: cards_top,
+        top: component_top,
         behavior: 'smooth'
     });
 }

@@ -1,10 +1,10 @@
+import counters from "../../../data/counters.js";
 import dashboard_graph_header_card_component
-    from "../components/dashboard_graph_header_card_component.js";
+    from "../../components/dashboard_graph_header_card_component.js";
 
 const dashboard_graph_display_header = document.querySelector(
     '.dashboard-graph-display-header'
 );
-import counters from "../../data/counters.js";
 
 function make_dashboard_graph_header(data) {
     if(!data) return;

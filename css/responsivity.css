@@ -19,7 +19,8 @@
     .cards-main-header h3,
     .dashboard-name h3,
     .dashboard-goals-name h3,
-    .admins-main-header h3 {
+    .admins-main-header h3,
+    .admins-main-painel-header h3 {
         font-size: 1.5rem;
     }
 
@@ -109,7 +110,8 @@
     .cards-main-header h3,
     .dashboard-name h3,
     .dashboard-goals-name h3,
-    .admins-main-header h3 {
+    .admins-main-header h3,
+    .admins-main-painel-header h3 {
         font-size: 1rem;
     }
 
@@ -142,7 +144,8 @@
     .cards-main-header h3,
     .dashboard-name h3,
     .dashboard-goals-name h3,
-    .admins-main-header h3 {
+    .admins-main-header h3,
+    .admins-main-painel-header h3 {
         font-size: 0.8rem;
     }
 }

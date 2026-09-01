@@ -1,4 +1,4 @@
-import fetch_all_monthly_data from "./fetch_all_monthly_data.js";
+import fetch_all_monthly_data from "../fetch_all_monthly_data.js";
 import filter_graph_header from "./filter_graph_header.js";
 import make_dashboard_graph_header from "./make_dashboard_graph_header.js";
 

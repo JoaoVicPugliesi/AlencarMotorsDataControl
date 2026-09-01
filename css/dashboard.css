@@ -46,7 +46,7 @@
     text-transform: uppercase;
 }
 
-.dashboard-display, .dashboard-goals-display {
+.dashboard-display, .dashboard-goals-display, .admins-main-painel-define-goals-dashboard {
     color: var(--background-color);
     font-family: var(--text-font-1);
     text-transform: uppercase;
@@ -66,7 +66,9 @@
 .dashboard-display th,
 .dashboard-display td,
 .dashboard-goals-display th,
-.dashboard-goals-display td {
+.dashboard-goals-display td,
+.admins-main-painel-define-goals-dashboard th,
+.admins-main-painel-define-goals-dashboard td {
     border: 1px solid #333;
     height: 42px;
     padding: 0 10px;
@@ -77,13 +79,14 @@
     font-family: "Outfit", sans-serif;
 }
 
-.dashboard-display thead th, .dashboard-goals-display thead th {
+.dashboard-display thead th, .dashboard-goals-display thead th,
+.admins-main-painel-define-goals-dashboard thead th {
     top: 0;
     background: var(--background-color-2);
     background: var(--text-color);
 }
 
-.dashboard-display tbody th, .dashboard-goals-display tbody th {
+.dashboard-display tbody th, .dashboard-goals-display tbody th, .admins-main-painel-define-goals-dashboard tbody th {
     position: sticky;
     background: var(--background-color-2);
     left: 0;
@@ -94,20 +97,22 @@ th {
     text-align: left;
 }
 
-.dashboard-goals-display td:last-child {
+.dashboard-goals-display td:last-child,
+.admins-main-painel-define-goals-dashboard td:last-child {
     text-align: left;
 }
 
-.dashboard-display td {
+.dashboard-display td,
+.admins-main-painel-define-goals-dashboard td{
     background: var(--text-color);
     cursor: cell;
 }
 
-.dashboard-display td:focus {
+.dashboard-display td:focus, .admins-main-painel-define-goals-dashboard td:focus {
     outline: 2px solid #4285f4;
 }
 
-.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button, .dashboard-graph-display-commands button {
+.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button, .dashboard-graph-display-commands button, .admins-main-painel-commands button, .admins-main-painel-define-goals-commands button {
     background: var(--text-color);
     color: var(--background-color);
     font-family: var(--text-font-1); 
@@ -119,7 +124,11 @@ th {
     text-transform: uppercase;
 }
 
-.dashboard-commands {
+.admins-main-painel-commands button {
+    background: var(--background-color-2);
+}
+
+.dashboard-commands, .admins-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-define-goals-commands {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,7 +136,7 @@ th {
     gap: 0.5rem;
 }
 
-.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button  {
+.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button, .admins-main-painel-commands button, .admins-main-painel-define-goals-commands button  {
     display: flex;
     justify-content: center;
     align-items: center;
