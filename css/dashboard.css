@@ -80,6 +80,7 @@
 .dashboard-display thead th, .dashboard-goals-display thead th {
     top: 0;
     background: var(--background-color-2);
+    background: var(--text-color);
 }
 
 .dashboard-display tbody th, .dashboard-goals-display tbody th {
@@ -98,6 +99,7 @@ th {
 }
 
 .dashboard-display td {
+    background: var(--text-color);
     cursor: cell;
 }
 
