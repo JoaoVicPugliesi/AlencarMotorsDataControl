@@ -1,5 +1,6 @@
 import scroll_to_cards from "./js/helpers/scroll_to_cards.js";
-import toggle_input_visibility from "./js/helpers/toggle_input_visibilty.js";
+import toggle_input_visibility_caller from "./js/helpers/toggle_input_visibilty.js";
+import display_admins_cards from "./js/useCases/display_admins_cards.js";
 import display_employees_cards from "./js/useCases/display_employees_cards.js";
 import fetch_employees_data from "./js/useCases/fetch_employees_data.js"
 import open_close_confirm_card from "./js/useCases/open_close_confirm_card.js";
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dashboard_goal = await select_dashboard_goal(db);
     localStorage.setItem('dashboard_goals', JSON.stringify(dashboard_goal));
     display_employees_cards(employees);
-    toggle_input_visibility();
+    display_admins_cards(employees);
+    toggle_input_visibility_caller();
     open_close_confirm_card();
     open_close_dashboard(employees, db);
     open_close_dashboard_goals();

@@ -62,7 +62,7 @@
     text-align: center;
 }
 
-.card-main-confirm {
+.card-main-confirm, .admin-card-main-confirm {
     position: absolute;
     z-index: 4;
     width: 100%;
@@ -82,18 +82,25 @@
         opacity 0.35s ease;
 }
 
-.card-main-confirm {
+.admin-card-main-confirm {
+    background: var(--text-color);
+}
+
+.card-main-confirm, .admin-card-main-confirm {
     z-index: 5;
 }
 
-.card-main-confirm.opened {
+.card-main-confirm.opened, .admin-card-main-confirm.opened {
     transform: translateY(0);
     opacity: 1;
 }
 
 .card-main-confirm-message,
 .card-main-confirm-input,
-.card-main-confirm-btn {
+.card-main-confirm-btn,
+.admin-card-main-confirm-message,
+.admin-card-main-confirm-input,
+.admin-card-main-confirm-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,13 +108,15 @@
     width: 100%;
 }
 
-.card-main-confirm-message {
+.card-main-confirm-message,
+.admin-card-main-confirm-message {
     position: relative;
     height: 40%;
     gap: 0.5rem;
 }
 
-.card-main-confirm-close {
+.card-main-confirm-close,
+.admin-card-main-confirm-close {
     position: absolute;
     left: 50%;
     top: 5%;
@@ -115,21 +124,25 @@
     cursor: pointer;
 }
 
-.card-main-confirm-input {
+.card-main-confirm-input,
+.admin-card-main-confirm-input {
     height: 40%;
     gap: 1rem;
 }
 
-.card-main-confirm-input-visibility-btn {
+.card-main-confirm-input-visibility-btn,
+.admin-card-main-confirm-input-visibility-btn {
     color: var(--background-color);
     cursor: pointer;
 }
 
-.card-main-confirm-input-visibility-btn.visible {
+.card-main-confirm-input-visibility-btn.visible,
+.admin-card-main-confirm-input-visibility-btn.visible {
     color: var(--background-color);
 }
 
-.card-main-confirm-input input {
+.card-main-confirm-input input,
+.admin-card-main-confirm-input input  {
     width: 80%;
     height: 2rem;
     color: var(--btn-color);
@@ -142,15 +155,18 @@
     border: none;
 }
 
-.card-main-confirm-input input::placeholder {
+.card-main-confirm-input input::placeholder,
+.admin-card-main-confirm-input input::placeholder {
     color: var(--anchors-selected-color);
 }
 
-.card-main-confirm-btn {
+.card-main-confirm-btn,
+.admin-card-main-confirm-btn {
     height: 10%;
 }
 
-.card-main-confirm-btn {
+.card-main-confirm-btn,
+.admin-card-main-confirm-btn {
     width: 100%;
     height: 10%;
     outline: none;
@@ -164,11 +180,13 @@
 
 }
 
-.card-main-confirm-message h3 {
+.card-main-confirm-message h3,
+.admin-card-main-confirm-message h3 {
     font-size: 1.5rem;
 }
 
-.card-main-confirm-message p {
+.card-main-confirm-message p,
+.admin-card-main-confirm-message p {
     font-family: monospace;
 }
 
@@ -217,7 +235,8 @@
     text-align: center;
 }
 
-.card-dashboard {
+.card-dashboard,
+.admin-card-dashboard {
     justify-content: space-around;
 }
 
@@ -229,6 +248,7 @@
     border-radius: 0 0 0.5rem 0;
 }
 
-.card-main-confirm-close {
+.card-main-confirm-close,
+.admin-card-main-confirm-close {
     padding-top: 0;
 }

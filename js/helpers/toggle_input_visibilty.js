@@ -1,8 +1,8 @@
-function toggle_input_visibility () {
-    const cards = document.querySelectorAll('.card');
+function toggle_input_visibility (class_name) {
+    const cards = document.querySelectorAll(`.${class_name}`);
     cards.forEach((c) => {
-        const input = c.querySelector('.card-main-confirm-input input');
-        const btn = c.querySelector('.card-main-confirm-input-visibility-btn');
+        const input = c.querySelector(`.${class_name}-main-confirm-input input`);
+        const btn = c.querySelector(`.${class_name}-main-confirm-input-visibility-btn`);
         btn.addEventListener('click', () => {
             if(btn.classList.contains('visible')) {
                 btn.classList.remove('visible');
@@ -17,4 +17,9 @@ function toggle_input_visibility () {
     });
 }
 
-export default toggle_input_visibility;
+function toggle_input_visibility_caller () {
+    toggle_input_visibility('card');
+    toggle_input_visibility('admin-card');
+}
+
+export default toggle_input_visibility_caller;

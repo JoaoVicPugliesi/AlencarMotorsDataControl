@@ -1,6 +1,3 @@
-import make_dashboard from "./make_dashboard.js";
-import select_monthly_dashboard_data from "./select_monthly_dashboard_data.js";
-
 async function update_monthly_dashboard_data(id, db) {
 
     const editable_cells = document.querySelectorAll(

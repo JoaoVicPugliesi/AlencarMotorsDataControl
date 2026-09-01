@@ -7,11 +7,12 @@ function display_employees_cards (employees) {
     cards_slider.innerHTML = '';
     const employees_len = employees.length;
     for(let i = 0; i < employees_len; i++) {
-        const current = employees[i];
-        const { id, name, image, post_counter, leads_counter, passantes_counter, leads_atendidos_counter, prospection_counter, spoken_prospection_counter, sales_counter, sales_in_negotiation_counter, cadastros_counter, simulation_counter} = current;
-        cards_slider.innerHTML += employees_component(id, name, image, post_counter, leads_counter, passantes_counter, leads_atendidos_counter, prospection_counter, spoken_prospection_counter, sales_counter, sales_in_negotiation_counter, cadastros_counter, simulation_counter);
+        if(employees[i].role != 'admins') {
+            const current = employees[i];
+            const { id, name, image} = current;
+            cards_slider.innerHTML += employees_component(id, name, image);
+        }
     }
-
 }
 
 export default display_employees_cards;

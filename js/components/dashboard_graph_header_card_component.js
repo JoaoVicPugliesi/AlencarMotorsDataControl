@@ -8,7 +8,7 @@ function dashboard_graph_header_card_component(name, code, total, percentage) {
                 <h3>${total}</h3>
             </div>
             <div>
-                <span>25%</span>
+                <span>0%</span>
             </div>
         </div>
     `
