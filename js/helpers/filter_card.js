@@ -1,4 +1,6 @@
 import make_dashboard_graph_ranking from '../useCases/dashboard/make_dashboard_graph_ranking.js';
+import graph_painel_bar_chart from '../charts/graph_painel_bar_chart.js';
+import graph_painel_donut_chart from '../charts/graph_painel_donut_chart.js';
 
 function filter_card(card, employees, data) {
     const cards = document.querySelectorAll('.dashboard-graph-header-card');
@@ -16,6 +18,9 @@ function filter_card(card, employees, data) {
         console.log(`Goal not found for ${code}`);
         return;
     };
+    console.log(data);
+    console.log(employees);
+    console.log(card)
     const goal = Number(goal_object.goal);
     const percentage = goal > 0
         ? Math.round((total / goal) * 100)
@@ -32,7 +37,10 @@ function filter_card(card, employees, data) {
                 <span>${total} / ${goal}</span>
             </div>
         `;
-    make_dashboard_graph_ranking(code, employees, data);
+    const filtered_employees = employees.filter((e) => e.role != 'admin');
+    make_dashboard_graph_ranking(code, filtered_employees, data);
+    graph_painel_bar_chart(code, filtered_employees, data);
+    graph_painel_donut_chart(code, data);
 }
 
 export default filter_card;

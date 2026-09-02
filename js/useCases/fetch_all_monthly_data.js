@@ -1,7 +1,7 @@
 import get_brazil_now from "../helpers/get_brazil_now.js";
 
 async function fetch_all_monthly_data(db) {
-    const parts = get_brazil_now();
+    const parts = get_brazil_now('2-digit');
 
     const year = parts.find(
         part => part.type === 'year'

@@ -9,7 +9,7 @@ function make_dashboard(data) {
     const counter_header = document.createElement('th');
     counter_header.textContent = 'Campo';
     header_row.appendChild(counter_header);
-    const brazil_date = get_brazil_now();
+    const brazil_date = get_brazil_now('2-digit');
     const year = Number(
         brazil_date.find(part => part.type === 'year').value
     );

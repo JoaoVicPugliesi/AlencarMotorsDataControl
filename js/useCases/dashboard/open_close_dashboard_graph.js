@@ -12,15 +12,13 @@ function open_dashboard_graph(employees, db) {
         make_dashboard_graph_header(data);
         filter_graph_header(employees, data);
         dashboard_graph.classList.add('opened');
-        const brazil_date = get_brazil_now();
-            const year = Number(
+        const brazil_date = get_brazil_now('long');
+        const year = Number(
             brazil_date.find(part => part.type === 'year').value
         );
-        const month = Number(
-            brazil_date.find(part => part.type === 'month').value
-        );
+        const month = brazil_date.find(part => part.type === 'month').value;
         const dashboard_header = document.querySelector('.dashboard-header h3:nth-child(2)');
-        dashboard_header.textContent = `0${month}/${year}`;
+        dashboard_header.textContent = `${month}/${year}`;
     });
 }
 

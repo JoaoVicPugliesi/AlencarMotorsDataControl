@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_close_admins_painel_define_goals();
     update_dashboard_goals(db);
     open_close_dashboard_graph_painel();
-    charts_caller();
+    // charts_caller();
 });
