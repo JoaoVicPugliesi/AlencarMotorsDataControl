@@ -33,24 +33,10 @@ function graph_painel_donut_chart(code, data) {
         );
     });
 
-
-    /*
-     * Labels
-     */
     const labels = group.map(
         counter => counter.label
     );
 
-
-    console.log('CLICKED:', code);
-    console.log('GROUP:', group_name);
-    console.log('LABELS:', labels);
-    console.log('TOTALS:', totals);
-
-
-    /*
-     * Destroy previous chart
-     */
     if (donut_chart) {
         donut_chart.destroy();
     }
