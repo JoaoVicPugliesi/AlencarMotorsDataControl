@@ -379,7 +379,10 @@ th {
     padding: 0.5rem;
 
     display: flex;
-
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    justify-content: start;
     justify-content: space-around;
     align-items: center;
     gap: 0.5rem;
