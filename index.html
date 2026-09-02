@@ -54,22 +54,14 @@
                         <div class="dashboard-graph-painel-display">
                             <div class="dashboard-graph-painel-display-header">
                                 <div>
-                                    <h3>LEADS CRM - EDIELY NUNES - ÚLTIMOS 30 DIAS</h3>
+                                    <h3>DADOS EM FORMA DE GRÁFICOS</h3>
                                 </div>
                             </div>
-                            <div class="dashboard-graph-painel-display-components">
-                                <div class="dashboard-graph-painel-display-component">
-                                    <div class="dashboard-graph-painel-display-component-number">N: 10</div>
-                                    <div class="dashboard-graph-painel-display-component-percentage">P: -10%</div>
-                                    <div class="dashboard-graph-painel-display-component-day">D: 1</div>
-                                </div>
-                                <div class="dashboard-graph-painel-display-component">
-
-                                </div>
-                                <div class="dashboard-graph-painel-display-component">
-                                    
-                                </div>
+                            <div class="dashboard-graph-painel-display-charts">
+                               <canvas class="dashboard-graph-painel-display-bar-chart"></canvas>
+                               <canvas class="dashboard-graph-painel-display-donut-chart"></canvas>
                             </div>
+                            
                         </div>
                         <div class="dashboard-graph-painel-commands">
                             <button class="dashboard-graph-painel-comeback-command">Voltar</button>
@@ -163,20 +155,7 @@
                         <h3></h3>
                     </div>
                     <div class="admins-main-painel-graph">
-                        <div class="admins-main-painel-graph-component">
-                            <div class="admins-main-painel-graph-component-progress-bar">
-
-                            </div>
-                            <div class="admins-main-painel-graph-component-goal">
-                                <h3>100</h3>
-                            </div>
-                            <div class="admins-main-painel-graph-component-progress">
-                                <h3>44</h3>
-                            </div>
-                            <div class="admins-main-painel-graph-component-field">
-                                <h3>LEADS CRM</h3>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="admins-main-painel-commands">
                         <button class="admins-main-painel-goals-command">Metas</button>
@@ -193,6 +172,7 @@
         </section>
     </nav>
     <script src="index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

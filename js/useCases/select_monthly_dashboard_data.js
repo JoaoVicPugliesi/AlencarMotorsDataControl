@@ -1,11 +1,7 @@
-async function select_monthly_dashboard_data(id, db) {
+import get_brazil_now from '../helpers/get_brazil_now.js';
 
-    const now = new Date();
-    const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Sao_Paulo',
-        year: 'numeric',
-        month: '2-digit'
-    }).formatToParts(now);
+async function select_monthly_dashboard_data(id, db) {
+    const parts = get_brazil_now();
 
     const year = parts.find(
         part => part.type === 'year'

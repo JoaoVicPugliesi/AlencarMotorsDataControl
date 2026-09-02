@@ -7,7 +7,7 @@ function display_admins_cards (employees) {
     admins_slider.innerHTML = '';
     const employees_len = employees.length;
     for(let i = 0; i < employees_len; i++) {
-        if(employees[i].role != 'sales') {
+        if(employees[i].role != 'sale') {
             const current = employees[i];
             const { id, name, image} = current;
             admins_slider.innerHTML += admin_component(id, name, image);

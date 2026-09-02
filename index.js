@@ -13,6 +13,7 @@ import open_close_admins_painel from "./js/useCases/open_close_admins_painel.js"
 import open_close_admins_painel_define_goals from "./js/useCases/open_close_admins_painel_define_goals.js";
 import update_dashboard_goals from "./js/useCases/update_dashboard_goals.js";
 import open_close_dashboard_graph_painel from "./js/useCases/dashboard/open_close_dashboard_graph_painel.js";
+import charts_caller from "./js/charts/charts_caller.js";
 // import leaderboard_builder from "./js/useCases/leaderboard_builder.js";
 
 const supabase_url = 'https://lntwexedkbcrmayltrwo.supabase.co';
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_sandwich();
     const employees = await fetch_employees_data(db);
     const { goals_object }  = await select_dashboard_goal(db);
-    localStorage.setItem('dashboard_goals', JSON.stringify(goals_object ?? {}));
+    localStorage.setItem('dashboard_goals', JSON.stringify(goals_object));
     display_employees_cards(employees);
     display_admins_cards(employees);
     toggle_input_visibility_caller();
@@ -36,4 +37,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_close_admins_painel_define_goals();
     update_dashboard_goals(db);
     open_close_dashboard_graph_painel();
+    charts_caller();
 });
