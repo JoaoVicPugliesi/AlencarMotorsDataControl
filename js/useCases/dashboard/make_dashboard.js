@@ -1,32 +1,37 @@
 import counters from "../../../data/counters.js";
+import get_brazil_now from "../../helpers/get_brazil_now.js";
 
 function make_dashboard(data) {
     const table = document.querySelector('.dashboard-display');
     table.innerHTML = '';
     const t_head = document.createElement('thead');
     const header_row = document.createElement('tr');
-
     const counter_header = document.createElement('th');
     counter_header.textContent = 'Campo';
     header_row.appendChild(counter_header);
-
-    const now = new Date();
-
-    const brazil_day = Number(
-        new Intl.DateTimeFormat('pt-BR', {
-            timeZone: 'America/Sao_Paulo',
-            day: 'numeric'
-        }).format(now)
+    const brazil_date = get_brazil_now();
+    const year = Number(
+        brazil_date.find(part => part.type === 'year').value
     );
+    const month = Number(
+        brazil_date.find(part => part.type === 'month').value
+    );
+    const brazil_day = Number(
+        brazil_date.find(part => part.type === 'day').value
+    );
+    const days_in_month = new Date(
+        year,
+        month,
+        0
+    ).getDate();
     const data_by_day = {};
-
     data.forEach(item => {
-        const day = Number(item.date.split('-')[2]);
-
+        const day = Number(
+            item.date.split('-')[2]
+        );
         data_by_day[day] = item;
     });
-
-    for (let day = 1; day <= 31; day++) {
+    for (let day = 1; day <= days_in_month; day++) {
         const th = document.createElement('th');
 
         th.classList.add('th');
@@ -53,13 +58,14 @@ function make_dashboard(data) {
 
         row.appendChild(name);
 
-        for (let day = 1; day <= 31; day++) {
+        for (let day = 1; day <= days_in_month; day++) {
             const cell = document.createElement('td');
 
             cell.classList.add('td');
             cell.dataset.day = day;
 
             const daily_data = data_by_day[day];
+
             const value = daily_data
                 ? daily_data[counter.code]
                 : 0;
@@ -82,8 +88,6 @@ function make_dashboard(data) {
 
     table.appendChild(t_head);
     table.appendChild(t_body);
-
-
 }
 
 export default make_dashboard;

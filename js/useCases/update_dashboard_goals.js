@@ -29,14 +29,8 @@ function update_dashboard_goals(db) {
         const currentDate = new Date();
         const currentMonth =
             `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
-
         const lastMonth = initial_date.slice(0, 7);
-
         const sameMonth = lastMonth === currentMonth;
-
-        console.log('Last month:', lastMonth);
-        console.log('Current month:', currentMonth);
-        console.log('Same month:', sameMonth);
         let data;
         let error;
         if (sameMonth) {
@@ -56,12 +50,10 @@ function update_dashboard_goals(db) {
                 })
                 .select());
         }
-
         if (error) {
             console.error('Erro ao salvar metas:', error);
             return;
         }
-
         localStorage.setItem(
             'dashboard_goals',
             JSON.stringify(goals_object)

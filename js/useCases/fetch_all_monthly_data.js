@@ -1,10 +1,7 @@
+import get_brazil_now from "../helpers/get_brazil_now.js";
+
 async function fetch_all_monthly_data(db) {
-    const now = new Date();
-    const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Sao_Paulo',
-        year: 'numeric',
-        month: '2-digit'
-    }).formatToParts(now);
+    const parts = get_brazil_now();
 
     const year = parts.find(
         part => part.type === 'year'

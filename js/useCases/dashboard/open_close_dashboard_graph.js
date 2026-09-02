@@ -1,3 +1,4 @@
+import get_brazil_now from "../../helpers/get_brazil_now.js";
 import fetch_all_monthly_data from "../fetch_all_monthly_data.js";
 import filter_graph_header from "./filter_graph_header.js";
 import make_dashboard_graph_header from "./make_dashboard_graph_header.js";
@@ -11,15 +12,15 @@ function open_dashboard_graph(employees, db) {
         make_dashboard_graph_header(data);
         filter_graph_header(employees, data);
         dashboard_graph.classList.add('opened');
-        const now = new Date();
-        const brazil_day =
-            new Intl.DateTimeFormat('pt-BR', {
-                timeZone: 'America/Sao_Paulo',
-                month: 'numeric',
-                year: 'numeric'
-            }).format(now)
+        const brazil_date = get_brazil_now();
+            const year = Number(
+            brazil_date.find(part => part.type === 'year').value
+        );
+        const month = Number(
+            brazil_date.find(part => part.type === 'month').value
+        );
         const dashboard_header = document.querySelector('.dashboard-header h3:nth-child(2)');
-        dashboard_header.textContent = brazil_day;
+        dashboard_header.textContent = `0${month}/${year}`;
     });
 }
 
