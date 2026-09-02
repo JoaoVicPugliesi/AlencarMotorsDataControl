@@ -30,7 +30,6 @@
     left: 0;
 }
 
-
 .th.disabled-day, .td.disabled-day {
     pointer-events: none;
     background: #eee;
@@ -343,11 +342,15 @@ th {
     gap: 0.5rem;
 }
 
+.dashboard-graph-painel.opened {
+    left: 0;
+}
+
 .dashboard-graph-painel-display {
     width: 80%;
     height: 50%;
     max-width: 50rem;
-    max-height: 20rem;
+    max-height: 30rem;
     min-width: 10rem;
     min-height: 20rem;
     background: var(--text-color);
@@ -379,7 +382,7 @@ th {
     min-width: 5rem;
     max-width: 8rem;
     height: 100%;
-    background: var(--btn-color);
+    background: var(--green-color);
     justify-content: space-around;
     color: var(--background-color);
 }

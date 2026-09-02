@@ -82,7 +82,8 @@
     }
 
     .home-main p,
-    .card-name h3 {
+    .card-name h3,
+    .admin-card-name h3 {
         font-size: 0.8rem;
     }
 
@@ -115,12 +116,14 @@
         font-size: 1rem;
     }
 
-    .card-main-confirm-message div h3 {
+    .card-main-confirm-message div h3,
+    .admin-card-main-confirm-message div h3 {
         font-size: 1rem;
     }
 
     .home-main p,
-    .card-name h3 {
+    .card-name h3,
+    .admin-card-name h3 {
         font-size: 0.7rem;
     }
 

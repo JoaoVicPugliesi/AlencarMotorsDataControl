@@ -1,4 +1,4 @@
-import admin_component from "../components/admins_component.js";
+import admin_component from "../components/admin_component.js";
 
 const admins_slider = document.querySelector('.admins-main-slider');
 
