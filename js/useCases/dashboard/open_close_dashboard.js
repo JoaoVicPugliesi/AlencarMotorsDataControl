@@ -1,69 +1,32 @@
-import find_employee from "../../helpers/find_employee.js";
-import scroll_to_cards from "../../helpers/scroll_to_cards.js";
-import make_dashboard from "./make_dashboard.js";
-import select_monthly_dashboard_data from "../select_monthly_dashboard_data.js";
-import update_monthly_dashboard_data from "../update_monthly_dashboard_data.js";
+import get_brazil_now from "../../helpers/get_brazil_now.js";
+import fetch_all_period_data from "../fetch_all_period_data.js";
+import filter_dashboard_header from "./filter_dashboard_header.js";
+import make_dashboard_header from "./make_dashboard_header.js";
 
-async function open_dashboard_helper(employees, db, btn) {
-    const html = document.querySelector('.html');
-    const home_header = document.querySelector('.home-header');
-    const id = btn.getAttribute('data-id');
-    const employee = find_employee(id, employees);
-    if (!employee) return;
-    const confirm = btn.closest('.card-main-confirm');
-    const input = confirm.querySelector(
-        '.card-main-confirm-input input'
-    );
-    const admins = employees.filter((employee) => employee.role === 'admin');
-    const admin_passwords = admins.map((admin) => Number(admin.password));
-    if (Number(employee.password) === Number(input.value) || admin_passwords.includes(Number(input.value))) {
-        input.value = '';
-        const employee_dashboard_name =
-        document.querySelector('.dashboard-name h3');
-        employee_dashboard_name.textContent =
-            `Olá, ${employee.name}. Esses são seus dados.`;
-        const dashboard = document.querySelector('.dashboard');
-        const data = await select_monthly_dashboard_data(id, db);
-        make_dashboard(data, id);
-        dashboard.classList.add('opened');
-        await new Promise(requestAnimationFrame);
-        scroll_to_cards('cards');
-        html.classList.add('noscroll');
-        home_header.classList.add('hidden');
-        const save_btn =
-        document.querySelector('.dashboard-save-command');
-        save_btn.addEventListener('click', async () => {
-            await update_monthly_dashboard_data(id, db);
-        });
-    };
-}
-
+const dashboard = document.querySelector('.dashboard');
 function open_dashboard(employees, db) {
-    const confirm_btns = document.querySelectorAll('.card-main-confirm-btn');
-    confirm_btns.forEach((btn) => {
-        const confirm = btn.closest('.card-main-confirm');
-        const input = confirm.querySelector('.card-main-confirm-input input');
-        btn.addEventListener('click', async () => {
-            await open_dashboard_helper(employees, db, btn);
-        });
-        input.addEventListener('keydown', async (e) => {
-            if (e.key !== 'Enter') return;
-            e.preventDefault();
-            await open_dashboard_helper(employees, db, btn);
-        });
+    const dashboard_command = document.querySelector('.employees-main-painel-dashboard-command');
+
+    dashboard_command.addEventListener('click', async () => {
+        const data = await fetch_all_period_data(db, null, null);
+        make_dashboard_header(data);
+        filter_dashboard_header(employees, data);
+        dashboard.classList.add('opened');
+        const brazil_date = get_brazil_now('long');
+        const year = Number(
+            brazil_date.find(part => part.type === 'year').value
+        );
+        const month = brazil_date.find(part => part.type === 'month').value;
+        const dashboard_header = document.querySelector('.dashboard-header h3:nth-child(2)');
+        dashboard_header.textContent = `${month}/${year}`;
     });
 }
 
 function close_dashboard() {
-    const dash_comeback_command = document.querySelector('.dashboard-comeback-command');
-    const home_header = document.querySelector('.home-header');
-    const dashboard = document.querySelector('.dashboard')
-    const html = document.querySelector('.html');
-    dash_comeback_command.addEventListener('click', () => {
+    const dashboard_comeback_command = document.querySelector('.dashboard-display-comeback-command');
+    dashboard_comeback_command.addEventListener('click', () => {
         dashboard.classList.remove('opened');
-        html.classList.remove('noscroll');
-        home_header.classList.remove('hidden');
-    })
+    });
 }
 
 function open_close_dashboard(employees, db) {

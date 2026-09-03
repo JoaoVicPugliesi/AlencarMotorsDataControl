@@ -16,7 +16,7 @@
 @media (max-width: 900px) {
 
     .home-main-header h3,
-    .cards-main-header h3,
+    .employees-main-header h3,
     .dashboard-name h3,
     .dashboard-goals-name h3,
     .admins-main-header h3,
@@ -82,17 +82,17 @@
     }
 
     .home-main p,
-    .card-name h3,
-    .admin-card-name h3 {
+    .employee-name h3,
+    .admin-name h3 {
         font-size: 0.8rem;
     }
 
-    .cards-main {
+    .employees-main {
         flex-direction: column;
         justify-content: center;
     }
 
-    .cards-main-slider {
+    .employees-main-slider {
         width: 100%;
     }
 
@@ -108,7 +108,7 @@
 @media (max-width: 500px) {
 
     .home-main-header h3,
-    .cards-main-header h3,
+    .employees-main-header h3,
     .dashboard-name h3,
     .dashboard-goals-name h3,
     .admins-main-header h3,
@@ -116,18 +116,18 @@
         font-size: 1rem;
     }
 
-    .card-main-confirm-message div h3,
-    .admin-card-main-confirm-message div h3 {
+    .employee-main-confirm-message div h3,
+    .admin-main-confirm-message div h3 {
         font-size: 1rem;
     }
 
     .home-main p,
-    .card-name h3,
-    .admin-card-name h3 {
+    .employee-name h3,
+    .admin-name h3 {
         font-size: 0.7rem;
     }
 
-    .card, .admin-card {
+    .employee, .admin {
         flex: 0 0 10rem;
         height: 20rem;
 
@@ -141,16 +141,16 @@
         flex-direction: column;
     }
 
-    .dashboard-header {
+    .employees-main-painel-header {
         flex-direction: column;
     }
 }
 
 @media (max-width: 300px) {
     .home-main-header h3,
-    .cards-main-header h3,
-    .dashboard-name h3,
-    .dashboard-goals-name h3,
+    .employees-main-header h3,
+    .employees-main-painel-name h3,
+    .employees-main-painel-goals-name h3,
     .admins-main-header h3,
     .admins-main-painel-header h3 {
         font-size: 0.8rem;

@@ -23,11 +23,11 @@
     position: relative;
 }
 
-.admin-card-name {
+.admin-name {
     background: var(--text-color);
 }
 
-.admin-card-dashboard-add {
+.admin-dashboard-add {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     left: 0;
 }
 
-.admins-main-painel-define-goals {
+.admins-main-painel-goals {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -73,6 +73,6 @@
     background: var(--background-color-2);
 }
 
-.admins-main-painel-define-goals.opened {
+.admins-main-painel-goals.opened {
     left: 0;
 }

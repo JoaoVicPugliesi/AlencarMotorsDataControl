@@ -11,164 +11,6 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
-.dashboard, .dashboard-goals, .dashboard-graph {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--background-color-2);
-    z-index: 8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    left: -100%;
-    padding: 0.5rem;
-}
-
-.dashboard.opened {
-    left: 0;
-}
-
-.th.disabled-day, .td.disabled-day {
-    pointer-events: none;
-    background: #eee;
-    color: #999;
-    cursor: not-allowed;
-}
-
-.dashboard-name, .dashboard-goals-name {
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: var(--text-font-1);
-    color: var(--background-color);
-    text-transform: uppercase;
-}
-
-.dashboard-display, .dashboard-goals-display, .admins-main-painel-define-goals-dashboard {
-    color: var(--background-color);
-    font-family: var(--text-font-1);
-    text-transform: uppercase;
-    border-collapse: collapse;
-    width: max-content;
-    height: 50%;
-    text-align: center;
-    max-height: max-content;
-    width: 100%;
-    max-width: max-content;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    justify-content: start;
-}
-
-.dashboard-display th,
-.dashboard-display td,
-.dashboard-goals-display th,
-.dashboard-goals-display td,
-.admins-main-painel-define-goals-dashboard th,
-.admins-main-painel-define-goals-dashboard td {
-    border: 1px solid #333;
-    height: 42px;
-    padding: 0 10px;
-    vertical-align: middle;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: "Outfit", sans-serif;
-}
-
-.dashboard-display thead th, .dashboard-goals-display thead th,
-.admins-main-painel-define-goals-dashboard thead th {
-    top: 0;
-    background: var(--background-color-2);
-    background: var(--text-color);
-}
-
-.dashboard-display tbody th, .dashboard-goals-display tbody th, .admins-main-painel-define-goals-dashboard tbody th {
-    position: sticky;
-    background: var(--background-color-2);
-    left: 0;
-    min-width: 10rem;
-}
-
-th {
-    text-align: left;
-}
-
-.dashboard-goals-display td:last-child,
-.admins-main-painel-define-goals-dashboard td:last-child {
-    text-align: left;
-}
-
-.dashboard-display td,
-.admins-main-painel-define-goals-dashboard td{
-    background: var(--text-color);
-    cursor: cell;
-}
-
-.dashboard-display td:focus, .admins-main-painel-define-goals-dashboard td:focus {
-    outline: 2px solid #4285f4;
-}
-
-.dashboard-commands button, .dashboard-goals-commands button, 
-.dashboard-graph-commands button, .dashboard-graph-display-commands button, 
-.admins-main-painel-commands button, .admins-main-painel-define-goals-commands button,
-.dashboard-graph-painel-commands button {
-    background: var(--text-color);
-    color: var(--background-color);
-    font-family: var(--text-font-1); 
-    letter-spacing: 0.1rem;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 0.2rem;
-    text-transform: uppercase;
-}
-
-.admins-main-painel-commands button {
-    background: var(--background-color-2);
-}
-
-.dashboard-commands, .admins-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-define-goals-commands, .dashboard-graph-painel-commands {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.dashboard-commands button, .dashboard-goals-commands button, .dashboard-graph-commands button, .admins-main-painel-commands button, .admins-main-painel-define-goals-commands button, .dashboard-graph-painel-commands button  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    width: 8rem;
-}
-
-.dashboard-goals, .dashboard-graph {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    background: var(--background-color-2);
-    left: -100%;
-}
-
-.dashboard-goals.opened, .dashboard-graph.opened, .dashboard-graph-painel.opened {
-    left: 0;
-}
-
-.dashboard-graph {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 0;
-}
-
 .dashboard-header {
     width: 100%;
     display: flex;
@@ -181,13 +23,7 @@ th {
     border-radius: 0.5rem 0.5rem 0rem 0rem;
 }
 
-.dashboard-header h2 {
-    margin: 0;
-    font-family: var(--text-font-1);
-    font-size: 1.5rem;
-}
-
-.dashboard-graph-display {
+.dashboard-display {
     width: 100%;
     height: 100%;
     min-width: 18rem;
@@ -203,7 +39,7 @@ th {
     position: relative;
 }
 
-.dashboard-graph-display-header {
+.dashboard-display-header {
     display: flex;
     justify-content: space-between;
     overflow-x: auto;
@@ -215,18 +51,18 @@ th {
     color: var(--background-color);
 }
 
-.dashboard-graph-display-header div {
+.dashboard-display-header div {
     width: max-content;
     display: flex;
     cursor: pointer;
     flex-direction: column;
 }
 
-.dashboard-graph-display-header div h3 {
+.dashboard-display-header div h3 {
     width: 100%;
 }
 
-.dashboard-graph-content {
+.dashboard-content {
     display: flex;
     justify-content: space-between;
     background: var(--text-color);
@@ -238,11 +74,11 @@ th {
     scrollbar-width: none;
 }
 
-.dashboard-graph-content div {
+.dashboard-content div {
     width: max-content;
 }
 
-.dashboard-graph-bottom {
+.dashboard-bottom {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -253,14 +89,14 @@ th {
     border-radius: 0rem 0rem 0.5rem 0.5rem;
 }
 
-.dashboard-graph-display-commands {
+.dashboard-display-commands {
     display: flex;
     justify-content: start;
     align-items: center;
     margin-top: 0.5rem;
 }
 
-.dashboard-graph-display-commands div {
+.dashboard-display-commands div {
     cursor: pointer;
 }
 
@@ -281,7 +117,7 @@ th {
     font-size: 1rem;
 }   
 
-.dashboard-card-dashboard-ranking {
+.dashboard-ranking {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -308,7 +144,7 @@ th {
     flex: 1;
 }
 
-.dashboard-carddashboard-performance {
+.dashboard-performance {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -316,22 +152,18 @@ th {
     cursor: pointer;
 }
 
-.graph {
-    background: var(--gold-color);
-}
-
-.dashboard-graph-header-card.filtered {
+.dashboard-header-component.filtered {
     color: black;
 }
 
-.dashboard-graph-painel, .dashboard-graph-painel-display, .dashboard-graph-painel-display-header {
+.dashboard-painel, .dashboard-painel-display, .dashboard-painel-display-header {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.dashboard-graph-painel {
+.dashboard-painel {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -342,11 +174,11 @@ th {
     padding: 2rem;
 }
 
-.dashboard-graph-painel.opened {
+.dashboard-painel.opened {
     left: 0;
 }
 
-.dashboard-graph-painel-display {
+.dashboard-painel-display {
     width: 100%;
     height: 100%;
     min-width: 15rem;
@@ -363,7 +195,7 @@ th {
     
 }
 
-.dashboard-graph-painel-display-header {
+.dashboard-painel-display-header {
     width: 100%;
     height: 20%;
     user-select: none;
@@ -374,7 +206,7 @@ th {
     border-radius: 0.5rem 0.5rem 0rem 0rem;
 }
 
-.dashboard-graph-painel-display-charts {
+.dashboard-painel-display-charts {
     width: 100%;
     height: 80%;
     padding: 0.5rem;

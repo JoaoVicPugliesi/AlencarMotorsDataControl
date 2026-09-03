@@ -1,5 +1,5 @@
-const cards_main_slider = document.querySelector('.cards-main-slider');
-const dashboard_graph_painel = document.querySelector('.dashboard-graph-painel');
+const employees_main_slider = document.querySelector('.employees-main-slider');
+const dashboard_painel = document.querySelector('.dashboard-graph-painel');
 
 function drag_slider(component) {
 
@@ -40,8 +40,8 @@ function drag_slider(component) {
 }
 
 function drag_slider_caller () {
-    drag_slider(cards_main_slider);
-    drag_slider(dashboard_graph_painel);
+    drag_slider(employees_main_slider);
+    drag_slider(dashboard_painel);
 }
 
 export default drag_slider_caller;

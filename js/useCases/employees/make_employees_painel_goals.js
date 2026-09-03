@@ -1,6 +1,6 @@
 import goals_properties from '../../../data/goals_properties.js';
 
-function make_dashboard_goals(data, class_name, disabled = false) {
+function make_employees_painel_goals(data, class_name, disabled = false) {
     const table = document.querySelector(`.${class_name}`);
 
     table.innerHTML = '';
@@ -67,4 +67,4 @@ function make_dashboard_goals(data, class_name, disabled = false) {
     table.appendChild(t_body);
 }
 
-export default make_dashboard_goals;
+export default make_employees_painel_goals;

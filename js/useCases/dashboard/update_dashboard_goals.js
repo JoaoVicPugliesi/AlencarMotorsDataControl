@@ -1,11 +1,11 @@
-import select_dashboard_goal from "./dashboard/select_dashboard_goal.js";
+import select_dashboard_goal from "./select_current_goal.js";
 
 function update_dashboard_goals(db) {
     const save_command = document.querySelector(
-        '.admins-main-painel-define-goals-save-command'
+        '.admins-main-painel-goals-save-command'
     );
     const table = document.querySelector(
-        '.admins-main-painel-define-goals-dashboard'
+        '.admins-main-painel-goals-dashboard'
     );
     save_command.addEventListener('click', async () => {
         const rows = table.querySelectorAll('tbody tr');

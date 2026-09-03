@@ -1,5 +1,5 @@
-function scroll_to_cards(id_name) {
-    const component = document.getElementById(`${id_name}`);
+function scroll_to_section(id) {
+    const component = document.getElementById(`${id}`);
     const component_top = component.offsetTop;
     window.scrollTo({
         top: component_top,
@@ -7,4 +7,4 @@ function scroll_to_cards(id_name) {
     });
 }
 
-export default scroll_to_cards;
+export default scroll_to_section;

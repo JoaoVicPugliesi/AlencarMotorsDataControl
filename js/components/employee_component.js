@@ -1,9 +1,9 @@
-function employees_component(id, name, image) {
+function employee_component(id, name, image) {
     return `
-        <div class="card">
-            <div class="card-main-confirm">
-                <div class="card-main-confirm-message">
-                    <div class="card-main-confirm-close">
+        <div class="employee">
+            <div class="employee-main-confirm">
+                <div class="employee-main-confirm-message">
+                    <div class="employee-main-confirm-close">
                          <i class="fa-solid fa-arrow-left"></i>
                     </div>
 
@@ -16,23 +16,23 @@ function employees_component(id, name, image) {
                     </div>
                 </div>
 
-                <div class="card-main-confirm-input">
+                <div class="employee-main-confirm-input">
                     <input 
                         type="password" 
                         maxlength="255" 
                         placeholder="Sua Senha Aqui"
                     >
 
-                    <div class="card-main-confirm-input-visibility-btn">
+                    <div class="employee-main-confirm-input-visibility-btn">
                         <i class="fa-solid fa-eye"></i>
                     </div>
                 </div>
 
-                <div class="card-main-confirm-btn" data-id="${id}">
+                <div class="employee-main-confirm-btn" data-id="${id}">
                     <i class="fa-solid fa-check"></i>
                 </div>
             </div>
-            <div class="card-img">
+            <div class="employee-img">
                 <img 
                     src="images/employees/${image}.jpg" 
                     alt="" 
@@ -40,12 +40,12 @@ function employees_component(id, name, image) {
                 >
             </div>
 
-            <div class="card-name">
+            <div class="employee-name">
                 <h3>${name}</h3>
             </div>
 
-            <div class="card-dashboard">
-                <div class="card-dashboard-add">
+            <div class="employee-dashboard">
+                <div class="employee-dashboard-add">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
             </div>
@@ -54,4 +54,4 @@ function employees_component(id, name, image) {
     `;
 }
 
-export default employees_component;
+export default employee_component;

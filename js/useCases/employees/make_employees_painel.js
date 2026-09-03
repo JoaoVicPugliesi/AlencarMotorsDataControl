@@ -1,8 +1,8 @@
 import counters from "../../../data/counters.js";
 import get_brazil_now from "../../helpers/get_brazil_now.js";
 
-function make_dashboard(data) {
-    const table = document.querySelector('.dashboard-display');
+function make_employees_painel(data) {
+    const table = document.querySelector('.employees-main-painel-display');
     table.innerHTML = '';
     const t_head = document.createElement('thead');
     const header_row = document.createElement('tr');
@@ -90,4 +90,4 @@ function make_dashboard(data) {
     table.appendChild(t_body);
 }
 
-export default make_dashboard;
+export default make_employees_painel;

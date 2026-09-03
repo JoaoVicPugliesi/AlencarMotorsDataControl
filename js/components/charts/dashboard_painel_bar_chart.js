@@ -1,11 +1,11 @@
-import { counter_group_map, counter_groups } from "../../data/counter_groups.js";
+import { counter_group_map, counter_groups } from "../../../data/counter_groups.js";
 
 let bar_chart = null;
 
-function graph_painel_bar_chart(code, employees, data) {
+function dashboard_painel_bar_chart(code, employees, data) {
 
     const ctx = document.querySelector(
-        '.dashboard-graph-painel-display-bar-chart'
+        '.dashboard-painel-display-bar-chart'
     );
 
     if (!ctx) return;
@@ -138,4 +138,4 @@ function graph_painel_bar_chart(code, employees, data) {
     });
 }
 
-export default graph_painel_bar_chart;
+export default dashboard_painel_bar_chart;

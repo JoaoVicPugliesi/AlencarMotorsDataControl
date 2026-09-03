@@ -1,9 +1,9 @@
 function admin_component(id, name, image) {
     return `
-        <div class="admin-card">
-            <div class="admin-card-main-confirm">
-                <div class="admin-card-main-confirm-message">
-                    <div class="admin-card-main-confirm-close">
+        <div class="admin">
+            <div class="admin-main-confirm">
+                <div class="admin-main-confirm-message">
+                    <div class="admin-main-confirm-close">
                          <i class="fa-solid fa-arrow-left"></i>
                     </div>
 
@@ -16,23 +16,23 @@ function admin_component(id, name, image) {
                     </div>
                 </div>
 
-                <div class="admin-card-main-confirm-input">
+                <div class="admin-main-confirm-input">
                     <input 
                         type="password" 
                         maxlength="255" 
                         placeholder="Sua Senha Aqui"
                     >
 
-                    <div class="admin-card-main-confirm-input-visibility-btn">
+                    <div class="admin-main-confirm-input-visibility-btn">
                         <i class="fa-solid fa-eye"></i>
                     </div>
                 </div>
 
-                <div class="admin-card-main-confirm-btn" data-id="${id}">
+                <div class="admin-main-confirm-btn" data-id="${id}">
                     <i class="fa-solid fa-check"></i>
                 </div>
             </div>
-            <div class="admin-card-img">
+            <div class="admin-img">
                 <img 
                     src="images/employees/${image}.jpg" 
                     alt="" 
@@ -40,12 +40,12 @@ function admin_component(id, name, image) {
                 >
             </div>
 
-            <div class="admin-card-name">
+            <div class="admin-name">
                 <h3>${name}</h3>
             </div>
 
-            <div class="admin-card-dashboard">
-                <div class="admin-card-dashboard-add">
+            <div class="admin-dashboard">
+                <div class="admin-dashboard-add">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
             </div>

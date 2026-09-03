@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alencar Motors - Controle de Dados</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/employees.css">
     <link rel="stylesheet" href="css/admins.css">
+    <link rel="stylesheet" href="css/painel.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/responsivity.css">
     <link rel="shortcut icon" href="images/alencar_motors_logo.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/3acfdd9ae5.js" crossorigin="anonymous"></script>
@@ -23,7 +24,7 @@
                         alt=""></a>
                 <div class="header-anchors">
                     <a href="#home" draggable="false">Início</a>
-                    <a href="#cards" draggable="false">Funcionários</a>
+                    <a href="#employees" draggable="false">Funcionários</a>
                     <a href="#admins" draggable="false">Administradores</a>
                 </div>
                 <div class="header-anchors-sandwich">
@@ -33,7 +34,7 @@
 
                     <nav class="header-anchors-sandwich-as">
                         <a href="#home" draggable="false">Início</a>
-                        <a href="#cards" draggable="false">Funcionários</a>
+                        <a href="#employees" draggable="false">Funcionários</a>
                         <a href="#admins" draggable="false">Administradores</a>
                     </nav>
                 </div>
@@ -47,94 +48,93 @@
                 </div>
             </div>
         </section>
-        <section id="cards" draggable="false">
-            <div class="dashboard">
-                <div class="dashboard-graph">
-                    <div class="dashboard-graph-painel">
-                        <div class="dashboard-graph-painel-display">
-                            <div class="dashboard-graph-painel-display-header">
-                                <div>
-                                    <h3>DADOS EM FORMA DE GRÁFICOS</h3>
+        <section id="employees" draggable="false">
+            <div class="employees-main" draggable="false">
+                <div class="employees-main-painel">
+                    <div class="dashboard">
+                        <div class="dashboard-painel">
+                            <div class="dashboard-painel-display">
+                                <div class="dashboard-painel-display-header">
+                                    <div>
+                                        <h3>DADOS EM FORMA DE GRÁFICOS</h3>
+                                    </div>
+                                </div>
+                                <div class="dashboard-painel-display-charts">
+                                    <canvas class="dashboard-painel-display-bar-chart"></canvas>
+                                    <canvas class="dashboard-painel-display-donut-chart"></canvas>
                                 </div>
                             </div>
-                            <div class="dashboard-graph-painel-display-charts">
-                               <canvas class="dashboard-graph-painel-display-bar-chart"></canvas>
-                               <canvas class="dashboard-graph-painel-display-donut-chart"></canvas>
-                            </div>
-                            
-                        </div>
-                        <div class="dashboard-graph-painel-commands">
-                            <button class="dashboard-graph-painel-comeback-command">Voltar</button>
-                        </div>
-                    </div>
-                    <div class="dashboard-graph-display">
-                        <div class="dashboard-header">
-                            <h3>Dashboard</h3>
-                            <h3>08/2026</h3>
-                        </div>
-                        <div class="dashboard-graph-display-header">
-
-                        </div>
-                        <div class="dashboard-graph-content">
-                            <div class="dashboard-carddashboard-performance">
-                                <div>
-                                    <h3>PERFOMANCE</h3>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-chart-simple"></i>
-                                </div>
-                            </div>
-                            <div class="dashboard-card-dashboard-completeness">
-                                <h3>META / COMPLETUDE</h3>
-                                <h3>0%</h3>
-                                <span>0 / 0</span>
+                            <div class="dashboard-painel-commands">
+                                <button class="dashboard-painel-comeback-command">Voltar</button>
                             </div>
                         </div>
-                        <div class="dashboard-graph-bottom">
+                        <div class="dashboard-display">
+                            <div class="dashboard-header">
+                                <h3>Dashboard</h3>
+                                <h3>08/2026</h3>
+                            </div>
+                            <div class="dashboard-display-header">
 
-                            <div class="dashboard-card-dashboard-ranking">
-                                <div>
-                                    <h3>RANKING</h3>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="dashboard-performance">
+                                    <div>
+                                        <h3>PERFOMANCE</h3>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                    </div>
                                 </div>
-                                <div class="dashboard-ranking-content">
-
+                                <div class="dashboard-completeness">
+                                    <h3>META / COMPLETUDE</h3>
+                                    <h3>0%</h3>
+                                    <span>0 / 0</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="dashboard-graph-display-commands">
-                            <button class="dashboard-graph-display-comeback-command">Voltar</button>
+                            <div class="dashboard-bottom">
+
+                                <div class="dashboard-ranking">
+                                    <div>
+                                        <h3>RANKING</h3>
+                                    </div>
+                                    <div class="dashboard-ranking-content">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-display-commands">
+                                <button class="dashboard-display-comeback-command">Voltar</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="dashboard-goals">
-                    <div class="dashboard-goals-name">
-                        <h3>Meta</h3>
+                    <div class="employees-main-painel-goals">
+                        <div class="employees-main-painel-goals-name">
+                            <h3>Meta</h3>
+                        </div>
+                        <div class="employees-main-painel-goals-display">
+
+                        </div>
+                        <div class="employees-main-painel-goals-commands">
+                            <button class="employees-main-painel-goals-comeback-command">Voltar</button>
+                        </div>
                     </div>
-                    <div class="dashboard-goals-display">
+                    <div class="employees-main-painel-name">
+                        <h3></h3>
+                    </div>
+                    <div class="employees-main-painel-display">
 
                     </div>
-                    <div class="dashboard-goals-commands">
-                        <button class="dashboard-goals-comeback-command">Voltar</button>
+                    <div class="employees-main-painel-commands">
+                        <button class="employees-main-painel-comeback-command">Voltar</button>
+                        <button class="employees-main-painel-dashboard-command">Dashboard</button>
+                        <button class="employees-main-painel-goals-command">Metas</button>
+                        <button class="employees-main-painel-save-command">Salvar</button>
                     </div>
                 </div>
-                <div class="dashboard-name">
-                    <h3></h3>
-                </div>
-                <div class="dashboard-display">
-
-                </div>
-                <div class="dashboard-commands">
-                    <button class="dashboard-comeback-command">Voltar</button>
-                    <button class="dashboard-command">Dashboard</button>
-                    <button class="dashboard-goals-command">Metas</button>
-                    <button class="dashboard-save-command">Salvar</button>
-                </div>
-            </div>
-            <div class="cards-main" draggable="false">
-                <div class="cards-main-header">
+                <div class="employees-main-header">
                     <h3>Paineis dos Funcionários</h3>
                 </div>
-                <div class="cards-main-slider">
+                <div class="employees-main-slider">
 
                 </div>
             </div>
@@ -142,22 +142,20 @@
         <section id="admins">
             <div class="admins-main">
                 <div class="admins-main-painel">
-                    <div class="admins-main-painel-define-goals">
-                        <div class="admins-main-painel-define-goals-dashboard">
-                            
+                    <div class="admins-main-painel-goals">
+                        <div class="admins-main-painel-goals-dashboard">
+
                         </div>
-                        <div class="admins-main-painel-define-goals-commands">
-                            <button class="admins-main-painel-define-goals-save-command">SALVAR</button>
-                            <button class="admins-main-painel-define-goals-comeback-command">Voltar</button>
+                        <div class="admins-main-painel-goals-commands">
+                            <button class="admins-main-painel-goals-save-command">SALVAR</button>
+                            <button class="admins-main-painel-goals-comeback-command">Voltar</button>
                         </div>
                     </div>
                     <div class="admins-main-painel-header">
                         <h3></h3>
                     </div>
-                    <div class="admins-main-painel-graph">
-                       
-                    </div>
                     <div class="admins-main-painel-commands">
+                        <button class="admins-main-painel-dashboard-command">Dashboard</button>
                         <button class="admins-main-painel-goals-command">Metas</button>
                         <button class="admins-main-painel-comeback-command">Voltar</button>
                     </div>

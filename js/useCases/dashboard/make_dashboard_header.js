@@ -1,14 +1,14 @@
 import counters from "../../../data/counters.js";
-import dashboard_graph_header_card_component
-    from "../../components/dashboard_graph_header_card_component.js";
+import dashboard_header_employee_component
+    from "../../components/dashboard_header_component.js";
 
-const dashboard_graph_display_header = document.querySelector(
-    '.dashboard-graph-display-header'
+const dashboard_display_header = document.querySelector(
+    '.dashboard-display-header'
 );
 
-function make_dashboard_graph_header(data) {
+function make_dashboard_header(data) {
     if(!data) return;
-    dashboard_graph_display_header.innerHTML = '';
+    dashboard_display_header.innerHTML = '';
     const totals = {};
     data.forEach(row => {
         Object.keys(row).forEach(key => {
@@ -30,18 +30,18 @@ function make_dashboard_graph_header(data) {
     });
     let i = 0;
     Object.entries(totals).forEach(([code, total]) => {
-        const card = dashboard_graph_header_card_component(
+        const employee = dashboard_header_employee_component(
             counters[i].name,
             code,
             total,
             ''
         );
-        dashboard_graph_display_header.insertAdjacentHTML(
+        dashboard_display_header.insertAdjacentHTML(
             'beforeend',
-            card
+            employee
         );
         i++;
     });
 }
 
-export default make_dashboard_graph_header;
+export default make_dashboard_header;

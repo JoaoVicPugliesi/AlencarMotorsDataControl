@@ -12,10 +12,10 @@ async function open_dashboard_helper(employees, db, btn) {
 
     if (!employee) return;
 
-    const confirm = btn.closest('.card-main-confirm');
+    const confirm = btn.closest('.employee-main-confirm');
 
     const input = confirm.querySelector(
-        '.card-main-confirm-input input'
+        '.employee-main-confirm-input input'
     );
 
     if (Number(employee.password) !== Number(input.value)) return;

@@ -1,4 +1,4 @@
-function admins_main_painel_graph_component(name, goal, progress) {
+function admins-main_main_painel_graph_component(name, goal, progress) {
     let percentage = goal > 0 ? (progress / goal) * 100 : 0;
     percentage = Math.min(Math.max(percentage, 0), 100);
     return `
@@ -18,4 +18,4 @@ function admins_main_painel_graph_component(name, goal, progress) {
     `
 }
 
-export default admins_main_painel_graph_component;
+export default admins-main_main_painel_graph_component;

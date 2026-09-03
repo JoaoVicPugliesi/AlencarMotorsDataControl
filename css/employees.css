@@ -13,12 +13,12 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
-#cards {
+#employees {
     background: var(--text-color);
     position: relative;
 }
 
-.cards-main, .admins-main {
+.employees-main, .admins-main {
     z-index: 0;
     width: 100%;
     height: 100%;
@@ -31,7 +31,7 @@
     overflow: none;
 }
 
-.cards-main-slider, .admins-main-slider {
+.employees-main-slider, .admins-main-slider {
     display: flex;
     gap: 1.5rem;
     width: 80%;
@@ -44,12 +44,12 @@
     align-items: center;
 }
 
-.cards-main-slider::-webkit-scrollbar,
+.employees-main-slider::-webkit-scrollbar,
 .admins-main-slider::-webkit-scrollbar {
     display: none;
 }
 
-.card, .admin-card {
+.employee, .admin {
     flex: 0 0 15rem;
     height: 20rem;
     position: relative;
@@ -62,7 +62,7 @@
     text-align: center;
 }
 
-.card-main-confirm, .admin-card-main-confirm {
+.employee-main-confirm, .admin-main-confirm {
     position: absolute;
     z-index: 4;
     width: 100%;
@@ -82,25 +82,25 @@
         opacity 0.35s ease;
 }
 
-.admin-card-main-confirm {
+.admin-main-confirm {
     background: var(--text-color);
 }
 
-.card-main-confirm, .admin-card-main-confirm {
+.employee-main-confirm, .admin-main-confirm {
     z-index: 5;
 }
 
-.card-main-confirm.opened, .admin-card-main-confirm.opened {
+.employee-main-confirm.opened, .admin-main-confirm.opened {
     transform: translateY(0);
     opacity: 1;
 }
 
-.card-main-confirm-message,
-.card-main-confirm-input,
-.card-main-confirm-btn,
-.admin-card-main-confirm-message,
-.admin-card-main-confirm-input,
-.admin-card-main-confirm-btn {
+.employee-main-confirm-message,
+.employee-main-confirm-input,
+.employee-main-confirm-btn,
+.admin-main-confirm-message,
+.admin-main-confirm-input,
+.admin-main-confirm-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,15 +108,15 @@
     width: 100%;
 }
 
-.card-main-confirm-message,
-.admin-card-main-confirm-message {
+.employee-main-confirm-message,
+.admin-main-confirm-message {
     position: relative;
     height: 40%;
     gap: 0.5rem;
 }
 
-.card-main-confirm-close,
-.admin-card-main-confirm-close {
+.employee-main-confirm-close,
+.admin-main-confirm-close {
     position: absolute;
     left: 50%;
     top: 5%;
@@ -124,25 +124,25 @@
     cursor: pointer;
 }
 
-.card-main-confirm-input,
-.admin-card-main-confirm-input {
+.employee-main-confirm-input,
+.admin-main-confirm-input {
     height: 40%;
     gap: 1rem;
 }
 
-.card-main-confirm-input-visibility-btn,
-.admin-card-main-confirm-input-visibility-btn {
+.employee-main-confirm-input-visibility-btn,
+.admin-main-confirm-input-visibility-btn {
     color: var(--background-color);
     cursor: pointer;
 }
 
-.card-main-confirm-input-visibility-btn.visible,
-.admin-card-main-confirm-input-visibility-btn.visible {
+.employee-main-confirm-input-visibility-btn.visible,
+.admin-main-confirm-input-visibility-btn.visible {
     color: var(--background-color);
 }
 
-.card-main-confirm-input input,
-.admin-card-main-confirm-input input  {
+.employee-main-confirm-input input,
+.admin-main-confirm-input input  {
     width: 80%;
     height: 2rem;
     color: var(--btn-color);
@@ -155,18 +155,18 @@
     border: none;
 }
 
-.card-main-confirm-input input::placeholder,
-.admin-card-main-confirm-input input::placeholder {
+.employee-main-confirm-input input::placeholder,
+.admin-main-confirm-input input::placeholder {
     color: var(--anchors-selected-color);
 }
 
-.card-main-confirm-btn,
-.admin-card-main-confirm-btn {
+.employee-main-confirm-btn,
+.admin-main-confirm-btn {
     height: 10%;
 }
 
-.card-main-confirm-btn,
-.admin-card-main-confirm-btn {
+.employee-main-confirm-btn,
+.admin-main-confirm-btn {
     width: 100%;
     height: 10%;
     outline: none;
@@ -180,17 +180,17 @@
 
 }
 
-.card-main-confirm-message h3,
-.admin-card-main-confirm-message h3 {
+.employee-main-confirm-message h3,
+.admin-main-confirm-message h3 {
     font-size: 1.5rem;
 }
 
-.card-main-confirm-message p,
-.admin-card-main-confirm-message p {
+.employee-main-confirm-message p,
+.admin-main-confirm-message p {
     font-family: monospace;
 }
 
-.card-img, .admin-card-img {
+.employee-img, .admin-img {
     width: 100%;
     height: 70%;
     background: var(--anchors-selected-color);
@@ -198,49 +198,49 @@
     overflow: hidden;
 }
 
-.card-img img, .admin-card-img img {
+.employee-img img, .admin-img img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     object-position: top top;
 }
 
-.card-name, .admin-card-name {
+.employee-name, .admin-name {
     height: 20%;
     width: 100%;
     background: var(--background-color-2);
     color: var(--anchors-selected-color);
 }
 
-.card-name h3, .admin-card-name h3 {
+.employee-name h3, .admin-name h3 {
     text-transform: uppercase;
     font-size: 1rem;
     color: var(--background-color);
 }
 
-.card-dashboard, .admin-card-dashboard {
+.employee-dashboard, .admin-dashboard {
     height: 10%;
     width: 100%;
 }
 
-.card-img,
-.card-name,
-.card-dashboard-add,
-.admin-card-img,
-.admin-card-name,
-.admin-card-dashboard-add {
+.employee-img,
+.employee-name,
+.employee-dashboard-add,
+.admin-img,
+.admin-name,
+.admin-dashboard-add {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.card-dashboard,
-.admin-card-dashboard {
+.employee-dashboard,
+.admin-dashboard {
     justify-content: space-around;
 }
 
-.card-dashboard-add, .admin-card-dashboard-add {
+.employee-dashboard-add, .admin-dashboard-add {
     height: 100%;
     cursor: pointer;
     width: 100%;
@@ -248,7 +248,7 @@
     border-radius: 0 0 0.5rem 0;
 }
 
-.card-main-confirm-close,
-.admin-card-main-confirm-close {
+.employee-main-confirm-close,
+.admin-main-confirm-close {
     padding-top: 0;
 }

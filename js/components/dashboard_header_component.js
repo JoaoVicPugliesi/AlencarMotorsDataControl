@@ -1,6 +1,6 @@
-function dashboard_graph_header_card_component(name, code, total, percentage) {
+function dashboard_header_component(name, code, total, percentage) {
     return `
-        <div class="dashboard-graph-header-card" data-total="${total}" data-code="${code}">
+        <div class="dashboard-header-component" data-total="${total}" data-code="${code}">
             <div >
                 <h3>${name}</h3>
             </div>
@@ -14,4 +14,4 @@ function dashboard_graph_header_card_component(name, code, total, percentage) {
     `
 }
 
-export default dashboard_graph_header_card_component;
+export default dashboard_header_component;

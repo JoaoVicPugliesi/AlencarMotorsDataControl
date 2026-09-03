@@ -1,4 +1,4 @@
-function make_dashboard_graph_ranking(code, employees, data) {
+function make_dashboard_ranking(code, employees, data) {
     const dashboard_ranking_content = document.querySelector(
         '.dashboard-ranking-content'
     );
@@ -33,4 +33,4 @@ function make_dashboard_graph_ranking(code, employees, data) {
         .join('');
 }
 
-export default make_dashboard_graph_ranking;
+export default make_dashboard_ranking;
