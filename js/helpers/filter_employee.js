@@ -2,7 +2,7 @@ import make_dashboard_ranking from '../useCases/dashboard/make_dashboard_ranking
 import dashboard_painel_bar_chart from '../components/charts/dashboard_painel_bar_chart.js';
 import dashboard_painel_donut_chart from '../components/charts/dashboard_painel_donut_chart.js';
 
-function filter_employee(employee, employees, data) {
+function filter_employee(employee, employees, data, type) {
     const dashboard_header = document.querySelectorAll('.dashboard-header-component');
     const dashboard_completeness = document.querySelector('.dashboard-completeness');
     const goals_object = JSON.parse(localStorage.getItem('dashboard_goals'));
@@ -38,9 +38,9 @@ function filter_employee(employee, employees, data) {
             </div>
         `;
     const filtered_employees = employees.filter((e) => e.role != 'admin');
-    make_dashboard_ranking(code, filtered_employees, data);
-    dashboard_painel_bar_chart(code, filtered_employees, data);
-    dashboard_painel_donut_chart(code, data);
+    make_dashboard_ranking(code, filtered_employees, data, type);
+    dashboard_painel_bar_chart(code, filtered_employees, data, type);
+    dashboard_painel_donut_chart(code, data, type);
 }
 
 export default filter_employee;

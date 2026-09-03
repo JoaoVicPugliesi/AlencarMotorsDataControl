@@ -1,10 +1,24 @@
-import { counter_group_map, counter_groups } from "../../../data/counter_groups.js";
+import {
+    counter_group_map,
+    counter_groups
+} from "../../../data/counter_groups.js";
 
-let bar_chart = null;
+const bar_charts = {};
 
-function dashboard_painel_bar_chart(code, employees, data) {
+function dashboard_painel_bar_chart(
+    code,
+    employees,
+    data,
+    type
+) {
 
-    const ctx = document.querySelector(
+    const dashboard = document.querySelector(
+        `.dashboard[data-dashboard="${type}"]`
+    );
+
+    if (!dashboard) return;
+
+    const ctx = dashboard.querySelector(
         '.dashboard-painel-display-bar-chart'
     );
 
@@ -16,10 +30,13 @@ function dashboard_painel_bar_chart(code, employees, data) {
         console.log(`Counter group not found for: ${code}`);
         return;
     }
+
     const group = counter_groups[group_name];
+
     const labels = employees.map(
         employee => employee.name
     );
+
     const datasets = group.map(counter => {
 
         const values = employees.map(employee => {
@@ -50,11 +67,12 @@ function dashboard_painel_bar_chart(code, employees, data) {
     console.log('CLICKED:', code);
     console.log('GROUP:', group_name);
     console.log('DATASETS:', datasets);
-    if (bar_chart) {
-        bar_chart.destroy();
+
+    if (bar_charts[type]) {
+        bar_charts[type].destroy();
     }
 
-    bar_chart = new Chart(ctx, {
+    bar_charts[type] = new Chart(ctx, {
 
         type: 'bar',
 

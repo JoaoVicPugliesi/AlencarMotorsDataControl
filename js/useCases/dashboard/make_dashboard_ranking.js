@@ -1,7 +1,7 @@
-function make_dashboard_ranking(code, employees, data) {
-    const dashboard_ranking_content = document.querySelector(
-        '.dashboard-ranking-content'
-    );
+function make_dashboard_ranking(code, employees, data, type) {
+    const dashboard = document.querySelector(`.dashboard[data-dashboard="${type}"]`);
+    if (!dashboard) return;
+    const dashboard_ranking_content = dashboard.querySelector('.dashboard-ranking-content');
     if (!dashboard_ranking_content) return;
     const filteres_employees = employees.filter((e) => e.role != 'admin');
     const ranking = filteres_employees

@@ -1,11 +1,11 @@
 import filter_employee from '../../helpers/filter_employee.js';
 
-function filter_dashboard_header(employees, data) {
+function filter_dashboard_header(employees, data, type) {
     const dashboard_header =
     document.querySelectorAll('.dashboard-header-component');
     dashboard_header.forEach((employee) => {
         employee.addEventListener('click', () => {
-            filter_employee(employee, employees, data);
+            filter_employee(employee, employees, data, type);
         });
     });
     const default_employee =
@@ -13,7 +13,7 @@ function filter_dashboard_header(employees, data) {
             '.dashboard-header-component[data-code="leads_crm"]'
         );
     if (default_employee) {
-        filter_employee(default_employee, employees, data);
+        filter_employee(default_employee, employees, data, type);
     }
 }
 

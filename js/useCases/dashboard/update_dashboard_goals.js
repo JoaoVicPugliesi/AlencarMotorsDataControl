@@ -5,7 +5,7 @@ function update_dashboard_goals(db) {
         '.admins-main-painel-goals-save-command'
     );
     const table = document.querySelector(
-        '.admins-main-painel-goals-dashboard'
+        '.admins-main-painel-goals-display'
     );
     save_command.addEventListener('click', async () => {
         const rows = table.querySelectorAll('tbody tr');

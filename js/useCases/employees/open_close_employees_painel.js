@@ -22,10 +22,10 @@ async function open_employees_painel_helper(employees, db, btn) {
         document.querySelector('.employees-main-painel-name h3');
         employee_dashboard_name.textContent =
             `Olá, ${employee.name}. Esses são seus dados.`;
-        const dashboard = document.querySelector('.employees-main-painel');
+        const painel = document.querySelector('.employees-main-painel');
         const data = await select_monthly_dashboard_data(id, db);
         make_employees_painel(data, id);
-        dashboard.classList.add('opened');
+        painel.classList.add('opened');
         await new Promise(requestAnimationFrame);
         scroll_to_section('employees');
         html.classList.add('noscroll');
@@ -58,12 +58,12 @@ function open_employees_painel(employees, db) {
 }
 
 function close_employees_painel() {
-    const dash_comeback_command = document.querySelector('.employees-main-painel-comeback-command');
+    const painel_comeback_command = document.querySelector('.employees-main-painel-comeback-command');
     const home_header = document.querySelector('.home-header');
-    const dashboard = document.querySelector('.employees-main-painel')
+    const painel = document.querySelector('.employees-main-painel');
     const html = document.querySelector('.html');
-    dash_comeback_command.addEventListener('click', () => {
-        dashboard.classList.remove('opened');
+    painel_comeback_command.addEventListener('click', () => {
+        painel.classList.remove('opened');
         html.classList.remove('noscroll');
         home_header.classList.remove('hidden');
     })

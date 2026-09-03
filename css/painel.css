@@ -11,7 +11,7 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
-.employees-main-painel, .employees-main-painel-goals, .dashboard {
+.employees-main-painel, .employees-main-painel-goals, .admins-main-painel-goals, .dashboard {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -24,10 +24,6 @@
     gap: 1rem;
     left: -100%;
     padding: 0.5rem;
-}
-
-.employees-main-painel.opened,.employees-main-painel-goals.opened, .dashboard.opened {
-    left: 0;
 }
 
 .th.disabled-day, .td.disabled-day {
@@ -45,7 +41,7 @@
     text-transform: uppercase;
 }
 
-.employees-main-painel-display, .employees-main-painel-goals-display, .admins-main-painel-goals-dashboard {
+.employees-main-painel-display, .employees-main-painel-goals-display, .admins-main-painel-goals-display {
     color: var(--background-color);
     font-family: var(--text-font-1);
     text-transform: uppercase;
@@ -62,12 +58,16 @@
     justify-content: start;
 }
 
+.employees-main-painel.opened, .employees-main-painel-goals.opened, .dashboard.opened, .dashboard-painel.opened, .admins-main-painel-goals.opened {
+    left: 0;
+}
+
 .employees-main-painel-display th,
 .employees-main-painel-display td,
 .employees-main-painel-goals-display th,
 .employees-main-painel-goals-display td,
-.admins-main-painel-goals-dashboard th,
-.admins-main-painel-goals-dashboard td {
+.admins-main-painel-goals-display th,
+.admins-main-painel-goals-display td {
     border: 1px solid #333;
     height: 42px;
     padding: 0 10px;
@@ -79,13 +79,13 @@
 }
 
 .employees-main-painel-display thead th, .employees-main-painel-goals-display thead th,
-.admins-main-painel-goals-dashboard thead th {
+.admins-main-painel-goals-display thead th {
     top: 0;
     background: var(--background-color-2);
     background: var(--text-color);
 }
 
-.employees-main-painel-display tbody th, .employees-main-painel-goals-display tbody th, .admins-main-painel-goals-dashboard tbody th {
+.employees-main-painel-display tbody th, .employees-main-painel-goals-display tbody th, .admins-main-painel-goals-display tbody th {
     position: sticky;
     background: var(--background-color-2);
     left: 0;
@@ -97,18 +97,18 @@ th {
 }
 
 .employees-main-painel-goals-display td:last-child,
-.admins-main-painel-goals-dashboard td:last-child {
+.admins-main-painel-goals-display td:last-child {
     text-align: left;
 }
 
 .employees-main-painel-display td,
 .employees-main-painel-goals-display td,
-.admins-main-painel-goals-dashboard td{
+.admins-main-painel-goals-display td{
     background: var(--text-color);
     cursor: cell;
 }
 
-.employees-main-painel-display td:focus, .admins-main-painel-goals-dashboard td:focus {
+.employees-main-painel-display td:focus, .admins-main-painel-goals-display td:focus {
     outline: 2px solid #4285f4;
 }
 
@@ -154,10 +154,6 @@ th {
     z-index: 5;
     background: var(--background-color-2);
     left: -100%;
-}
-
-.employees-main-painel.opened, .dashboard.opened, .dashboard-painel.opened {
-    left: 0;
 }
 
 .dashboard {

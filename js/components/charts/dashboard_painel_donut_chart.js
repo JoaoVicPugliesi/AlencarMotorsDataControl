@@ -1,10 +1,23 @@
-import { counter_group_map, counter_groups } from "../../../data/counter_groups.js";
+import {
+    counter_group_map,
+    counter_groups
+} from "../../../data/counter_groups.js";
 
-let donut_chart = null;
+const donut_charts = {};
 
-function dashboard_painel_donut_chart(code, data) {
+function dashboard_painel_donut_chart(
+    code,
+    data,
+    type
+) {
 
-    const ctx = document.querySelector(
+    const dashboard = document.querySelector(
+        `.dashboard[data-dashboard="${type}"]`
+    );
+
+    if (!dashboard) return;
+
+    const ctx = dashboard.querySelector(
         '.dashboard-painel-display-donut-chart'
     );
 
@@ -37,12 +50,11 @@ function dashboard_painel_donut_chart(code, data) {
         counter => counter.label
     );
 
-    if (donut_chart) {
-        donut_chart.destroy();
+    if (donut_charts[type]) {
+        donut_charts[type].destroy();
     }
 
-
-    donut_chart = new Chart(ctx, {
+    donut_charts[type] = new Chart(ctx, {
 
         type: 'doughnut',
 
