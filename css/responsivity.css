@@ -140,6 +140,10 @@
     .dashboard-graph-content {
         flex-direction: column;
     }
+
+    .dashboard-header {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 300px) {

@@ -8,7 +8,7 @@ const counters = [
         code: 'leads_carchat'
     },
     {
-        name: 'LEADS ATENDIDOS',
+        name: 'LEADS RECEBIDOS',
         code: 'leads_served'
     },
     {
@@ -36,11 +36,11 @@ const counters = [
         code: 'registrations'
     },
     {
-        name: 'CADASTRO REALIZADO',
+        name: 'CADASTROS ENVIADOS',
         code: 'registrations_made'
     },
     {
-        name: 'CADASTRO APROVADO',
+        name: 'CADASTROS APROVADOS',
         code: 'registrations_approved'
     },
     {

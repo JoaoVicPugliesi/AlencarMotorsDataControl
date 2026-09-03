@@ -66,7 +66,7 @@ function graph_painel_donut_chart(code, data) {
 
                 legend: {
 
-                    position: 'left',
+                    position: 'top',
 
                     labels: {
 

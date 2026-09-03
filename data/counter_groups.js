@@ -11,7 +11,7 @@ const counter_groups = {
         },
         {
             code: 'leads_served',
-            label: 'LEADS ATENDIDOS'
+            label: 'LEADS RECEBIDOS'
         },
         {
             code: 'leads_served_spoken',
@@ -48,7 +48,7 @@ const counter_groups = {
         },
         {
             code: 'registrations_made',
-            label: 'CADASTRO REALIZADO'
+            label: 'CADASTROS ENVIADOS'
         },
         {
             code: 'registrations_approved',
