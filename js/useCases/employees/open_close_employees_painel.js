@@ -32,10 +32,6 @@ async function open_employees_painel_helper(employees, db, btn) {
         home_header.classList.add('hidden');
         const save_btn = document.querySelector('.employees-main-painel-save-command');
         save_btn.addEventListener('click', async () => {
-            console.log('clicked');
-            console.log(id);
-            console.log(db);
-            console.log(save_btn);
             await update_monthly_dashboard_data(id, db);
         });
     };

@@ -26,11 +26,8 @@ function dashboard_painel_bar_chart(
 
     const group_name = counter_group_map[code];
 
-    if (!group_name) {
-        console.log(`Counter group not found for: ${code}`);
-        return;
-    }
-
+    if (!group_name) return;
+    
     const group = counter_groups[group_name];
 
     const labels = employees.map(
@@ -64,9 +61,6 @@ function dashboard_painel_bar_chart(
         };
     });
 
-    console.log('CLICKED:', code);
-    console.log('GROUP:', group_name);
-    console.log('DATASETS:', datasets);
 
     if (bar_charts[type]) {
         bar_charts[type].destroy();

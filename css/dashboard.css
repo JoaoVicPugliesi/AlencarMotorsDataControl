@@ -11,6 +11,16 @@
     --text-font-1: 'Outfit', sans-serif;
 }
 
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 0;
+}
+
 .dashboard-header {
     width: 100%;
     display: flex;
@@ -222,4 +232,6 @@
     user-select: none;
 }
 
-
+.dashboard-painel-display-header, .dashboard-display-header, .dashboard-content, .dashboard-bottom {
+    min-height: max-content;
+}

@@ -25,10 +25,8 @@ function dashboard_painel_donut_chart(
 
     const group_name = counter_group_map[code];
 
-    if (!group_name) {
-        console.log(`Counter group not found for: ${code}`);
-        return;
-    }
+    if (!group_name) return;
+    
 
     const group = counter_groups[group_name];
 

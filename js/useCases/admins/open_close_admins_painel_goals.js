@@ -5,7 +5,6 @@ function open_admins_main_painel_goals () {
     const goals_command = document.querySelector('.admins-main-painel-goals-command');
     goals_command.addEventListener('click', () => {
         const data = JSON.parse(localStorage.getItem('dashboard_goals'));
-        console.log('data', data);
         if(!data) return;
         make_employees_painel_goals(data, 'admins-main-painel-goals-display', false);
         admins_main_painel_goals.classList.add('opened');

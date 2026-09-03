@@ -156,16 +156,6 @@ th {
     left: -100%;
 }
 
-.dashboard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 0;
-}
-
 
 .employees-main-painel-header h2 {
     margin: 0;

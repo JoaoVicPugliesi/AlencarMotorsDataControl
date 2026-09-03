@@ -42,7 +42,6 @@ function filter_employee(employee, employees, data, type) {
     );
 
     if (!goal_object) {
-        console.log(`Goal not found for ${code}`);
         return;
     }
 
