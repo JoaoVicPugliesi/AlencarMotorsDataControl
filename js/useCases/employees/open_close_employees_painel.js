@@ -1,8 +1,8 @@
 import find_employee from "../../helpers/find_employee.js";
 import scroll_to_section from "../../helpers/scroll_to_section.js";
 import make_employees_painel from "./make_employees_painel.js";
-import select_monthly_dashboard_data from "../select_monthly_dashboard_data.js";
-import update_monthly_dashboard_data from "../update_monthly_dashboard_data.js";
+import select_monthly_dashboard_data from "../../infra/select_monthly_dashboard_data.js";
+import update_monthly_dashboard_data from "../../infra/update_monthly_dashboard_data.js";
 
 async function open_employees_painel_helper(employees, db, btn) {
     const html = document.querySelector('.html');

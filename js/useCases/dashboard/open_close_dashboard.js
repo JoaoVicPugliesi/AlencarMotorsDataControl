@@ -1,5 +1,5 @@
 import get_brazil_now from "../../helpers/get_brazil_now.js";
-import fetch_all_period_data from "../fetch_all_period_data.js";
+import fetch_all_period_data from "../../infra/fetch_all_period_data.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 

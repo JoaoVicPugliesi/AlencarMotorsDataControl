@@ -1,7 +1,7 @@
 import find_employee from "../helpers/find_employee.js";
 import make_dashboard from "./make_dashboard.js";
-import select_monthly_dashboard_data from "./select_monthly_dashboard_data.js";
-import update_monthly_dashboard_data from "./update_monthly_dashboard_data.js";
+import select_monthly_dashboard_data from "..infra/select_monthly_dashboard_data.js";
+import update_monthly_dashboard_data from "../infra/update_monthly_dashboard_data.js";
 
 async function open_dashboard_helper(employees, db, btn) {
     const html = document.querySelector('.html');

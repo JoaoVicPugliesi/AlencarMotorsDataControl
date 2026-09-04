@@ -1,4 +1,4 @@
-import select_dashboard_goal from "./select_current_goal.js";
+import select_current_goal from "../../infra/select_current_goal.js";
 
 function update_dashboard_goals(db) {
     const save_command = document.querySelector(
@@ -25,7 +25,7 @@ function update_dashboard_goals(db) {
                 description: description.textContent.trim()
             });
         });
-        const { id, initial_date } = await select_dashboard_goal(db);
+        const { id, initial_date } = await select_current_goal(db);
         const currentDate = new Date();
         const currentMonth =
             `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
