@@ -26,10 +26,6 @@
     padding: 0.5rem;
 }
 
-.employees-main-painel {
-    left: 0;
-}
-
 .th.disabled-day, .td.disabled-day {
     pointer-events: none;
     background: #eee;

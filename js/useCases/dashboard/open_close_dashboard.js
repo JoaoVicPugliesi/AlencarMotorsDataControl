@@ -1,49 +1,28 @@
-import get_brazil_now from "../../helpers/get_brazil_now.js";
+import get_brazil_now from "../../helpers/get_now.js";
 import fetch_all_period_data from "../../infra/fetch_all_period_data.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
 function open_dashboard(employees, db, type) {
-
     const dashboard_command = document.querySelector(
         `.${type}-main-painel-dashboard-command`
     );
-
     const dashboard = document.querySelector(
         `.dashboard[data-dashboard="${type}"]`
     );
-
+    const dashboard_header_period = dashboard.querySelector(
+        '.dashboard-header-period h3'
+    );
     dashboard_command.addEventListener('click', async () => {
-
-        const data = await fetch_all_period_data(db, null, null);
-
-        make_dashboard_header(data, type);
-
+        const { data: period_data, initial_day, final_day } = await fetch_all_period_data(db, null, null);
+        make_dashboard_header(period_data, type);
         filter_dashboard_header(
             employees,
-            data,
+            period_data,
             type
         );
-
+        dashboard_header_period.textContent = `${initial_day} - ${final_day}`;
         dashboard.classList.add('opened');
-
-        const brazil_date = get_brazil_now('long');
-
-        const year = Number(
-            brazil_date.find(
-                part => part.type === 'year'
-            ).value
-        );
-
-        const month = brazil_date.find(
-            part => part.type === 'month'
-        ).value;
-
-        const dashboard_header = dashboard.querySelector(
-            '.dashboard-header h3:nth-child(2)'
-        );
-
-        dashboard_header.textContent = `${month}/${year}`;
     });
 }
 

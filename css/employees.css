@@ -75,7 +75,7 @@
     align-items: center;
     flex-direction: column;
     background: var(--background-color-2);
-    transform: translateY(-200%);
+    transform: translateY(-100%);
     opacity: 0;
     transition:
         transform 0.8s ease,

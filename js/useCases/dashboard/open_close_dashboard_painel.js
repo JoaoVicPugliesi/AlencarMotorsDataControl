@@ -9,11 +9,8 @@ function open_dashboard_painel(type) {
         '.dashboard-performance'
     );
     dashboard_performance.addEventListener('click', () => {
-
         dashboard_painel.classList.add('opened');
-
     });
-
 }
 
 function close_dashboard_painel(type) {

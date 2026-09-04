@@ -1,7 +1,7 @@
-import get_brazil_now from '../helpers/get_brazil_now.js';
+import get_now from '../helpers/get_now.js';
 
 async function select_monthly_dashboard_data(id, db) {
-    const parts = get_brazil_now('2-digit');
+    const parts = get_now('2-digit');
 
     const year = parts.find(
         part => part.type === 'year'

@@ -1,6 +1,6 @@
-function get_brazil_now(type_of_month) {
+function get_now(type_of_month) {
     const now = new Date();
-    return new Intl.DateTimeFormat('pt-br', {
+    return new Intl.DateTimeFormat('en', {
         timeZone: 'America/Sao_Paulo',
         year: 'numeric',
         month: type_of_month,
@@ -8,4 +8,4 @@ function get_brazil_now(type_of_month) {
     }).formatToParts(now);
 }
 
-export default get_brazil_now;
+export default get_now;
