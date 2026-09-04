@@ -1,5 +1,7 @@
-async function update_monthly_dashboard_data(id, db) {
+import show_message from "../helpers/show_message.js";
 
+async function update_monthly_dashboard_data(id, db) {
+    const employees_main_painel = document.querySelector('.employees-main-painel');
     const editable_cells = document.querySelectorAll(
         '.employees-main-painel-display td[data-editable="true"]'
     );
@@ -34,17 +36,14 @@ async function update_monthly_dashboard_data(id, db) {
         .select();
 
     if (error) {
-        console.error(
-            'Error updating dashboard:',
-            error
-        );
-
-        return null;
+        show_message(employees_main_painel, 'error', 'Falhou em atualizar a tabela');
+        return;
     }
 
     /* const renewed_data = await select_monthly_dashboard_data(id, db);
     make_dashboard(renewed_data);
     */
+    show_message(employees_main_painel, 'success', 'Tabela atualizada');
     return result;
 }
 

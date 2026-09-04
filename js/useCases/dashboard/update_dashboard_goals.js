@@ -1,6 +1,8 @@
+import show_message from "../../helpers/show_message.js";
 import select_current_goal from "../../infra/select_current_goal.js";
 
 function update_dashboard_goals(db) {
+    const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
     const save_command = document.querySelector(
         '.admins-main-painel-goals-save-command'
     );
@@ -51,13 +53,14 @@ function update_dashboard_goals(db) {
                 .select());
         }
         if (error) {
-            console.error('Erro ao salvar metas:', error);
+            show_message(admins_main_painel_goals, 'error', 'Erro ao salvar metas')
             return;
         }
         localStorage.setItem(
             'dashboard_goals',
             JSON.stringify(goals_object)
         );
+        show_message(admins_main_painel_goals, 'success', 'Novas Metas Salvas com sucesso')
     });
 }
 
