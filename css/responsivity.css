@@ -123,17 +123,16 @@
 
     .home-main p,
     .employee-name h3,
-    .admin-name h3 {
+    .admin-name h3,
+    .dashboard-header {
         font-size: 0.7rem;
     }
 
     .employee, .admin {
         flex: 0 0 10rem;
         height: 20rem;
-
         background: var(--background-color);
         border-radius: 0.5rem;
-
         scroll-snap-align: start;
     }
 
@@ -154,5 +153,9 @@
     .admins-main-header h3,
     .admins-main-painel-header h3 {
         font-size: 0.8rem;
+    }
+
+    .dashboard-period input {
+        width: 10rem;
     }
 }

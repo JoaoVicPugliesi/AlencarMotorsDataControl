@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --background-color-2: #2596be;
+    --btn-color: #000000;
+    --text-color: #80162d;
+    --anchors-selected-color: #666666;
+    --green-color: #176B4D;
+    --gold-color: #D4AF37;
+    --text-font-1: 'Outfit', sans-serif;
+}
+
+.employees-main-painel-commands button, .employees-main-painel-goals-commands button, 
+.employees-main-painel-commands button, .dashboard-display-commands button, 
+.admins-main-painel-commands button, .admins-main-painel-goals-commands button,
+.dashboard-painel-commands button, .dashboard-period-commands button {
+    background: var(--text-color);
+    color: var(--background-color);
+    font-family: var(--text-font-1); 
+    letter-spacing: 0.1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    text-transform: uppercase;
+}
+
+.admins-main-painel-commands button {
+    background: var(--background-color-2);
+}
+
+.employees-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-goals-commands, .dashboard-painel-commands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.employees-main-painel-commands button, .employees-main-painel-goals-commands button, .dashboard-commands button, .admins-main-painel-commands button, .admins-main-painel-goals-commands button, .dashboard-graph-painel-commands button  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    width: 8rem;
+}
