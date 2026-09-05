@@ -86,7 +86,6 @@
 }
 
 .employees-main-painel-display tbody th, .employees-main-painel-goals-display tbody th, .admins-main-painel-goals-display tbody th {
-    position: sticky;
     background: var(--background-color-2);
     left: 0;
     min-width: 10rem;

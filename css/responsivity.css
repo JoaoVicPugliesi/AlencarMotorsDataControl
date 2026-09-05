@@ -103,10 +103,28 @@
     .dashboard-graph {
         justify-content: center;
     }
+
+    .employees-main-painel-diary {
+        padding: 1rem;
+    }
+
+    .diary-page {
+        width: 100%;
+
+        height: min(34rem, 90vh);
+
+        padding: 2.5rem 2.5rem 2.5rem 3.5rem;
+    }
+
+    .diary-page::before {
+        left: 1.5rem;
+    }
 }
 
 @media (max-width: 500px) {
-
+    .employees-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-commands, .admins-main-painel-goals-commands, .dashboard-painel-commands {
+        justify-content: start;
+    }
     .home-main-header h3,
     .employees-main-header h3,
     .dashboard-name h3,
@@ -145,10 +163,48 @@
     .employees-main-painel-header {
         flex-direction: column;
     }
+
+    .employees-main-painel-diary {
+        padding: 0.75rem;
+        
+    }
+
+    .diary-page {
+        width: 100%;
+        padding: 2rem 1.5rem 1.5rem 2.5rem;
+    }
+
+    .diary-page::before {
+        left: 1rem;
+    }
+
+    .diary-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .diary-date {
+        font-size: 0.7rem;
+    }
+
+    .employees-main-painel-diary-title {
+        font-size: 1.5rem;
+    }
+
+    .employees-main-painel-diary-description {
+        margin-top: 1.25rem;
+        font-size: 0.95rem;
+        line-height: 1.8rem;
+    }
+
+    .diary-commands {
+        margin-top: 1rem;
+    }
 }
 
 @media (max-width: 300px) {
-
     .home-main-header h3,
     .employees-main-header h3,
     .employees-main-painel-name h3,
@@ -157,8 +213,12 @@
     .admins-main-painel-header h3 {
         font-size: 0.8rem;
     }
-
     .dashboard-period input {
         width: 10rem;
+    }
+
+    .diary-commands {
+        margin-top: 1rem;
+        flex-direction: column;
     }
 }

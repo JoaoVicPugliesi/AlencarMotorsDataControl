@@ -12,6 +12,7 @@ import display_employees_cards from "./js/useCases/admins/display_employees_card
 import display_admins_cards from "./js/useCases/admins/display_admins_cards.js";
 import display_dashboards from "./js/useCases/dashboard/display_dashboards.js";
 import supabase_connect from "./js/supabase/supabase_connect.js";
+import open_close_employees_painel_diary from "./js/useCases/employees/open_close_employees_painel_diary.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const db = supabase_connect(window.supabase);
@@ -33,4 +34,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_close_employees_painel_goals();
     open_close_admins_painel(employees);
     open_close_admins_painel_goals(db);
+    open_close_employees_painel_diary();
 });

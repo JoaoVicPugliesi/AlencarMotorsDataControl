@@ -6,10 +6,8 @@
     --btn-color: #000000;
     --text-color: #80162d;
     --anchors-selected-color: #666666;
-
     --green-color: #176B4D;
     --gold-color: #D4AF37;
-
     --text-font-1: 'Outfit', sans-serif;
 }
 
@@ -26,7 +24,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
     color: var(--background-color);
     overflow: none;
 }
@@ -34,7 +31,7 @@
 .employees-main-slider, .admins-main-slider {
     display: flex;
     gap: 1.5rem;
-    width: 80%;
+    width: 100%;
     max-width: max-content;
     padding: 1rem;
     overflow-x: auto;

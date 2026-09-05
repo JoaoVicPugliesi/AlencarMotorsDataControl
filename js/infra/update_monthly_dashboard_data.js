@@ -28,7 +28,13 @@ async function update_monthly_dashboard_data(id, db) {
     const { data: result, error } = await db
         .from('employee_daily_stats')
         .upsert (
-            data,
+            {
+                diary: {
+                    "title": "No title",
+                    "description": "No description"
+                },
+                ...data
+            },
             {
                 onConflict: 'employee_id,date'
             }

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --background-color-2: #2596be;
+    --btn-color: #000000;
+    --text-color: #80162d;
+    --anchors-selected-color: #666666;
+    --green-color: #176B4D;
+    --gold-color: #D4AF37;
+    --text-font-1: 'Outfit', sans-serif;
+}
+
+.employees-main-painel-commands button,
+.employees-main-painel-goals-commands button,
+.employees-main-painel-commands button,
+.dashboard-display-commands button,
+.admins-main-painel-commands button,
+.admins-main-painel-goals-commands button,
+.dashboard-painel-commands button,
+.dashboard-period-commands button,
+.diary-commands button {
+    border: none;
+    padding: 0.7rem 1.8rem;
+    background: var(--text-color);
+    color: white;
+    border-radius: 3px;
+    font-family: var(--text-font-1);
+    font-size: clamp(0.7rem, 1.5vw, 0.8125rem);
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+    text-transform: uppercase;
+}
+
+.employees-main-painel-commands button:hover,
+.employees-main-painel-goals-commands button:hover,
+.employees-main-painel-commands button:hover,
+.dashboard-display-commands button:hover,
+.admins-main-painel-commands button:hover,
+.admins-main-painel-goals-commands button:hover,
+.dashboard-painel-commands button:hover,
+.dashboard-period-commands button:hover,
+.diary-commands button:hover {
+    opacity: 0.9;
+    transform: translateY(2px);
+}
+
+.employees-main-painel-commands button:active,
+.employees-main-painel-goals-commands button:active,
+.employees-main-painel-commands button:active,
+.dashboard-display-commands button:active,
+.admins-main-painel-commands button:active,
+.admins-main-painel-goals-commands button:active,
+.dashboard-painel-commands button:active,
+.dashboard-period-commands button:active,
+.diary-commands button:active {
+    transform: translateY(0);
+}
+
+.admins-main-painel-commands button {
+    background: var(--background-color-2);
+}
+
+.employees-main-painel-commands,
+.admins-main-painel-commands,
+.admins-main-painel-commands,
+.admins-main-painel-goals-commands,
+.dashboard-painel-commands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.employees-main-painel-commands button,
+.employees-main-painel-goals-commands button,
+.dashboard-commands button,
+.admins-main-painel-commands button,
+.admins-main-painel-goals-commands button,
+.dashboard-graph-painel-commands button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    width: 8rem;
+}

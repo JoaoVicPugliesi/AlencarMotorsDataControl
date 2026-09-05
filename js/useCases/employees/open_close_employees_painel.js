@@ -24,6 +24,7 @@ async function open_employees_painel_helper(employees, db, btn) {
             `Olá, ${employee.name}. Esses são seus dados.`;
         const painel = document.querySelector('.employees-main-painel');
         const data = await select_monthly_dashboard_data(id, db);
+        console.log(data);
         make_employees_painel(data, id);
         painel.classList.add('opened');
         await new Promise(requestAnimationFrame);

@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/admins.css">
     <link rel="stylesheet" href="css/painel.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/messages.css">
+    <link rel="stylesheet" href="css/diary.css">
+    <link rel="stylesheet" href="css/commands.css">
     <link rel="stylesheet" href="css/responsivity.css">
     <link rel="shortcut icon" href="images/alencar_motors_logo.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/3acfdd9ae5.js" crossorigin="anonymous"></script>
@@ -52,6 +53,21 @@
         <section id="employees" draggable="false">
             <div class="employees-main" draggable="false">
                 <div class="employees-main-painel">
+                    <div class="employees-main-painel-diary">
+                        <div class="diary-page">
+                            <div class="diary-header">
+                                <span class="diary-label">DIÁRIO</span>
+                                <span class="diary-date">05 DE SETEMBRO, 2026</span>
+                            </div>
+                            <input class="employees-main-painel-diary-title" type="text" placeholder="Título do dia...">
+                            <textarea class="employees-main-painel-diary-description"
+                                placeholder="Escreva sobre o seu dia..."></textarea>
+                            <div class="diary-commands">
+                                <button class="diary-comeback-command">VOLTAR</button>
+                                <button class="diary-save-command">SALVAR</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="employees-main-painel-goals">
                         <div class="employees-main-painel-goals-name">
                             <h3>Meta</h3>
@@ -64,13 +80,12 @@
                     <div class="employees-main-painel-name">
                         <h3></h3>
                     </div>
-                    <div class="employees-main-painel-display">
-
-                    </div>
+                    <div class="employees-main-painel-display"></div>
                     <div class="employees-main-painel-commands">
                         <button class="employees-main-painel-comeback-command">Voltar</button>
                         <button class="employees-main-painel-dashboard-command">Dashboard</button>
                         <button class="employees-main-painel-goals-command">Metas</button>
+                        <button class="employees-main-painel-diary-command">Diário</button>
                         <button class="employees-main-painel-save-command">Salvar</button>
                     </div>
                 </div>
