@@ -22,10 +22,7 @@ function filter_employee(employee, employees, data, type) {
 
     if (!dashboard_completeness) return;
 
-    const goals_object =
-        JSON.parse(
-            localStorage.getItem('dashboard_goals')
-        );
+    const { goals_object } = JSON.parse(localStorage.getItem('dashboard_goals'));
 
     dashboard_header.forEach((component) => {
         component.classList.remove('filtered');

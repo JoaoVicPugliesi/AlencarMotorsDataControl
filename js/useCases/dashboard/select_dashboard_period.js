@@ -3,7 +3,7 @@ import fetch_all_period_data from "../../infra/fetch_all_period_data.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
-async function update_dashboard_period(employees, db, type) {
+async function select_dashboard_period(employees, db, type) {
     const dashboard = document.querySelector(
         `.dashboard[data-dashboard="${type}"]`
     );
@@ -55,4 +55,4 @@ async function update_dashboard_period(employees, db, type) {
     );
 }
 
-export default update_dashboard_period;
+export default select_dashboard_period;
