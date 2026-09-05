@@ -128,7 +128,8 @@
         font-size: 0.7rem;
     }
 
-    .employee, .admin {
+    .employee,
+    .admin {
         flex: 0 0 10rem;
         height: 20rem;
         background: var(--background-color);
@@ -136,7 +137,8 @@
         scroll-snap-align: start;
     }
 
-    .dashboard-content, .dashboard-header {
+    .dashboard-content,
+    .dashboard-header {
         flex-direction: column;
     }
 
@@ -146,6 +148,7 @@
 }
 
 @media (max-width: 300px) {
+
     .home-main-header h3,
     .employees-main-header h3,
     .employees-main-painel-name h3,

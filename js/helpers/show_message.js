@@ -4,10 +4,18 @@ import error from "../components/messages/error.js";
 async function show_message(parent, mode, message) {
     let component;
     if (mode === 'success') {
-        component = success(message);
+        component = `
+        <div class="message-holder">
+            ${success(message)}
+        </div>
+        `;
     }
     if (mode === 'error') {
-        component = error(message);
+        component = `
+        <div class="message-holder">
+            ${error(message)}
+        </div>
+        `;
     }
     if (!component) return;
     parent.insertAdjacentHTML('beforeend', component);
@@ -16,7 +24,9 @@ async function show_message(parent, mode, message) {
         message_element.classList.add('active');
     });
     setTimeout(() => {
-        message_element.classList.remove('active');
+        requestAnimationFrame(() => {
+            message_element.classList.remove('active');
+        });
         setTimeout(() => { message_element.remove(); }, 1000);
     }, 3000);
 }
