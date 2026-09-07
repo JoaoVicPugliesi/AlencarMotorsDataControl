@@ -1,7 +1,8 @@
 import counters from "../../../data/counters.js";
 import get_now from "../../helpers/get_now.js";
+import open_close_employees_painel_diary from "./open_close_employees_painel_diary.js";
 
-function make_employees_painel(data) {
+function make_employees_painel(id, db, data) {
     const table = document.querySelector('.employees-main-painel-display');
     table.innerHTML = '';
     const t_head = document.createElement('thead');
@@ -34,11 +35,24 @@ function make_employees_painel(data) {
     for (let day = 1; day <= days_in_month; day++) {
         const th = document.createElement('th');
 
-        th.classList.add('th');
-        th.textContent = day;
+        const formatted_month = String(month).padStart(2, '0');
+        const formatted_day = String(day).padStart(2, '0');
 
+        const date = `${year}-${formatted_month}-${formatted_day}`;
+
+        th.textContent = day;
+        th.classList.add('th');
+        
         if (day !== brazil_day) {
             th.classList.add('disabled-day');
+            open_close_employees_painel_diary(
+                id, 
+                db,
+                th,
+                'read',
+                data,
+                date
+            );
         }
 
         header_row.appendChild(th);

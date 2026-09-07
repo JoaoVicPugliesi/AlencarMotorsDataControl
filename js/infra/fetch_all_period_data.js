@@ -1,10 +1,10 @@
-import handle_date_parts from "../helpers/handle_date_parts.js";
+import handle_period from "../helpers/handle_period.js";
 
 async function fetch_all_period_data(db, initial_day = null, final_day = null) {
     const {
         initial_day: formatted_initial_day,
         final_day: formatted_final_day
-    } = handle_date_parts(initial_day, final_day);
+    } = handle_period(initial_day, final_day);
     console.log('Fetching data for period:', formatted_initial_day, formatted_final_day);
     const { data, error } = await db
         .from('employee_daily_stats')

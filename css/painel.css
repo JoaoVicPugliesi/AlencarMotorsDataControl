@@ -27,11 +27,19 @@
 }
 
 .th.disabled-day, .td.disabled-day {
-    pointer-events: none;
     background: #eee;
     color: #999;
-    cursor: not-allowed;
 }
+
+.th.disabled-day {
+    cursor: pointer;   
+}
+
+.td.disabled-day {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 
 .employees-main-painel-name, .employees-main-painel-goals-name {
     text-align: center;

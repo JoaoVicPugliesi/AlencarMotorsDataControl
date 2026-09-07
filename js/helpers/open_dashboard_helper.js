@@ -1,7 +1,7 @@
 import find_employee from "../helpers/find_employee.js";
 import make_dashboard from "./make_dashboard.js";
 import select_monthly_dashboard_data from "..infra/select_monthly_dashboard_data.js";
-import update_monthly_dashboard_data from "../infra/update_monthly_dashboard_data.js";
+import update_daily_dashboard_data from "../infra/update_daily_dashboard_data.js";
 
 async function open_dashboard_helper(employees, db, btn) {
     const html = document.querySelector('.html');
@@ -39,7 +39,7 @@ async function open_dashboard_helper(employees, db, btn) {
         document.querySelector('.dashboard-save-command');
 
     save_btn.addEventListener('click', async () => {
-        await update_monthly_dashboard_data(id, db);
+        await update_daily_dashboard_data(id, db);
     });
 }
 

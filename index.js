@@ -34,5 +34,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_close_employees_painel_goals();
     open_close_admins_painel(employees);
     open_close_admins_painel_goals(db);
-    open_close_employees_painel_diary();
 });

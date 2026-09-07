@@ -1,6 +1,6 @@
 import get_now from "./get_now.js";
 
-function handle_date_parts(initial_day = null, final_day = null) {
+function handle_period(initial_day = null, final_day = null) {
 
     if (initial_day && final_day) {
         return {
@@ -41,4 +41,4 @@ function handle_date_parts(initial_day = null, final_day = null) {
     };
 }
 
-export default handle_date_parts;
+export default handle_period;
