@@ -10,10 +10,6 @@ const counter_groups = {
             label: 'LEADS CARCHAT'
         },
         {
-            code: 'leads_served',
-            label: 'LEADS RECEBIDOS'
-        },
-        {
             code: 'leads_served_spoken',
             label: 'LEADS ATD/FALADO'
         }
@@ -75,7 +71,6 @@ const counter_group_map = {
 
     leads_crm: 'leads',
     leads_carchat: 'leads',
-    leads_served: 'leads',
     leads_served_spoken: 'leads',
 
     prospection: 'prospection',

@@ -1,10 +1,12 @@
 import find_employee from "../../helpers/find_employee.js";
 import scroll_to_section from "../../helpers/scroll_to_section.js";
+import show_message from "../../helpers/show_message.js";
 
 async function open_admins_main_painel_helper(employees, btn) {
     const html = document.querySelector('.html');
     const home_header = document.querySelector('.home-header');
     const admins_main_painel_header = document.querySelector('.admins-main-painel-header h3');
+    const admins_main = document.querySelector('.admins_main')
     const id = btn.getAttribute('data-id');
     const employee = find_employee(id, employees);
     if (!employee) return;
@@ -12,7 +14,10 @@ async function open_admins_main_painel_helper(employees, btn) {
     const input = confirm.querySelector(
         '.admin-main-confirm-input input'
     );
-    if (employee.password !== input.value) return;
+    if (employee.password !== input.value) {
+        show_message(admins_main, 'error', 'Senha inválida');
+        return
+    };
     input.value = '';
     admins_main_painel_header.textContent = `Olá, ${employee.name}. Você é responsável por definir metas e guiar todos os funcionários.`;
     const painel = document.querySelector('.admins-main-painel');

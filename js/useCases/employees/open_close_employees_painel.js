@@ -5,12 +5,14 @@ import select_monthly_dashboard_data from "../../infra/select_monthly_dashboard_
 import open_close_employees_painel_diary from "./open_close_employees_painel_diary.js";
 import get_current_date from "../../helpers/get_current_date.js";
 import update_daily_dashboard_data from "../../infra/update_daily_dashboard_data.js";
+import show_message from "../../helpers/show_message.js";
 
 async function open_employees_painel_helper(employees, db, btn) {
     const html = document.querySelector('.html');
     const home_header = document.querySelector('.home-header');
     const id = btn.getAttribute('data-id');
     const employee = find_employee(id, employees);
+    const employees_main = document.querySelector('.employees-main');
     if (!employee) return;
     const confirm = btn.closest('.employee-main-confirm');
     const input = confirm.querySelector(
@@ -18,7 +20,7 @@ async function open_employees_painel_helper(employees, db, btn) {
     );
     const admins = employees.filter((employee) => employee.role === 'admin');
     const admin_passwords = admins.map((admin) => admin.password);
-    if (employee.password === input.value || admin_passwords.includes(input.value)) {
+    if (employee.password == input.value || admin_passwords.includes(input.value)) {
         input.value = '';
         const employee_dashboard_name =
         document.querySelector('.employees-main-painel-name h3');
@@ -47,7 +49,10 @@ async function open_employees_painel_helper(employees, db, btn) {
         save_btn.addEventListener('click', async () => {
             await update_daily_dashboard_data(id, db);
         });
-    };
+    } else {
+        show_message(employees_main, 'error', 'Senha inválida');
+        return;
+    }
 }
 
 function open_employees_painel(employees, db) {

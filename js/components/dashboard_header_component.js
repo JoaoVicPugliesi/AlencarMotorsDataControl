@@ -1,4 +1,4 @@
-function dashboard_header_component(name, code, total, percentage) {
+function dashboard_header_component(name, code, total) {
     return `
         <div class="dashboard-header-component" data-total="${total}" data-code="${code}">
             <div >
@@ -6,9 +6,6 @@ function dashboard_header_component(name, code, total, percentage) {
             </div>
             <div>
                 <h3>${total}</h3>
-            </div>
-            <div>
-                <span>0%</span>
             </div>
         </div>
     `

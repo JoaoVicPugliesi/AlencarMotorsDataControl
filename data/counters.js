@@ -8,10 +8,6 @@ const counters = [
         code: 'leads_carchat'
     },
     {
-        name: 'LEADS RECEBIDOS',
-        code: 'leads_served'
-    },
-    {
         name: 'LEADS ATD/FALADO',
         code: 'leads_served_spoken'
     },

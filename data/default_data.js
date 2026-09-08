@@ -5,7 +5,6 @@ const default_data = [
         date: null,
         leads_crm: 0,
         leads_carchat: 0,
-        leads_served: 0,
         leads_served_spoken: 0,
         passersby: 0,
         prospection: 0,
