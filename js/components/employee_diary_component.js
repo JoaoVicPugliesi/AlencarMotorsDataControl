@@ -15,6 +15,7 @@ function employee_diary_component(mode, date, diary) {
             >
             <textarea
                 class="employees-main-painel-diary-description"
+                maxlength="1000"
             >${description}</textarea>
             <div class="diary-commands">
                 <button class="diary-comeback-command">

@@ -34,7 +34,7 @@ async function open_employees_painel_helper(employees, db, btn) {
         const current_date = get_current_date();
         const table = document.querySelector('.employees-main-painel-display');
         const container = document.querySelector('.employees-main-painel-diary');
-        make_employees_painel(id, db, data, table, container, 'sale');
+        make_employees_painel(id, db, data, table, container, painel, 'sale');
         const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
         open_close_diary(
             id,
@@ -43,7 +43,8 @@ async function open_employees_painel_helper(employees, db, btn) {
             'write',
             data,
             current_date,
-            container
+            container,
+            painel
         );
         painel.classList.add('opened');
         await new Promise(requestAnimationFrame);

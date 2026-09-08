@@ -25,11 +25,11 @@ async function save_daily_diary(id, db, diary) {
         return false;
     }
 
-    if (description.length < 50 || description.length > 500) {
+    if (description.length < 50 || description.length > 1000) {
         show_message(
             diary_container,
             'error',
-            'A descrição deve ter entre 50 e 500 caracteres'
+            'A descrição deve ter entre 50 e 1000 caracteres'
         );
         return false;
     }
