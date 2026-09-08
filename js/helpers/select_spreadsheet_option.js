@@ -9,7 +9,8 @@ function select_spreadsheet_option (db) {
             options.forEach((i) => i.classList.remove('active'));
             const id = Number(o.getAttribute('data-id'));
             const data = await select_monthly_dashboard_data(id, db);
-            make_employees_painel(id, db, data, spreadsheets, 'admins-main-painel-spreadsheets-diary', 'admins-main-painel', 'admin');
+            const container = document.querySelector('.admins-main-painel-spreadsheets-diary')
+            make_employees_painel(id, db, data, spreadsheets, container, 'admin');
             o.classList.add('active');
         });
     });

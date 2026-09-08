@@ -1,18 +1,13 @@
 import employee_diary_component from "../components/employee_diary_component.js";
 import get_current_date from "./get_current_date.js";
-import show_message from "./show_message.js";
 import save_daily_diary from "../infra/save_daily_diary.js";
 import select_monthly_dashboard_data from "../infra/select_monthly_dashboard_data.js";
 
-function open_close_diary(id, db, el, mode, data, date, container_class, painel_class) {
-    const container = document.querySelector(`.${container_class}`);
-    const painel = document.querySelector(`.${painel_class}`);
+function open_close_diary(id, db, el, mode, data, date, container) {
     el.removeEventListener('click', () => {});
     el.addEventListener('click', () => {
-
         const daily_data = data.find(item => item.date === date);
         if (!daily_data) {
-            show_message(painel, 'error', `Sem dados para ${date.split('-').reverse().join('-')}`)
             return;
         }
 
@@ -37,6 +32,7 @@ function open_close_diary(id, db, el, mode, data, date, container_class, painel_
         );
 
         if (save) {
+            save.removeEventListener('click', () => {})
             save.addEventListener('click', async () => {
                 const title = document.querySelector('.employees-main-painel-diary-title').value;
                 const description = document.querySelector('.employees-main-painel-diary-description').value;
@@ -56,8 +52,7 @@ function open_close_diary(id, db, el, mode, data, date, container_class, painel_
                     'write',
                     data,
                     current_date,
-                    container,
-                    painel
+                    container
                 );
             });
         }
