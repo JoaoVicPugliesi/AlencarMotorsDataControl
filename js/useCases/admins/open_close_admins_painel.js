@@ -12,7 +12,7 @@ async function open_admins_main_painel_helper(employees, btn) {
     const input = confirm.querySelector(
         '.admin-main-confirm-input input'
     );
-    if (Number(employee.password) !== Number(input.value)) return;
+    if (employee.password !== input.value) return;
     input.value = '';
     admins_main_painel_header.textContent = `Olá, ${employee.name}. Você é responsável por definir metas e guiar todos os funcionários.`;
     const painel = document.querySelector('.admins-main-painel');

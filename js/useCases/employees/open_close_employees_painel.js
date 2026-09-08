@@ -17,8 +17,8 @@ async function open_employees_painel_helper(employees, db, btn) {
         '.employee-main-confirm-input input'
     );
     const admins = employees.filter((employee) => employee.role === 'admin');
-    const admin_passwords = admins.map((admin) => Number(admin.password));
-    if (Number(employee.password) === Number(input.value) || admin_passwords.includes(Number(input.value))) {
+    const admin_passwords = admins.map((admin) => admin.password);
+    if (employee.password === input.value || admin_passwords.includes(input.value)) {
         input.value = '';
         const employee_dashboard_name =
         document.querySelector('.employees-main-painel-name h3');
@@ -28,7 +28,7 @@ async function open_employees_painel_helper(employees, db, btn) {
         const data = await select_monthly_dashboard_data(id, db);
         const current_date = get_current_date();
         make_employees_painel(id, db, data, id);
-        await update_daily_dashboard_data(id, db);
+        // await update_daily_dashboard_data(id, db);
         const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
         open_close_employees_painel_diary(
             id,

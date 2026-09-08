@@ -43,7 +43,6 @@ async function select_dashboard_period(employees, db, type) {
                     initial_date,
                     final_date
                 );
-            console.log(period_data);
             make_dashboard_header(period_data, type);
             filter_dashboard_header(employees, period_data, type);
             dashboard_header_period.textContent = `${initial_day} - ${final_day}`;

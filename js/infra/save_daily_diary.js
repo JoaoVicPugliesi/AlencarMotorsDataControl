@@ -7,6 +7,14 @@ async function save_daily_diary(id, db, diary) {
 
     const title = diary.title;
     const description = diary.description;
+    if (title.length == '' || title.length == '') {
+        show_message(
+            diary_container,
+            'error',
+            'Os campos precisam ser preenchidos'
+        );
+        return false;
+    }
 
     if (title.length < 5 || title.length > 25) {
         show_message(
@@ -56,7 +64,6 @@ async function save_daily_diary(id, db, diary) {
             'Falhou em atualizar o diário'
         );
 
-        console.log(error);
         return false;
     }
 
