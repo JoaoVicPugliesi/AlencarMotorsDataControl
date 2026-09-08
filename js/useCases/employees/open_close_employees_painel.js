@@ -2,7 +2,7 @@ import find_employee from "../../helpers/find_employee.js";
 import scroll_to_section from "../../helpers/scroll_to_section.js";
 import make_employees_painel from "./make_employees_painel.js";
 import select_monthly_dashboard_data from "../../infra/select_monthly_dashboard_data.js";
-import open_close_employees_painel_diary from "./open_close_employees_painel_diary.js";
+import open_close_diary from "../../helpers/open_close_diary.js";
 import get_current_date from "../../helpers/get_current_date.js";
 import update_daily_dashboard_data from "../../infra/update_daily_dashboard_data.js";
 import show_message from "../../helpers/show_message.js";
@@ -33,15 +33,17 @@ async function open_employees_painel_helper(employees, db, btn) {
         const data = await select_monthly_dashboard_data(id, db);
         const current_date = get_current_date();
         const table = document.querySelector('.employees-main-painel-display');
-        make_employees_painel(id, db, data, table);
+        make_employees_painel(id, db, data, table, 'employees-main-painel-diary', 'employees-main-painel', 'sale');
         const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
-        open_close_employees_painel_diary(
+        open_close_diary(
             id,
             db,
             employees_main_painel_diary_command,
             'write',
             data,
-            current_date
+            current_date,
+            'employees-main-painel-diary',
+            'employees-main-painel',
         );
         painel.classList.add('opened');
         await new Promise(requestAnimationFrame);

@@ -12,7 +12,7 @@
     --diary-color: #F3E9D2;
 }
 
-.employees-main-painel-diary {
+.employees-main-painel-diary, .admins-main-painel-spreadsheets-diary {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,7 +28,7 @@
     z-index: 10;
 }
 
-.employees-main-painel-diary.opened {
+.employees-main-painel-diary.opened, .admins-main-painel-spreadsheets-diary.opened {
     left: 0;
 }
 

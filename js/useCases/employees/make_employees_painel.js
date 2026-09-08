@@ -1,8 +1,8 @@
 import counters from "../../../data/counters.js";
 import get_now from "../../helpers/get_now.js";
-import open_close_employees_painel_diary from "./open_close_employees_painel_diary.js";
+import open_close_diary from "../../helpers/open_close_diary.js";
 
-function make_employees_painel(id, db, data, table) {
+function make_employees_painel(id, db, data, table, container, painel, role) {
     table.innerHTML = '';
     const t_head = document.createElement('thead');
     const header_row = document.createElement('tr');
@@ -44,13 +44,15 @@ function make_employees_painel(id, db, data, table) {
         
         if (day !== brazil_day) {
             th.classList.add('disabled-day');
-            open_close_employees_painel_diary(
+            open_close_diary(
                 id, 
                 db,
                 th,
                 'read',
                 data,
-                date
+                date,
+                container,
+                painel
             );
         }
 
@@ -85,7 +87,7 @@ function make_employees_painel(id, db, data, table) {
 
             cell.textContent = value ?? 0;
 
-            if (day === brazil_day) {
+            if (day === brazil_day && role === 'sale') {
                 cell.contentEditable = 'true';
                 cell.dataset.editable = 'true';
             } else {

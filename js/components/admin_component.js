@@ -34,7 +34,7 @@ function admin_component(id, name, image) {
             </div>
             <div class="admin-img">
                 <img 
-                    src="images/employees/${image}.jpg" 
+                    src="https://res.cloudinary.com/dibxo0toz/image/upload/v1788890942/${image}.jpg" 
                     alt="" 
                     draggable="false"
                 >

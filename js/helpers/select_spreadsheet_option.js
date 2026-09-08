@@ -1,5 +1,5 @@
-import select_monthly_dashboard_data from "../../infra/select_monthly_dashboard_data.js";
-import make_employees_painel from "../employees/make_employees_painel.js";
+import select_monthly_dashboard_data from "../infra/select_monthly_dashboard_data.js";
+import make_employees_painel from "../useCases/employees/make_employees_painel.js";
 
 function select_spreadsheet_option (db) {
     const options = document.querySelectorAll('.admins-main-painel-spreadsheets-header button');
@@ -9,7 +9,7 @@ function select_spreadsheet_option (db) {
             options.forEach((i) => i.classList.remove('active'));
             const id = Number(o.getAttribute('data-id'));
             const data = await select_monthly_dashboard_data(id, db);
-            make_employees_painel(id, db, data, spreadsheets);
+            make_employees_painel(id, db, data, spreadsheets, 'admins-main-painel-spreadsheets-diary', 'admins-main-painel', 'admin');
             o.classList.add('active');
         });
     });

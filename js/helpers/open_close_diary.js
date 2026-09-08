@@ -1,42 +1,38 @@
-import employee_diary_component from "../../components/employee_diary_component.js";
-import get_current_date from "../../helpers/get_current_date.js";
-import show_message from "../../helpers/show_message.js";
-import save_daily_diary from "../../infra/save_daily_diary.js";
-import select_monthly_dashboard_data from "../../infra/select_monthly_dashboard_data.js";
+import employee_diary_component from "../components/employee_diary_component.js";
+import get_current_date from "./get_current_date.js";
+import show_message from "./show_message.js";
+import save_daily_diary from "../infra/save_daily_diary.js";
+import select_monthly_dashboard_data from "../infra/select_monthly_dashboard_data.js";
 
-function open_close_employees_painel_diary(id, db, el, mode, data, date) {
-
-    const diary_container = document.querySelector(
-        '.employees-main-painel-diary'
-    );
-    const employees_main_painel = document.querySelector('.employees-main-painel');
+function open_close_diary(id, db, el, mode, data, date, container_class, painel_class) {
+    const container = document.querySelector(`.${container_class}`);
+    const painel = document.querySelector(`.${painel_class}`);
     el.removeEventListener('click', () => {});
     el.addEventListener('click', () => {
 
         const daily_data = data.find(item => item.date === date);
         if (!daily_data) {
-            show_message(employees_main_painel, 'error', `Sem dados para ${date.split('-').reverse().join('-')}`)
+            show_message(painel, 'error', `Sem dados para ${date.split('-').reverse().join('-')}`)
             return;
         }
 
-        diary_container.innerHTML = employee_diary_component(
+        container.innerHTML = employee_diary_component(
             mode,
             daily_data.date,
             daily_data.diary
         );
 
-        diary_container.classList.add('opened');
+        container.classList.add('opened');
 
-        const comeback = diary_container.querySelector(
+        const comeback = container.querySelector(
             '.diary-comeback-command'
         );
 
-
         comeback.addEventListener('click', () => {
-            diary_container.classList.remove('opened');
+            container.classList.remove('opened');
         });
 
-        const save = diary_container.querySelector(
+        const save = container.querySelector(
             '.diary-save-command'
         );
 
@@ -53,17 +49,19 @@ function open_close_employees_painel_diary(id, db, el, mode, data, date) {
                 const res = await save_daily_diary(id, db, diary);
                 if (res == false) return;
                 const data = await select_monthly_dashboard_data(id, db);
-                open_close_employees_painel_diary(
+                open_close_diary(
                     id,
                     db,
                     employees_main_painel_diary_command,
                     'write',
                     data,
-                    current_date
+                    current_date,
+                    container,
+                    painel
                 );
             });
         }
     });
 }
 
-export default open_close_employees_painel_diary;
+export default open_close_diary;

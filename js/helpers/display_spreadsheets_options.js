@@ -1,4 +1,6 @@
-function display_spreadsheets_options (employees) {
+import select_spreadsheet_option from "./select_spreadsheet_option.js";
+
+function display_spreadsheets_options (db, employees) {
     const header = document.querySelector('.admins-main-painel-spreadsheets-header');
     header.innerHTML = '';
     employees.forEach((e) => {
@@ -10,6 +12,8 @@ function display_spreadsheets_options (employees) {
             `
         }
     })
+
+    select_spreadsheet_option(db);
 }
 
 export default display_spreadsheets_options;

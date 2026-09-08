@@ -35,6 +35,7 @@
         transform 0.15s ease,
         opacity 0.15s ease;
     text-transform: uppercase;
+    user-select: none;
 }
 
 .employees-main-painel-commands button:hover,
