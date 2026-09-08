@@ -32,7 +32,8 @@ async function open_employees_painel_helper(employees, db, btn) {
         }
         const data = await select_monthly_dashboard_data(id, db);
         const current_date = get_current_date();
-        make_employees_painel(id, db, data, id);
+        const table = document.querySelector('.employees-main-painel-display');
+        make_employees_painel(id, db, data, table);
         const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
         open_close_employees_painel_diary(
             id,

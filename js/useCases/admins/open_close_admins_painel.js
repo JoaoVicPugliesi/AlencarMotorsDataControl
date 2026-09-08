@@ -6,7 +6,7 @@ async function open_admins_main_painel_helper(employees, btn) {
     const html = document.querySelector('.html');
     const home_header = document.querySelector('.home-header');
     const admins_main_painel_header = document.querySelector('.admins-main-painel-header h3');
-    const admins_main = document.querySelector('.admins_main')
+    const admins_main = document.querySelector('.admins-main');
     const id = btn.getAttribute('data-id');
     const employee = find_employee(id, employees);
     if (!employee) return;

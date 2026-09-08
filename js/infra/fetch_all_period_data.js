@@ -15,20 +15,15 @@ async function fetch_all_period_data(db, initial_day = null, final_day = null) {
         });
 
     if (error) {
-        console.error(
-            'Error getting dashboard data:',
-            error
-        );
-
-        return null;
+        return false;
     }
 
-    const splited_reversed_formatted_initial_day = formatted_initial_day.split('-').reverse();
-    const splited_reversed_formatted_final_day = formatted_final_day.split('-').reverse();
+    const splited_reversed_formatted_initial_day = formatted_initial_day.split('-').reverse().join('-');
+    const splited_reversed_formatted_final_day = formatted_final_day.split('-').reverse().join('-');
     return {
         data: data,
-        initial_day: splited_reversed_formatted_initial_day.join('-'),
-        final_day: splited_reversed_formatted_final_day.join('-')
+        initial_day: splited_reversed_formatted_initial_day,
+        final_day: splited_reversed_formatted_final_day
     };
 }
 

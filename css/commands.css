@@ -19,7 +19,8 @@
 .admins-main-painel-goals-commands button,
 .dashboard-painel-commands button,
 .dashboard-period-commands button,
-.diary-commands button {
+.diary-commands button, 
+.admins-main-painel-spreadsheets-commands button {
     border: none;
     padding: 0.7rem 1.8rem;
     background: var(--text-color);
@@ -44,7 +45,8 @@
 .admins-main-painel-goals-commands button:hover,
 .dashboard-painel-commands button:hover,
 .dashboard-period-commands button:hover,
-.diary-commands button:hover {
+.diary-commands button:hover,
+.admins-main-painel-spreadsheets-commands button:hover {
     opacity: 0.9;
     transform: translateY(2px);
 }
@@ -57,7 +59,8 @@
 .admins-main-painel-goals-commands button:active,
 .dashboard-painel-commands button:active,
 .dashboard-period-commands button:active,
-.diary-commands button:active {
+.diary-commands button:active, 
+.admins-main-painel-spreadsheets-commands button:active {
     transform: translateY(0);
 }
 
@@ -66,10 +69,12 @@
 }
 
 .employees-main-painel-commands,
-.admins-main-painel-commands,
+.employees-main-painel-goals-commands,
 .admins-main-painel-commands,
 .admins-main-painel-goals-commands,
-.dashboard-painel-commands {
+.dashboard-painel-commands,
+.dashboard-graph-painel-commands,
+.admins-main-painel-spreadsheets-commands {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,13 +87,13 @@
 
 .employees-main-painel-commands button,
 .employees-main-painel-goals-commands button,
-.dashboard-commands button,
 .admins-main-painel-commands button,
 .admins-main-painel-goals-commands button,
-.dashboard-graph-painel-commands button {
+.dashboard-painel-commands button,
+.dashboard-graph-painel-commands button,
+.admins-main-painel-spreadsheets-commands button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: max-content;
     width: 8rem;
 }

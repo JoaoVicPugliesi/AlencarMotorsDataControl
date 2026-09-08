@@ -4,7 +4,6 @@ async function fetch_employees_data(db) {
         .select('*');
 
     if (error) {
-        console.error('Error fetching employees:', error);
         return [];
     }
 

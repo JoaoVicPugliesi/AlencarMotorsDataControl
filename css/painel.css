@@ -49,7 +49,7 @@
     text-transform: uppercase;
 }
 
-.employees-main-painel-display, .employees-main-painel-goals-display, .admins-main-painel-goals-display {
+.employees-main-painel-display, .employees-main-painel-goals-display, .admins-main-painel-goals-display, .admins-main-painel-spreadsheets-display {
     color: var(--background-color);
     font-family: var(--text-font-1);
     text-transform: uppercase;
@@ -64,6 +64,7 @@
     scroll-behavior: smooth;
     scrollbar-width: none;
     justify-content: start;
+    
 }
 
 .employees-main-painel.opened, .employees-main-painel-goals.opened, .dashboard.opened, .dashboard-painel.opened, .admins-main-painel-goals.opened {
@@ -75,7 +76,9 @@
 .employees-main-painel-goals-display th,
 .employees-main-painel-goals-display td,
 .admins-main-painel-goals-display th,
-.admins-main-painel-goals-display td {
+.admins-main-painel-goals-display td,
+.admins-main-painel-spreadsheets-display th, 
+.admins-main-painel-spreadsheets-display td {
     border: 1px solid #333;
     height: 42px;
     padding: 0 10px;
@@ -87,13 +90,13 @@
 }
 
 .employees-main-painel-display thead th, .employees-main-painel-goals-display thead th,
-.admins-main-painel-goals-display thead th {
+.admins-main-painel-goals-display thead th, .admins-main-painel-spreadsheets-display th {
     top: 0;
     background: var(--background-color-2);
     background: var(--text-color);
 }
 
-.employees-main-painel-display tbody th, .employees-main-painel-goals-display tbody th, .admins-main-painel-goals-display tbody th {
+.employees-main-painel-display tbody th, .employees-main-painel-goals-display tbody th, .admins-main-painel-goals-display tbody th, .admins-main-painel-spreadsheets-display tbody th {
     background: var(--background-color-2);
     left: 0;
     min-width: 10rem;
@@ -104,18 +107,22 @@ th {
 }
 
 .employees-main-painel-goals-display td:last-child,
-.admins-main-painel-goals-display td:last-child {
+.admins-main-painel-goals-display td:last-child,
+.admins-main-painel-spreadsheets-display th:last-child {
     text-align: left;
 }
 
 .employees-main-painel-display td,
 .employees-main-painel-goals-display td,
-.admins-main-painel-goals-display td{
+.admins-main-painel-goals-display td, 
+.admins-main-painel-spreadsheets-display td {
     background: var(--text-color);
     cursor: cell;
 }
 
-.employees-main-painel-display td:focus, .admins-main-painel-goals-display td:focus {
+.employees-main-painel-display td:focus, 
+.admins-main-painel-goals-display td:focus,
+.admins-main-painel-spreadsheets-display td:focus {
     outline: 2px solid #4285f4;
 }
 
@@ -128,10 +135,8 @@ th {
     left: -200%;
 }
 
-
 .employees-main-painel-header h2 {
     margin: 0;
     font-family: var(--text-font-1);
     font-size: 1.5rem;
 }
-

@@ -38,12 +38,7 @@ async function select_monthly_dashboard_data(id, db) {
         });
 
     if (error) {
-        console.error(
-            'Error getting dashboard data:',
-            error
-        );
-
-        return null;
+        return false;
     }
 
     return data;

@@ -2,8 +2,7 @@ import counters from "../../../data/counters.js";
 import get_now from "../../helpers/get_now.js";
 import open_close_employees_painel_diary from "./open_close_employees_painel_diary.js";
 
-function make_employees_painel(id, db, data) {
-    const table = document.querySelector('.employees-main-painel-display');
+function make_employees_painel(id, db, data, table) {
     table.innerHTML = '';
     const t_head = document.createElement('thead');
     const header_row = document.createElement('tr');

@@ -7,8 +7,7 @@ async function fetch_dashboard_goals(db) {
         .single();
 
     if (error) {
-        console.error(error);
-        return null;
+        return false;
     }
 
     return data;

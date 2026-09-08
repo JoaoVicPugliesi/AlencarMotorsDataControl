@@ -7,11 +7,13 @@ import open_close_employees_painel_goals from "./js/useCases/employees/open_clos
 import open_sandwich from "./js/helpers/open_sandwich.js";
 import open_close_admins_painel from "./js/useCases/admins/open_close_admins_painel.js";
 import open_close_admins_painel_goals from "./js/useCases/admins/open_close_admins_painel_goals.js";
-import display_employees_cards from "./js/useCases/admins/display_employees_cards.js";
-import display_admins_cards from "./js/useCases/admins/display_admins_cards.js";
 import display_dashboards from "./js/useCases/dashboard/display_dashboards.js";
 import supabase_connect from "./js/supabase/supabase_connect.js";
 import save_in_storage_dashboard_goals from "./js/useCases/dashboard/save_in_storage_dashboard_goals.js";
+import display_cards_caller from "./js/helpers/display_cards.js";
+import open_close_spreadsheets from "./js/useCases/admins/open_close_spreadsheets.js";
+import display_spreadsheets_options from "./js/helpers/display_spreadsheets_options.js";
+import select_spreadsheet_option from "./js/useCases/admins/select_spreadsheet_option.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const db = supabase_connect(window.supabase);
@@ -19,13 +21,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     open_sandwich();
     const employees = await fetch_employees_data(db);
     await save_in_storage_dashboard_goals(db);
-    display_employees_cards(employees);
-    display_admins_cards(employees);
+    display_cards_caller(employees);
     display_dashboards(employees, db);
+    display_spreadsheets_options(employees);
     toggle_input_visibility_caller();
     open_close_confirm_card();
     open_close_employees_painel(employees, db);
     open_close_employees_painel_goals();
     open_close_admins_painel(employees);
     open_close_admins_painel_goals(db);
+    open_close_spreadsheets(db);
+    select_spreadsheet_option(db);
 });

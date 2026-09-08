@@ -25,11 +25,6 @@ async function select_employee_day_record(id, db) {
         .maybeSingle();
 
     if (error) {
-        console.error(
-            'Error checking employee daily record:',
-            error
-        );
-
         return false;
     }
 

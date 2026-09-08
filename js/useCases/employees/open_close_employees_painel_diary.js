@@ -10,7 +10,7 @@ function open_close_employees_painel_diary(id, db, el, mode, data, date) {
         '.employees-main-painel-diary'
     );
     const employees_main_painel = document.querySelector('.employees-main-painel');
-
+    el.removeEventListener('click', () => {});
     el.addEventListener('click', () => {
 
         const daily_data = data.find(item => item.date === date);
