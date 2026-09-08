@@ -11,14 +11,16 @@ async function update_daily_dashboard_data(id, db) {
             timeZone: 'America/Sao_Paulo'
         }).format(new Date())
     };
-    editable_cells.forEach(cell => {
-        const row = cell.closest('tr');
-        const counter_code = row.dataset.code;
-        const value = Number(
-            cell.textContent.trim()
-        ) || 0;
-        data[counter_code] = value;
-    });
+    if(editable_cells) {
+        editable_cells.forEach(cell => {
+            const row = cell.closest('tr');
+            const counter_code = row.dataset.code;
+            const value = Number(
+                cell.textContent.trim()
+            ) || 0;
+            data[counter_code] = value;
+        });
+    }
     const { data: result, error } = await db
         .from('employee_daily_stats')
         .upsert (

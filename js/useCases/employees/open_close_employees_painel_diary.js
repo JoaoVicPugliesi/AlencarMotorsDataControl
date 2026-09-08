@@ -14,9 +14,8 @@ function open_close_employees_painel_diary(id, db, el, mode, data, date) {
     el.addEventListener('click', () => {
 
         const daily_data = data.find(item => item.date === date);
-        console.log(daily_data);
         if (!daily_data) {
-            show_message(employees_main_painel, 'error', `No data found for ${date}`)
+            show_message(employees_main_painel, 'error', `Sem dados para ${date.split('-').reverse().join('-')}`)
             return;
         }
 

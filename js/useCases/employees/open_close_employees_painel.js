@@ -6,6 +6,7 @@ import open_close_employees_painel_diary from "./open_close_employees_painel_dia
 import get_current_date from "../../helpers/get_current_date.js";
 import update_daily_dashboard_data from "../../infra/update_daily_dashboard_data.js";
 import show_message from "../../helpers/show_message.js";
+import select_employee_day_record from "../../infra/select_employee_day_record.js";
 
 async function open_employees_painel_helper(employees, db, btn) {
     const html = document.querySelector('.html');
@@ -22,15 +23,16 @@ async function open_employees_painel_helper(employees, db, btn) {
     const admin_passwords = admins.map((admin) => admin.password);
     if (employee.password == input.value || admin_passwords.includes(input.value)) {
         input.value = '';
-        const employee_dashboard_name =
-        document.querySelector('.employees-main-painel-name h3');
-        employee_dashboard_name.textContent =
-        `Olá, ${employee.name}. Esses são seus dados.`;
+        const employee_dashboard_name =document.querySelector('.employees-main-painel-name h3');
+        employee_dashboard_name.textContent = `Olá, ${employee.name}. Esses são seus dados.`;
         const painel = document.querySelector('.employees-main-painel');
+        const is_there_record = await select_employee_day_record(id, db);
+        if(!is_there_record) {
+            await update_daily_dashboard_data(id, db);
+        }
         const data = await select_monthly_dashboard_data(id, db);
         const current_date = get_current_date();
         make_employees_painel(id, db, data, id);
-        // await update_daily_dashboard_data(id, db);
         const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
         open_close_employees_painel_diary(
             id,
