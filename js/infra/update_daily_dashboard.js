@@ -1,6 +1,6 @@
 import show_message from "../helpers/show_message.js";
 
-async function update_daily_dashboard_data(id, db) {
+async function update_daily_dashboard(id, db) {
     const employees_main_painel = document.querySelector('.employees-main-painel');
     const editable_cells = document.querySelectorAll(
         '.employees-main-painel-display td[data-editable="true"]'
@@ -40,4 +40,4 @@ async function update_daily_dashboard_data(id, db) {
     return result;
 }
 
-export default update_daily_dashboard_data;
+export default update_daily_dashboard;

@@ -1,4 +1,4 @@
-async function fetch_employees_data(db) {
+async function get_employees() {
     const { data, error } = await db
         .from('employees')
         .select('*');
@@ -10,4 +10,4 @@ async function fetch_employees_data(db) {
     return data;
 }
 
-export default fetch_employees_data;
+export default get_employees;

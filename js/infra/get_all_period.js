@@ -1,6 +1,6 @@
 import handle_period from "../helpers/handle_period.js";
 
-async function fetch_all_period_data(db, initial_day = null, final_day = null) {
+async function get_all_period(db, initial_day = null, final_day = null) {
     const {
         initial_day: formatted_initial_day,
         final_day: formatted_final_day
@@ -27,4 +27,4 @@ async function fetch_all_period_data(db, initial_day = null, final_day = null) {
     };
 }
 
-export default fetch_all_period_data;
+export default get_all_period;

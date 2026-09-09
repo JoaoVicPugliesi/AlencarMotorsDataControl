@@ -1,4 +1,4 @@
-async function fetch_dashboard_goals(db) {
+async function get_dashboard_goals(db) {
     const { data, error } = await db
         .from('dashboard_goals')
         .select('*')
@@ -13,4 +13,4 @@ async function fetch_dashboard_goals(db) {
     return data;
 }
 
-export default fetch_dashboard_goals;
+export default get_dashboard_goals;

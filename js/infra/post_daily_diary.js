@@ -1,6 +1,6 @@
 import show_message from "../helpers/show_message.js";
 
-async function save_daily_diary(id, db, diary) {
+async function post_daily_diary(id, db, diary) {
     const diary_container = document.querySelector(
         '.employees-main-painel-diary'
     );
@@ -76,4 +76,4 @@ async function save_daily_diary(id, db, diary) {
     return result;
 }
 
-export default save_daily_diary;
+export default post_daily_diary;

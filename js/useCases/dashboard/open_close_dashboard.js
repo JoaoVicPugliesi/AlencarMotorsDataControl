@@ -1,5 +1,4 @@
-import get_brazil_now from "../../helpers/get_now.js";
-import fetch_all_period_data from "../../infra/fetch_all_period_data.js";
+import get_all_period from "../../infra/get_all_period.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
@@ -14,7 +13,7 @@ function open_dashboard(employees, db, type) {
         '.dashboard-header-period h3'
     );
     dashboard_command.addEventListener('click', async () => {
-        const { data: period_data, initial_day, final_day } = await fetch_all_period_data(db, null, null);
+        const { data: period_data, initial_day, final_day } = await get_all_period(db, null, null);
         make_dashboard_header(period_data, type);
         filter_dashboard_header(
             employees,

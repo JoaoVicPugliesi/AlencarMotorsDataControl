@@ -1,6 +1,6 @@
 import get_now from '../helpers/get_now.js';
 
-async function select_employee_day_record(id, db) {
+async function get_employee_day_record(id, db) {
     const parts = get_now('2-digit');
 
     const year = parts.find(
@@ -35,5 +35,5 @@ async function select_employee_day_record(id, db) {
     return false;
 }
 
-export default select_employee_day_record;
+export default get_employee_day_record;
 

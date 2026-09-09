@@ -1,6 +1,6 @@
 import get_now from '../helpers/get_now.js';
 
-async function select_monthly_dashboard_data(id, db) {
+async function get_monthly_dashboard(id, db) {
     const parts = get_now('2-digit');
 
     const year = parts.find(
@@ -44,4 +44,4 @@ async function select_monthly_dashboard_data(id, db) {
     return data;
 }
 
-export default select_monthly_dashboard_data;
+export default get_monthly_dashboard;
