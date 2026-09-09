@@ -1,5 +1,5 @@
 function employee_diary_component(mode, date, diary) {
-    let middle;
+    let commands;
     const {
         title,
         description
@@ -7,16 +7,7 @@ function employee_diary_component(mode, date, diary) {
     const splited_reversed_formatted =
         date.split('-').reverse().join('-');
     if (mode === 'write') {
-        middle = `
-            <input
-                class="employees-main-painel-diary-title"
-                type="text"
-                value="${title}"
-            >
-            <textarea
-                class="employees-main-painel-diary-description"
-                maxlength="1000"
-            >${description}</textarea>
+        commands = `
             <div class="diary-commands">
                 <button class="diary-comeback-command">
                     VOLTAR
@@ -28,13 +19,7 @@ function employee_diary_component(mode, date, diary) {
         `;
     }
     if (mode === 'read') {
-        middle = `
-            <div class="employees-main-painel-diary-title">
-                ${title}
-            </div>
-            <div class="employees-main-painel-diary-description">
-                ${description}
-            </div>
+        commands = `
             <div class="diary-commands">
                 <button class="diary-comeback-command">
                     VOLTAR
@@ -50,7 +35,16 @@ function employee_diary_component(mode, date, diary) {
                     ${splited_reversed_formatted}
                 </span>
             </div>
-            ${middle}
+            <input
+                class="employees-main-painel-diary-title"
+                type="text"
+                value="${title}"
+            >
+            <textarea
+                class="employees-main-painel-diary-description"
+                maxlength="1000"
+            >${description}</textarea>
+            ${commands}
         </div>
     `;
 }

@@ -23,7 +23,6 @@
     align-items: center;
     font-family: var(--text-font-1);
     box-sizing: border-box;
-    overflow: auto;
     left: -200%;
     z-index: 10;
 }
