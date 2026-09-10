@@ -1,4 +1,4 @@
-import get_now from '../helpers/get_now.js';
+import get_now from "../../../helpers/get_now.js";
 
 async function get_stat(id, db) {
     const parts = get_now('2-digit');

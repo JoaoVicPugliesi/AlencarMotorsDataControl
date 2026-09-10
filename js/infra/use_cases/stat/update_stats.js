@@ -1,4 +1,4 @@
-import show_message from "../helpers/show_message.js";
+import show_message from "../../../helpers/show_message.js";
 
 async function update_stats(id, db) {
     const employees_main_painel = document.querySelector('.employees-main-painel');

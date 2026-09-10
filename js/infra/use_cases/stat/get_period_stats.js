@@ -1,4 +1,4 @@
-import handle_period from "../helpers/handle_period.js";
+import handle_period from "../../../helpers/handle_period.js";
 
 async function get_period_stats(db, initial_day = null, final_day = null) {
     const {

@@ -7,7 +7,6 @@ async function get_goal() {
     });
     const status = request.status;
     const goal = await request.json();
-    console.log(goal);
     return {
         status: status,
         goal: goal

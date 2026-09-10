@@ -1,4 +1,4 @@
-import get_goal from "../../infra/get_goal.js";
+import get_goal from "../../infra/use_cases/goal/get_goal.js";
 
 async function save_in_storage_goal (db) {
     const { status, goal }  = await get_goal(db);

@@ -1,4 +1,4 @@
-import show_message from "../helpers/show_message.js";
+import show_message from "../../../helpers/show_message.js";
 
 async function update_goal(db) {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');

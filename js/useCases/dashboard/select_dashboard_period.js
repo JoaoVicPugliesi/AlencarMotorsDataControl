@@ -1,5 +1,5 @@
 import show_message from "../../helpers/show_message.js";
-import get_period_stats from "../../infra/get_period_stats.js";
+import get_period_stats from "../../infra/use_cases/stat/get_period_stats.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 

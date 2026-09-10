@@ -1,4 +1,4 @@
-import get_month_stats from "../infra/get_month_stats.js";
+import get_month_stats from "../infra/use_cases/stat/get_month_stats.js";
 import make_employees_painel from "../useCases/employees/make_employees_painel.js";
 
 function select_spreadsheet_option (db) {

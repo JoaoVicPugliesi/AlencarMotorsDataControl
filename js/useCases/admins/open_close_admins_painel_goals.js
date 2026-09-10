@@ -1,4 +1,4 @@
-import update_goal from "../../infra/update_goal.js";
+import update_goal from "../../infra/use_cases/goal/update_goal.js";
 import make_employees_painel_goals from "../employees/make_employees_painel_goals.js";
 
 function open_admins_main_painel_goals(db) {

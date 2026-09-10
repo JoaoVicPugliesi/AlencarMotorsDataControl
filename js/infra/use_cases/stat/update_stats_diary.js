@@ -1,4 +1,4 @@
-import show_message from "../helpers/show_message.js";
+import show_message from "../../../helpers/show_message.js";
 
 async function update_stats_diary(id, db, diary) {
     const diary_container = document.querySelector(

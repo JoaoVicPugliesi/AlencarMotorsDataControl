@@ -1,6 +1,6 @@
 import scroll_to_section from "./js/helpers/scroll_to_section.js";
 import toggle_input_visibility_caller from "./js/helpers/toggle_input_visibilty.js";
-import get_employees from "./js/infra/get_employees.js";
+import get_employees from "./js/infra/use_cases/employee/get_employees.js";
 import open_close_confirm_card from "./js/helpers/open_close_confirm_card.js";
 import open_close_employees_painel from "./js/useCases/employees/open_close_employees_painel.js";
 import open_close_employees_painel_goals from "./js/useCases/employees/open_close_employees_painel_goals.js";
@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         display_spreadsheets_options(db, employees);
         toggle_input_visibility_caller();
         open_close_confirm_card();
-        open_close_employees_painel(employees, db);
+        open_close_employees_painel(db);
         open_close_employees_painel_goals();
-        open_close_admins_painel(employees);
+        open_close_admins_painel();
         open_close_admins_painel_goals(db);
         open_close_spreadsheets(db);
     }

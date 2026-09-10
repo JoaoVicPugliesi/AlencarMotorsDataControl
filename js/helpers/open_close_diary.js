@@ -1,8 +1,8 @@
 import employee_diary_component from "../components/employee_diary_component.js";
 import get_current_date from "./get_current_date.js";
-import update_stats_diary from "../infra/update_stats_diary.js";
-import get_month_stats from "../infra/get_month_stats.js";
 import show_message from "./show_message.js";
+import get_month_stats from "../infra/use_cases/stat/get_month_stats.js";
+import update_stats_diary from "../infra/use_cases/stat/update_stats_diary.js";
 
 function open_close_diary(id, db, el, mode, data, date, container, painel) {
     el.removeEventListener('click', () => {});
