@@ -1,6 +1,6 @@
 import get_now from '../helpers/get_now.js';
 
-async function get_monthly_dashboard(id, db) {
+async function get_month_stats(id, db) {
     const parts = get_now('2-digit');
 
     const year = parts.find(
@@ -28,7 +28,7 @@ async function get_monthly_dashboard(id, db) {
         `${next_year}-${next_month_number}-01`;
 
     const { data, error } = await db
-        .from('employee_daily_stats')
+        .from('stats')
         .select('*')
         .eq('employee_id', id)
         .gte('date', first_day)
@@ -44,4 +44,4 @@ async function get_monthly_dashboard(id, db) {
     return data;
 }
 
-export default get_monthly_dashboard;
+export default get_month_stats;

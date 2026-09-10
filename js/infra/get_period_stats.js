@@ -1,12 +1,12 @@
 import handle_period from "../helpers/handle_period.js";
 
-async function get_all_period(db, initial_day = null, final_day = null) {
+async function get_period_stats(db, initial_day = null, final_day = null) {
     const {
         initial_day: formatted_initial_day,
         final_day: formatted_final_day
     } = handle_period(initial_day, final_day);
     const { data, error } = await db
-        .from('employee_daily_stats')
+        .from('stats')
         .select('*')
         .gte('date', formatted_initial_day)
         .lte('date', formatted_final_day)
@@ -27,4 +27,4 @@ async function get_all_period(db, initial_day = null, final_day = null) {
     };
 }
 
-export default get_all_period;
+export default get_period_stats;

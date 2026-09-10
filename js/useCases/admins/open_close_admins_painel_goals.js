@@ -1,4 +1,4 @@
-import update_dashboard_goals from "../../infra/update_dashboard_goals.js";
+import update_goal from "../../infra/update_goal.js";
 import make_employees_painel_goals from "../employees/make_employees_painel_goals.js";
 
 function open_admins_main_painel_goals(db) {
@@ -13,7 +13,7 @@ function open_admins_main_painel_goals(db) {
             '.admins-main-painel-goals-save-command'
         );
         save_command.addEventListener('click', async () => {
-            await update_dashboard_goals(db);
+            await update_goal(db);
         })
     });
 }

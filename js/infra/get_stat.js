@@ -1,6 +1,6 @@
 import get_now from '../helpers/get_now.js';
 
-async function get_employee_day_record(id, db) {
+async function get_stat(id, db) {
     const parts = get_now('2-digit');
 
     const year = parts.find(
@@ -18,11 +18,11 @@ async function get_employee_day_record(id, db) {
     const today = `${year}-${month}-${day}`;
 
     const { data, error } = await db
-        .from('employee_daily_stats')
+        .from('stats')
         .select('*')
         .eq('employee_id', id)
         .eq('date', today)
-        .maybeSingle();
+        .single();
 
     if (error) {
         return false;
@@ -35,5 +35,5 @@ async function get_employee_day_record(id, db) {
     return false;
 }
 
-export default get_employee_day_record;
+export default get_stat;
 

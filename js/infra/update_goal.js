@@ -1,6 +1,6 @@
 import show_message from "../helpers/show_message.js";
 
-async function update_dashboard_goals(db) {
+async function update_goal(db) {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
     const table = document.querySelector(
         '.admins-main-painel-goals-display'
@@ -66,4 +66,4 @@ async function update_dashboard_goals(db) {
     show_message(admins_main_painel_goals, 'success', 'Novas Metas Salvas com sucesso')
 }
 
-export default update_dashboard_goals;
+export default update_goal;

@@ -1,7 +1,7 @@
 import employee_diary_component from "../components/employee_diary_component.js";
 import get_current_date from "./get_current_date.js";
-import post_daily_diary from "../infra/post_daily_diary.js";
-import get_monthly_dashboard from "../infra/get_monthly_dashboard.js";
+import update_stats_diary from "../infra/update_stats_diary.js";
+import get_month_stats from "../infra/get_month_stats.js";
 import show_message from "./show_message.js";
 
 function open_close_diary(id, db, el, mode, data, date, container, painel) {
@@ -38,9 +38,9 @@ function open_close_diary(id, db, el, mode, data, date, container, painel) {
                     title: title,
                     description: description
                 }
-                const res = await post_daily_diary(id, db, diary);
+                const res = await update_stats_diary(id, db, diary);
                 if (res == false) return;
-                const data = await get_monthly_dashboard(id, db);
+                const data = await get_month_stats(id, db);
                 open_close_diary(
                     id,
                     db,

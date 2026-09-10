@@ -1,12 +1,12 @@
 import find_employee from "../../helpers/find_employee.js";
 import scroll_to_section from "../../helpers/scroll_to_section.js";
 import make_employees_painel from "./make_employees_painel.js";
-import select_monthly_dashboard from "../../infra/get_monthly_dashboard.js";
+import get_month_stats from "../../infra/get_month_stats.js";
 import open_close_diary from "../../helpers/open_close_diary.js";
 import get_current_date from "../../helpers/get_current_date.js";
-import update_daily_dashboard from "../../infra/update_daily_dashboard.js";
+import update_stats from "../../infra/update_stats.js";
 import show_message from "../../helpers/show_message.js";
-import get_employee_day_record from "../../infra/get_employee_day_record.js";
+import get_stat from "../../infra/get_stat.js";
 
 async function open_employees_painel_helper(employees, db, btn) {
     const html = document.querySelector('.html');
@@ -26,11 +26,11 @@ async function open_employees_painel_helper(employees, db, btn) {
         const employee_dashboard_name =document.querySelector('.employees-main-painel-name h3');
         employee_dashboard_name.textContent = `Olá, ${employee.name}. Esses são seus dados.`;
         const painel = document.querySelector('.employees-main-painel');
-        const is_there_record = await get_employee_day_record(id, db);
+        const is_there_record = await get_stat(id, db);
         if(!is_there_record) {
-            await update_daily_dashboard(id, db);
+            await update_stats(id, db);
         }
-        const data = await select_monthly_dashboard(id, db);
+        const data = await get_month_stats(id, db);
         const current_date = get_current_date();
         const table = document.querySelector('.employees-main-painel-display');
         const container = document.querySelector('.employees-main-painel-diary');
@@ -53,7 +53,7 @@ async function open_employees_painel_helper(employees, db, btn) {
         home_header.classList.add('hidden');
         const save_btn = document.querySelector('.employees-main-painel-save-command');
         save_btn.addEventListener('click', async () => {
-            await update_daily_dashboard(id, db);
+            await update_stats(id, db);
         });
     } else {
         show_message(employees_main, 'error', 'Senha inválida');

@@ -1,6 +1,6 @@
 import show_message from "../helpers/show_message.js";
 
-async function post_daily_diary(id, db, diary) {
+async function update_stats_diary(id, db, diary) {
     const diary_container = document.querySelector(
         '.employees-main-painel-diary'
     );
@@ -42,7 +42,7 @@ async function post_daily_diary(id, db, diary) {
     };
 
     const { data: result, error } = await db
-        .from('employee_daily_stats')
+        .from('stats')
         .upsert(
             {
                 ...data,
@@ -76,4 +76,4 @@ async function post_daily_diary(id, db, diary) {
     return result;
 }
 
-export default post_daily_diary;
+export default update_stats_diary;

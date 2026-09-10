@@ -1,5 +1,5 @@
 import show_message from "../../helpers/show_message.js";
-import get_all_period from "../../infra/get_all_period.js";
+import get_period_stats from "../../infra/get_period_stats.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
@@ -38,7 +38,7 @@ async function select_dashboard_period(employees, db, type) {
                 return;
             };
             const { data: period_data, initial_day, final_day } =
-                await get_all_period(
+                await get_period_stats(
                     db,
                     initial_date,
                     final_date
