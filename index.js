@@ -19,16 +19,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const db = supabase_connect(window.supabase);
     scroll_to_section('employees');
     open_sandwich();
-    const employees = await get_employees(db);
-    await save_in_storage_goal(db);
-    display_cards_caller(employees);
-    display_dashboards(employees, db);
-    display_spreadsheets_options(db, employees);
-    toggle_input_visibility_caller();
-    open_close_confirm_card();
-    open_close_employees_painel(employees, db);
-    open_close_employees_painel_goals();
-    open_close_admins_painel(employees);
-    open_close_admins_painel_goals(db);
-    open_close_spreadsheets(db);
+    const { employees, status } = await get_employees(db);
+    if(status == 200) {
+        await save_in_storage_goal(db);
+        display_cards_caller(employees);
+        display_dashboards(employees, db);
+        display_spreadsheets_options(db, employees);
+        toggle_input_visibility_caller();
+        open_close_confirm_card();
+        open_close_employees_painel(employees, db);
+        open_close_employees_painel_goals();
+        open_close_admins_painel(employees);
+        open_close_admins_painel_goals(db);
+        open_close_spreadsheets(db);
+    }
 });

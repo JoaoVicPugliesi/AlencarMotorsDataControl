@@ -1,16 +1,18 @@
-async function get_goal(db) {
-    const { data, error } = await db
-        .from('goals')
-        .select('*')
-        .order('id', { ascending: false })
-        .limit(1)
-        .single();
-
-    if (error) {
-        return false;
+async function get_goal() {
+    const request = await fetch('http://127.0.0.1:3000/get_goal', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        }
+    });
+    const status = request.status;
+    const goal = await request.json();
+    console.log(goal);
+    return {
+        status: status,
+        goal: goal
     }
-
-    return data;
+    
 }
 
 export default get_goal;
