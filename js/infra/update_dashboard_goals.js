@@ -6,14 +6,14 @@ async function update_dashboard_goals(db) {
         '.admins-main-painel-goals-display'
     );
     const rows = table.querySelectorAll('tbody tr');
-    const goals_object = [];
+    const goal_object = [];
     rows.forEach(row => {
         const code = row.dataset.code;
         const goal = row.querySelector('[data-property="goal"]');
         const active = row.querySelector('[data-property="active"]');
         const period = row.querySelector('[data-property="period"]');
         const description = row.querySelector('[data-property="description"]');
-        goals_object.push({
+        goal_object.push({
             code: code,
             goal: Number(goal.textContent.trim()),
             name: row.querySelector('th').textContent.trim(),
@@ -22,7 +22,7 @@ async function update_dashboard_goals(db) {
             description: description.textContent.trim()
         });
     });
-    const { id, initial_date } = JSON.parse(localStorage.getItem('dashboard_goals'));
+    const { id, initial_date } = JSON.parse(localStorage.getItem('goal'));
     const currentDate = new Date();
     const currentMonth =
         `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
@@ -32,9 +32,9 @@ async function update_dashboard_goals(db) {
     let error;
     if (sameMonth) {
         ({ data, error } = await db
-            .from('dashboard_goals')
+            .from('goals')
             .update({
-                goals_object
+                goal_object
             })
             .eq('id', id)
             .select()
@@ -42,10 +42,10 @@ async function update_dashboard_goals(db) {
     
     } else {
         ({ data, error } = await db
-            .from('dashboard_goals')
+            .from('goals')
             .insert({
                 initial_date: currentMonth + '-01',
-                goals_object
+                goal_object
             })
             .select()
             .single())
@@ -56,11 +56,11 @@ async function update_dashboard_goals(db) {
     }
 
     localStorage.setItem(
-        'dashboard_goals',
+        'goal',
         JSON.stringify({
             id: data.id,
             initial_date: data.initial_date,
-            goals_object: data.goals_object
+            goal_object: data.goal_object
         })
     );
     show_message(admins_main_painel_goals, 'success', 'Novas Metas Salvas com sucesso')

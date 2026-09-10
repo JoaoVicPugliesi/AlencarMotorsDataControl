@@ -1,10 +1,10 @@
 import goals_properties from '../../../data/goals_properties.js';
 
-function make_employees_painel_goals(goals_object, class_name, disabled = false) {
+function make_employees_painel_goals(goal_object, class_name, disabled = false) {
     const table = document.querySelector(`.${class_name}`);
     table.innerHTML = '';
-    if (!goals_object || goals_object.length === 0) return;
-    const properties = Object.keys(goals_object[0]).filter(
+    if (!goal_object || goal_object.length === 0) return;
+    const properties = Object.keys(goal_object[0]).filter(
         key => key !== 'name' && key !== 'code'
     );
     const t_head = document.createElement('thead');
@@ -20,7 +20,7 @@ function make_employees_painel_goals(goals_object, class_name, disabled = false)
     });
     t_head.appendChild(header_row);
     const t_body = document.createElement('tbody');
-    goals_object.forEach(counter => {
+    goal_object.forEach(counter => {
         const row = document.createElement('tr');
         row.dataset.code = counter.code;
         const name = document.createElement('th');

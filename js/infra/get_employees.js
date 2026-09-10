@@ -1,4 +1,4 @@
-async function get_employees() {
+async function get_employees(db) {
     const { data, error } = await db
         .from('employees')
         .select('*');

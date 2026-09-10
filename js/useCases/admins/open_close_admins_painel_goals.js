@@ -5,9 +5,9 @@ function open_admins_main_painel_goals(db) {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
     const goals_command = document.querySelector('.admins-main-painel-goals-command');
     goals_command.addEventListener('click', () => {
-        const { goals_object } = JSON.parse(localStorage.getItem('dashboard_goals'));
-        if (!goals_object) return;
-        make_employees_painel_goals(goals_object, 'admins-main-painel-goals-display', false);
+        const { goal_object } = JSON.parse(localStorage.getItem('goal'));
+        if (!goal_object) return;
+        make_employees_painel_goals(goal_object, 'admins-main-painel-goals-display', false);
         admins_main_painel_goals.classList.add('opened');
         const save_command = document.querySelector(
             '.admins-main-painel-goals-save-command'

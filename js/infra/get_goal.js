@@ -1,6 +1,6 @@
-async function get_dashboard_goals(db) {
+async function get_goal(db) {
     const { data, error } = await db
-        .from('dashboard_goals')
+        .from('goals')
         .select('*')
         .order('id', { ascending: false })
         .limit(1)
@@ -13,4 +13,4 @@ async function get_dashboard_goals(db) {
     return data;
 }
 
-export default get_dashboard_goals;
+export default get_goal;

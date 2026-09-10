@@ -22,7 +22,7 @@ function filter_employee(employee, employees, data, type) {
 
     if (!dashboard_completeness) return;
 
-    const { goals_object } = JSON.parse(localStorage.getItem('dashboard_goals'));
+    const { goal_object } = JSON.parse(localStorage.getItem('goal'));
 
     dashboard_header.forEach((component) => {
         component.classList.remove('filtered');
@@ -34,16 +34,16 @@ function filter_employee(employee, employees, data, type) {
         employee.dataset.total
     );
 
-    const goal_object = goals_object.find(
+    const goal_object_by_code = goal_object.find(
         goal => goal.code === code
     );
 
-    if (!goal_object) {
+    if (!goal_object_by_code) {
         return;
     }
 
     const goal = Number(
-        goal_object.goal
+        goal_object_by_code.goal
     );
 
     const percentage = goal > 0
