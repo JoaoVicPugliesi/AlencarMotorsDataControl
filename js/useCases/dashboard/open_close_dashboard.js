@@ -2,7 +2,7 @@ import get_stats from "../../infra/use_cases/stat/get_stats.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
-function open_dashboard(employees, db, type) {
+function open_dashboard(employees, type) {
     const dashboard_command = document.querySelector(
         `.${type}-main-painel-dashboard-command`
     );
@@ -41,9 +41,9 @@ function close_dashboard(type) {
     });
 }
 
-function open_close_dashboard(employees, db, type) {
+function open_close_dashboard(employees, type) {
 
-    open_dashboard(employees, db, type);
+    open_dashboard(employees, type);
     close_dashboard(type);
 }
 

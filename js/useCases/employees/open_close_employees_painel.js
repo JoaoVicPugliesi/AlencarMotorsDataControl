@@ -7,7 +7,7 @@ import post_stats from "../../infra/use_cases/stat/post_stats.js";
 import post_login_employee from "../../infra/use_cases/employee/post_login_employee.js";
 import get_stats from "../../infra/use_cases/stat/get_stats.js";
 
-async function open_employees_painel_helper(db, btn) {
+async function open_employees_painel_helper(btn) {
     const id = Number(btn.getAttribute('data-id'));
     const confirm = btn.closest('.employee-main-confirm');
     const input = confirm.querySelector(
@@ -29,19 +29,18 @@ async function open_employees_painel_helper(db, btn) {
     input.value = '';
     const { status: get_stats_today_status, json: get_stats_today_json } = await get_stats('today', null, null, id);
     if (get_stats_today_status === 404) {
-        await post_stats(id, db);
+        await post_stats(id);
     }
     const painel = document.querySelector('.employees-main-painel');
     const { status: get_stats_month_status, json: get_stats_month_json } = await get_stats('month', null, null, id);
     const { stats, initial_day, final_day } = get_stats_month_json;
     const table = document.querySelector('.employees-main-painel-display');
     const container = document.querySelector('.employees-main-painel-diary');
-    make_employees_painel(id, db, stats, table, container, painel, 'sale');
+    make_employees_painel(id, stats, table, container, painel, 'sale');
     const current_date = get_current_date();
     const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
     open_close_diary(
         id,
-        db,
         employees_main_painel_diary_command,
         'write',
         stats,
@@ -60,22 +59,22 @@ async function open_employees_painel_helper(db, btn) {
     home_header.classList.add('hidden');
     const save_btn = document.querySelector('.employees-main-painel-save-command');
     save_btn.addEventListener('click', async () => {
-        await post_stats(id, db);
+        await post_stats(id);
     });
 }
 
-function open_employees_painel(db) {
+function open_employees_painel() {
     const confirm_btns = document.querySelectorAll('.employee-main-confirm-btn');
     confirm_btns.forEach((btn) => {
         const confirm = btn.closest('.employee-main-confirm');
         const input = confirm.querySelector('.employee-main-confirm-input input');
         btn.addEventListener('click', async () => {
-            await open_employees_painel_helper(db, btn);
+            await open_employees_painel_helper(btn);
         });
         input.addEventListener('keydown', async (e) => {
             if (e.key !== 'Enter') return;
             e.preventDefault();
-            await open_employees_painel_helper(db, btn);
+            await open_employees_painel_helper(btn);
         });
     });
 }
@@ -92,8 +91,8 @@ function close_employees_painel() {
     })
 }
 
-function open_close_employees_painel(employees, db) {
-    open_employees_painel(employees, db);
+function open_close_employees_painel(employees) {
+    open_employees_painel(employees);
     close_employees_painel();
 }
 

@@ -1,7 +1,7 @@
 import get_goal from "../../infra/use_cases/goal/get_goal.js";
 
-async function save_in_storage_goal (db) {
-    const { status, goal }  = await get_goal(db);
+async function save_in_storage_goal () {
+    const { status, goal }  = await get_goal();
     if(status == 200) {
         const { id, initial_date, goal_object } = goal
         localStorage.setItem('goal', JSON.stringify({

@@ -1,7 +1,7 @@
 import post_goal from "../../infra/use_cases/goal/post_goal.js";
 import make_employees_painel_goals from "../employees/make_employees_painel_goals.js";
 
-function open_admins_main_painel_goals(db) {
+function open_admins_main_painel_goals() {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
     const goals_command = document.querySelector('.admins-main-painel-goals-command');
     goals_command.addEventListener('click', () => {
@@ -24,8 +24,8 @@ function close_admins_main_painel_goals() {
         admins_main_painel_goals.classList.remove('opened');
     });
 }
-function open_close_admins_main_painel_goals(db) {
-    open_admins_main_painel_goals(db);
+function open_close_admins_main_painel_goals() {
+    open_admins_main_painel_goals();
     close_admins_main_painel_goals();
 }
 

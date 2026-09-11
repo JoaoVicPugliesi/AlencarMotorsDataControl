@@ -4,7 +4,7 @@ import show_message from "./show_message.js";
 import post_stats_diary from "../infra/use_cases/stat/post_stats_diary.js";
 import get_stats from "../infra/use_cases/stat/get_stats.js";
 
-function open_close_diary(id, db, el, mode, data, date, container, painel) {
+function open_close_diary(id, el, mode, data, date, container, painel) {
     el.removeEventListener('click', () => {});
     el.addEventListener('click', () => {
         const daily_data = data.find(item => item.date === date);
@@ -44,7 +44,6 @@ function open_close_diary(id, db, el, mode, data, date, container, painel) {
                 const { stats, initial_day, final_day } = json;
                 open_close_diary(
                     id,
-                    db,
                     employees_main_painel_diary_command,
                     'write',
                     stats,

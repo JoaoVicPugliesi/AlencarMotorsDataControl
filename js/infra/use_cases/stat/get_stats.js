@@ -13,7 +13,7 @@ async function get_stats(mode, initial_day, final_day, id) {
     }
 
     const query = new URLSearchParams(params).toString();
-    const request = await fetch(`http://127.0.0.1:3000/get_stats?${query}`, {
+    const request = await fetch(`https://alencarmotorsdatacontrolwebservice.onrender.com/get_stats?${query}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

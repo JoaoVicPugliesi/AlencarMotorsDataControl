@@ -20,7 +20,7 @@ async function post_stats(id) {
             body[counter_code] = value;
         });
     }
-    const request = await fetch('http://127.0.0.1:3000/post_stats', {
+    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_stats', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

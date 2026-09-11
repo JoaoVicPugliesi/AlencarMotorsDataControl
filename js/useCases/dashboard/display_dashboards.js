@@ -10,11 +10,11 @@ const employees_main_painel = document.querySelector(
 const admins_main_painel = document.querySelector(
     '.admins-main-painel'
 );
-function display_dashboards(employees, db) {
+function display_dashboards(employees) {
     employees_main_painel.innerHTML += dashboard_component('employees');
     admins_main_painel.innerHTML += dashboard_component('admins');
-    open_close_dashboard(employees, db, 'employees');
-    open_close_dashboard(employees, db, 'admins');
+    open_close_dashboard(employees, 'employees');
+    open_close_dashboard(employees, 'admins');
     open_close_dashboard_painel('employees');
     open_close_dashboard_painel('admins');
     open_close_dashboard_period('employees');

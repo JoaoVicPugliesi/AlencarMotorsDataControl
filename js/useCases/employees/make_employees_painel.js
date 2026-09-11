@@ -2,7 +2,7 @@ import counters from "../../../data/counters.js";
 import get_current_date from "../../helpers/get_current_date.js";
 import open_close_diary from "../../helpers/open_close_diary.js";
 
-function make_employees_painel(id, db, data, table, container, painel, role) {
+function make_employees_painel(id, data, table, container, painel, role) {
     table.innerHTML = '';
     const t_head = document.createElement('thead');
     const header_row = document.createElement('tr');
@@ -34,7 +34,6 @@ function make_employees_painel(id, db, data, table, container, painel, role) {
             th.classList.add('disabled-day');
             open_close_diary(
                 id, 
-                db,
                 th,
                 'read',
                 data,

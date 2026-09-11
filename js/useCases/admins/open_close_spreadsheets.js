@@ -14,7 +14,7 @@ function close_spreadsheets () {
     });
 }
 
-function open_close_spreadsheets (db) {
+function open_close_spreadsheets () {
     open_spreadsheets();
     close_spreadsheets();
 }

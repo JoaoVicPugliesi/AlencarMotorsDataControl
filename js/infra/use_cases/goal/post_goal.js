@@ -33,7 +33,7 @@ async function post_goal() {
         same_month: same_month,
         goal_object: goal_object
     }
-    const request = await fetch('http://127.0.0.1:3000/post_goal', {
+    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_goal', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
