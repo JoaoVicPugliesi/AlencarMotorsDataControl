@@ -1,6 +1,6 @@
 import show_message from "../../../helpers/show_message.js";
 
-async function update_goal(db) {
+async function post_goal() {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
     const table = document.querySelector(
         '.admins-main-painel-goals-display'
@@ -23,47 +23,40 @@ async function update_goal(db) {
         });
     });
     const { id, initial_date } = JSON.parse(localStorage.getItem('goal'));
-    const currentDate = new Date();
-    const currentMonth =
-        `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
-    const lastMonth = initial_date.slice(0, 7);
-    const sameMonth = lastMonth === currentMonth;
-    let data;
-    let error;
-    if (sameMonth) {
-        ({ data, error } = await db
-            .from('goals')
-            .update({
-                goal_object
-            })
-            .eq('id', id)
-            .select()
-            .single())
-    
-    } else {
-        ({ data, error } = await db
-            .from('goals')
-            .insert({
-                initial_date: currentMonth + '-01',
-                goal_object
-            })
-            .select()
-            .single())
+    const current_date = new Date();
+    const current_month =
+        `${current_date.getFullYear()}-${String(current_date.getMonth() + 1).padStart(2, '0')}`;
+    const last_month = initial_date.slice(0, 7);
+    const same_month = last_month === current_month;
+    const body = {
+        id: id,
+        same_month: same_month,
+        goal_object: goal_object
     }
-    if (error) {
-        show_message(admins_main_painel_goals, 'error', 'Erro ao salvar metas')
+    const request = await fetch('http://127.0.0.1:3000/post_goal', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
+
+    const status = request.status;
+    const json = await request.json();
+    if(status === 400) {
+        show_message(admins_main_painel_goals, 'error', json.message)
         return;
     }
 
     localStorage.setItem(
         'goal',
         JSON.stringify({
-            id: data.id,
-            initial_date: data.initial_date,
-            goal_object: data.goal_object
+            id: json.id,
+            initial_date: json.initial_date,
+            goal_object: json.goal_object
         })
     );
-    show_message(admins_main_painel_goals, 'success', 'Novas Metas Salvas com sucesso')
+    show_message(admins_main_painel_goals, 'success', json.message)
 }
 
-export default update_goal;
+export default post_goal;
