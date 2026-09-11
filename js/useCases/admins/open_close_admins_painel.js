@@ -3,7 +3,7 @@ import show_message from "../../helpers/show_message.js";
 import post_login_employee from "../../infra/use_cases/employee/post_login_employee.js";
 
 async function open_admins_main_painel_helper(btn) {
-    const id = btn.getAttribute('data-id');
+    const id = Number(btn.getAttribute('data-id'));
     const confirm = btn.closest('.admin-main-confirm');
     const input = confirm.querySelector(
         '.admin-main-confirm-input input'

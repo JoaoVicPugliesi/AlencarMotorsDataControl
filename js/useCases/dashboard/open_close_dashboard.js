@@ -13,14 +13,15 @@ function open_dashboard(employees, db, type) {
         '.dashboard-header-period h3'
     );
     dashboard_command.addEventListener('click', async () => {
-        const { data: period_data, initial_day, final_day } = await get_stats(db, 'period', null, null, null);
-        make_dashboard_header(period_data, type);
+        const { json } = await get_stats('period', null, null, null);
+        const { stats, initial_day, final_day } = json;
+        make_dashboard_header(stats, type);
         filter_dashboard_header(
             employees,
-            period_data,
+            stats,
             type
         );
-        dashboard_header_period.textContent = `${initial_day} - ${final_day}`;
+        dashboard_header_period.textContent = `${initial_day.split('-').reverse().join('-')} - ${final_day.split('-').reverse().join('-')}`;
         dashboard.classList.add('opened');
     });
 }

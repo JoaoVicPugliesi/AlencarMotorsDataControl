@@ -8,10 +8,11 @@ function select_spreadsheet_option (db) {
         o.addEventListener('click', async () => {
             options.forEach((i) => i.classList.remove('active'));
             const id = Number(o.getAttribute('data-id'));
-            const data = await get_stats(db, 'month', null, null, id);
+            const { json } = await get_stats('month', null, null, id);
+            const { stats } = json;
             const container = document.querySelector('.admins-main-painel-spreadsheets-diary');
             const painel = document.querySelector('.admins-main-painel-spreadsheets');
-            make_employees_painel(id, db, data, spreadsheets, container, painel, 'admin');
+            make_employees_painel(id, db, stats, spreadsheets, container, painel, 'admin');
             o.classList.add('active');
         });
     });

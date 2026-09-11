@@ -40,13 +40,14 @@ function open_close_diary(id, db, el, mode, data, date, container, painel) {
                 }
                 const res = await update_stats_diary(id, db, diary);
                 if (res == false) return;
-                const data = await get_stats(db, 'month', null, null, id);
+                const { status, json } = await get_stats('month', null, null, id);
+                const { stats, initial_day, final_day } = json;
                 open_close_diary(
                     id,
                     db,
                     employees_main_painel_diary_command,
                     'write',
-                    data,
+                    stats,
                     current_date,
                     container,
                     painel

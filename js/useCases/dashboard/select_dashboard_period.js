@@ -3,7 +3,7 @@ import get_stats from "../../infra/use_cases/stat/get_stats.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
 
-async function select_dashboard_period(employees, db, type) {
+async function select_dashboard_period(employees, type) {
     const dashboard = document.querySelector(
         `.dashboard[data-dashboard="${type}"]`
     );
@@ -37,17 +37,17 @@ async function select_dashboard_period(employees, db, type) {
                 show_message(dashboard_period, 'error', 'A data final precisa ser após a inicial');
                 return;
             };
-            const { data: period_data, initial_day, final_day } =
+            const { json } =
                 await get_stats(
-                    db,
                     'period',
                     initial_date,
                     final_date,
                     null
                 );
-            make_dashboard_header(period_data, type);
-            filter_dashboard_header(employees, period_data, type);
-            dashboard_header_period.textContent = `${initial_day} - ${final_day}`;
+            const { stats, initial_day, final_day } = json;
+            make_dashboard_header(stats, type);
+            filter_dashboard_header(employees, stats, type);
+            dashboard_header_period.textContent = `${initial_day.split('-').reverse().join('-')} - ${final_day.split('-').reverse().join('-')}`;
             dashboard_period.classList.remove('opened');
             dashboard_initial_date.value = '';
             dashboard_final_date.value = '';

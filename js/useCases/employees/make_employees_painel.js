@@ -10,7 +10,7 @@ function make_employees_painel(id, db, data, table, container, painel, role) {
     counter_header.textContent = 'Campo';
     header_row.appendChild(counter_header);
     const parts = get_current_date().split('-');
-    const [ year, month, today ] = [ parts[0], parts[1], parts[2] ];
+    const [ year, month, today ] = parts.map(Number);
     const days_in_month = new Date(
         year,
         month,

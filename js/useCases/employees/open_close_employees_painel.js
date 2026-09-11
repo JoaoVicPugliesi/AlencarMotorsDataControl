@@ -8,34 +8,37 @@ import post_login_employee from "../../infra/use_cases/employee/post_login_emplo
 import get_stats from "../../infra/use_cases/stat/get_stats.js";
 
 async function open_employees_painel_helper(db, btn) {
-    const id = btn.getAttribute('data-id');
+    const id = Number(btn.getAttribute('data-id'));
     const confirm = btn.closest('.employee-main-confirm');
     const input = confirm.querySelector(
         '.employee-main-confirm-input input'
     );
     const {
-        status,
-        json
+        status: post_login_status,
+        json: post_login_json
     } = await post_login_employee({
         id: id,
         password: input.value
     });
 
-    if (status !== 200) {
+    if (post_login_status !== 200) {
         const employees_main = document.querySelector('.employees-main');
-        show_message(employees_main, 'error', json.message);
+        show_message(employees_main, 'error', post_login_json.message);
         return;
     }
     input.value = '';
-    const is_there_record = await get_stats(db, 'today', null, null, id);
-    if (!is_there_record) {
+    const { status: get_stats_today_status, json: get_stats_today_json } = await get_stats('today', null, null, id);
+    console.log(get_stats_today_json);
+    if (get_stats_today_status === 404) {
         await update_stats(id, db);
     }
     const painel = document.querySelector('.employees-main-painel');
-    const data = await get_stats(db, 'month', null, null, id);
+    const { status: get_stats_month_status, json: get_stats_month_json } = await get_stats('month', null, null, id);
+    const { stats, initial_day, final_day } = get_stats_month_json;
+    console.log(stats, initial_day, final_day);
     const table = document.querySelector('.employees-main-painel-display');
     const container = document.querySelector('.employees-main-painel-diary');
-    make_employees_painel(id, db, data, table, container, painel, 'sale');
+    make_employees_painel(id, db, stats, table, container, painel, 'sale');
     const current_date = get_current_date();
     const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
     open_close_diary(
@@ -43,7 +46,7 @@ async function open_employees_painel_helper(db, btn) {
         db,
         employees_main_painel_diary_command,
         'write',
-        data,
+        stats,
         current_date,
         container,
         painel
@@ -51,7 +54,7 @@ async function open_employees_painel_helper(db, btn) {
     const html = document.querySelector('.html');
     const home_header = document.querySelector('.home-header');
     const employee_dashboard_name = document.querySelector('.employees-main-painel-name h3');
-    employee_dashboard_name.textContent = `Olá, ${ json.employee.name }. Esses são seus dados.`;
+    employee_dashboard_name.textContent = `Olá, ${ post_login_json.employee.name }. Esses são seus dados.`;
     painel.classList.add('opened');
     await new Promise(requestAnimationFrame);
     scroll_to_section('employees');

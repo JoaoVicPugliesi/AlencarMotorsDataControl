@@ -15,9 +15,9 @@ function handle_period_helper(year, month) {
     };
 }
 
-function handle_period(mode, initial_day = null, final_day = null) {
+function handle_period(mode, initial_day, final_day) {
     const parts = get_current_date().split('-');
-    const [year, month, day] = [ parts[0], parts[1], parts[2] ];
+    const [year, month, day] = parts.map(Number);
     if (mode === 'today') {
         return {
             initial_day: `${year}-${month}-${day}`,

@@ -1,65 +1,34 @@
 import handle_period from "../../../helpers/handle_period.js";
 
-async function get_stats(db, mode, initial_day = null, final_day = null, id = null) {
+async function get_stats(mode, initial_day, final_day, id) {
     const {
         initial_day: formatted_initial_day,
         final_day: formatted_final_day
     } = handle_period(mode, initial_day, final_day);
-    if (mode === 'today' && id) {
-        const { data, error } = await db
-            .from('stats')
-            .select('*')
-            .eq('employee_id', id)
-            .eq('date', initial_day)
-            .single();
-        if (error) {
-            return false;
-        }
-        if (data) {
-            return true;
-        }
-        return false;
+    console.log(initial_day, final_day, id);
+    const params = {
+        mode: mode,
+        initial_day: formatted_initial_day,
+        final_day: formatted_final_day,
+        id: id
     }
 
-    if (mode == 'month' && id) {
-        const { data, error } = await db
-            .from('stats')
-            .select('*')
-            .eq('employee_id', id)
-            .gte('date', formatted_initial_day)
-            .lt('date', formatted_final_day)
-            .order('date', {
-                ascending: true
-            });
-
-        if (error) {
-            return false;
+    const query = new URLSearchParams(params).toString();
+    const request = await fetch(`http://127.0.0.1:3000/get_stats?${query}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
         }
-        return data;
+    });
+
+    const status = request.status;
+    const json = await request.json();
+    console.log(status);
+    console.log(json);
+    return {
+        status: status,
+        json: json
     }
-
-    if (mode == 'period') {
-        const { data, error } = await db
-            .from('stats')
-            .select('*')
-            .gte('date', formatted_initial_day)
-            .lte('date', formatted_final_day)
-            .order('date', {
-                ascending: true
-            });
-
-        if (error) {
-            return false;
-        }
-        const splited_reversed_formatted_initial_day = formatted_initial_day.split('-').reverse().join('-');
-        const splited_reversed_formatted_final_day = formatted_final_day.split('-').reverse().join('-');
-        return {
-            data: data,
-            initial_day: splited_reversed_formatted_initial_day,
-            final_day: splited_reversed_formatted_final_day
-        };
-    }
-
 }
 
 export default get_stats;
