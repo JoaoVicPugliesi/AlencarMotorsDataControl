@@ -4,9 +4,8 @@ import open_close_diary from "../../helpers/open_close_diary.js";
 import get_current_date from "../../helpers/get_current_date.js";
 import show_message from "../../helpers/show_message.js";
 import update_stats from "../../infra/use_cases/stat/update_stats.js";
-import get_stat from "../../infra/use_cases/stat/get_stat.js";
-import get_month_stats from "../../infra/use_cases/stat/get_month_stats.js";
 import post_login_employee from "../../infra/use_cases/employee/post_login_employee.js";
+import get_stats from "../../infra/use_cases/stat/get_stats.js";
 
 async function open_employees_painel_helper(db, btn) {
     const id = btn.getAttribute('data-id');
@@ -27,21 +26,17 @@ async function open_employees_painel_helper(db, btn) {
         show_message(employees_main, 'error', json.message);
         return;
     }
-    const html = document.querySelector('.html');
-    const home_header = document.querySelector('.home-header');
     input.value = '';
-    const employee_dashboard_name = document.querySelector('.employees-main-painel-name h3');
-    employee_dashboard_name.textContent = `Olá, ${ json.employee.name }. Esses são seus dados.`;
-    const painel = document.querySelector('.employees-main-painel');
-    const is_there_record = await get_stat(id, db);
+    const is_there_record = await get_stats(db, 'today', null, null, id);
     if (!is_there_record) {
         await update_stats(id, db);
     }
-    const data = await get_month_stats(id, db);
-    const current_date = get_current_date();
+    const painel = document.querySelector('.employees-main-painel');
+    const data = await get_stats(db, 'month', null, null, id);
     const table = document.querySelector('.employees-main-painel-display');
     const container = document.querySelector('.employees-main-painel-diary');
     make_employees_painel(id, db, data, table, container, painel, 'sale');
+    const current_date = get_current_date();
     const employees_main_painel_diary_command = document.querySelector('.employees-main-painel-diary-command');
     open_close_diary(
         id,
@@ -53,6 +48,10 @@ async function open_employees_painel_helper(db, btn) {
         container,
         painel
     );
+    const html = document.querySelector('.html');
+    const home_header = document.querySelector('.home-header');
+    const employee_dashboard_name = document.querySelector('.employees-main-painel-name h3');
+    employee_dashboard_name.textContent = `Olá, ${ json.employee.name }. Esses são seus dados.`;
     painel.classList.add('opened');
     await new Promise(requestAnimationFrame);
     scroll_to_section('employees');

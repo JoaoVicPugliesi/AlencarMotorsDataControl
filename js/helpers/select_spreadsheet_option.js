@@ -1,4 +1,4 @@
-import get_month_stats from "../infra/use_cases/stat/get_month_stats.js";
+import get_stats from "../infra/use_cases/stat/get_stats.js";
 import make_employees_painel from "../useCases/employees/make_employees_painel.js";
 
 function select_spreadsheet_option (db) {
@@ -8,7 +8,7 @@ function select_spreadsheet_option (db) {
         o.addEventListener('click', async () => {
             options.forEach((i) => i.classList.remove('active'));
             const id = Number(o.getAttribute('data-id'));
-            const data = await get_month_stats(id, db);
+            const data = await get_stats(db, 'month', null, null, id);
             const container = document.querySelector('.admins-main-painel-spreadsheets-diary');
             const painel = document.querySelector('.admins-main-painel-spreadsheets');
             make_employees_painel(id, db, data, spreadsheets, container, painel, 'admin');
