@@ -1,6 +1,7 @@
+import get_current_date from "../../../helpers/get_current_date.js";
 import show_message from "../../../helpers/show_message.js";
 
-async function update_stats_diary(id, db, diary) {
+async function post_stats_diary(id, db, diary) {
     const diary_container = document.querySelector(
         '.employees-main-painel-diary'
     );
@@ -36,9 +37,7 @@ async function update_stats_diary(id, db, diary) {
 
     const data = {
         employee_id: id,
-        date: new Intl.DateTimeFormat('en-CA', {
-            timeZone: 'America/Sao_Paulo'
-        }).format(new Date())
+        date: get_current_date()
     };
 
     const { data: result, error } = await db
@@ -76,4 +75,4 @@ async function update_stats_diary(id, db, diary) {
     return result;
 }
 
-export default update_stats_diary;
+export default post_stats_diary;

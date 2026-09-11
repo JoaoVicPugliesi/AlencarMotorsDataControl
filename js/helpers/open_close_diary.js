@@ -1,7 +1,7 @@
 import employee_diary_component from "../components/employee_diary_component.js";
 import get_current_date from "./get_current_date.js";
 import show_message from "./show_message.js";
-import update_stats_diary from "../infra/use_cases/stat/update_stats_diary.js";
+import post_stats_diary from "../infra/use_cases/stat/post_stats_diary.js";
 import get_stats from "../infra/use_cases/stat/get_stats.js";
 
 function open_close_diary(id, db, el, mode, data, date, container, painel) {
@@ -38,7 +38,7 @@ function open_close_diary(id, db, el, mode, data, date, container, painel) {
                     title: title,
                     description: description
                 }
-                const res = await update_stats_diary(id, db, diary);
+                const res = await post_stats_diary(id, db, diary);
                 if (res == false) return;
                 const { status, json } = await get_stats('month', null, null, id);
                 const { stats, initial_day, final_day } = json;

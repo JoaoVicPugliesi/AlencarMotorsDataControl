@@ -3,7 +3,7 @@ import make_employees_painel from "./make_employees_painel.js";
 import open_close_diary from "../../helpers/open_close_diary.js";
 import get_current_date from "../../helpers/get_current_date.js";
 import show_message from "../../helpers/show_message.js";
-import update_stats from "../../infra/use_cases/stat/update_stats.js";
+import post_stats from "../../infra/use_cases/stat/post_stats.js";
 import post_login_employee from "../../infra/use_cases/employee/post_login_employee.js";
 import get_stats from "../../infra/use_cases/stat/get_stats.js";
 
@@ -28,14 +28,12 @@ async function open_employees_painel_helper(db, btn) {
     }
     input.value = '';
     const { status: get_stats_today_status, json: get_stats_today_json } = await get_stats('today', null, null, id);
-    console.log(get_stats_today_json);
     if (get_stats_today_status === 404) {
-        await update_stats(id, db);
+        await post_stats(id, db);
     }
     const painel = document.querySelector('.employees-main-painel');
     const { status: get_stats_month_status, json: get_stats_month_json } = await get_stats('month', null, null, id);
     const { stats, initial_day, final_day } = get_stats_month_json;
-    console.log(stats, initial_day, final_day);
     const table = document.querySelector('.employees-main-painel-display');
     const container = document.querySelector('.employees-main-painel-diary');
     make_employees_painel(id, db, stats, table, container, painel, 'sale');
@@ -62,7 +60,7 @@ async function open_employees_painel_helper(db, btn) {
     home_header.classList.add('hidden');
     const save_btn = document.querySelector('.employees-main-painel-save-command');
     save_btn.addEventListener('click', async () => {
-        await update_stats(id, db);
+        await post_stats(id, db);
     });
 }
 

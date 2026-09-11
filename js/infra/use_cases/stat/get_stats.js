@@ -5,7 +5,6 @@ async function get_stats(mode, initial_day, final_day, id) {
         initial_day: formatted_initial_day,
         final_day: formatted_final_day
     } = handle_period(mode, initial_day, final_day);
-    console.log(initial_day, final_day, id);
     const params = {
         mode: mode,
         initial_day: formatted_initial_day,
@@ -23,8 +22,6 @@ async function get_stats(mode, initial_day, final_day, id) {
 
     const status = request.status;
     const json = await request.json();
-    console.log(status);
-    console.log(json);
     return {
         status: status,
         json: json
