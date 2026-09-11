@@ -38,8 +38,8 @@ function open_close_diary(id, db, el, mode, data, date, container, painel) {
                     title: title,
                     description: description
                 }
-                const res = await post_stats_diary(id, db, diary);
-                if (res == false) return;
+                const res = await post_stats_diary(id, diary);
+                if(!res) return;
                 const { status, json } = await get_stats('month', null, null, id);
                 const { stats, initial_day, final_day } = json;
                 open_close_diary(

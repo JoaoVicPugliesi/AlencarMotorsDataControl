@@ -1,11 +1,10 @@
 import get_current_date from "../../../helpers/get_current_date.js";
 import show_message from "../../../helpers/show_message.js";
 
-async function post_stats_diary(id, db, diary) {
+async function post_stats_diary(id, diary) {
     const diary_container = document.querySelector(
         '.employees-main-painel-diary'
     );
-
     const title = diary.title;
     const description = diary.description;
     if (title.length == '' || title.length == '') {
@@ -35,44 +34,42 @@ async function post_stats_diary(id, db, diary) {
         return false;
     }
 
-    const data = {
+    const body = {
         employee_id: id,
-        date: get_current_date()
+        date: get_current_date(),
+        diary: {
+            title: title,
+            description: description
+        }
     };
+    
+    const request = await fetch('http://127.0.0.1:3000/post_stats_diary', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
+   
+    const status = request.status;
+    const json = await request.json();
 
-    const { data: result, error } = await db
-        .from('stats')
-        .upsert(
-            {
-                ...data,
-                diary: {
-                    title,
-                    description
-                }
-            },
-            {
-                onConflict: 'employee_id,date'
-            }
-        )
-        .select();
-
-    if (error) {
+    if(status === 400) {
         show_message(
             diary_container,
             'error',
-            'Falhou em atualizar o diário'
+            json.message
         );
-
         return false;
     }
 
     show_message(
         diary_container,
         'success',
-        'Diário atualizado'
+        json.message
     );
 
-    return result;
+    return true;
 }
 
 export default post_stats_diary;
