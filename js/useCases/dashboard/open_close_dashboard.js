@@ -13,11 +13,6 @@ function open_dashboard(employees, type) {
         '.dashboard-header-period h3'
     );
     dashboard_command.addEventListener('click', async () => {
-        const loading_message = show_message(
-        home_main,
-        'loading',
-        'Carregando Perfis'
-        );
         const { json } = await get_stats('period', null, null, null);
         const { stats, initial_day, final_day } = json;
         make_dashboard_header(stats, type);

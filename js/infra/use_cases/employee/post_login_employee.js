@@ -1,4 +1,4 @@
-import base_URL from "../../base_URL";
+import base_URL from "../../base_URL.js";
 
 async function post_login_employee(params) {
     const request = await fetch(`${base_URL}/post_login_employee`, {

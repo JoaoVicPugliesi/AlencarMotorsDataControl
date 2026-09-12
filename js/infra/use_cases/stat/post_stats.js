@@ -38,7 +38,7 @@ async function post_stats(id) {
         return;
     }
 
-    show_message(employees_main_painel, 'loading', `${json.message}`);
+    show_message(employees_main_painel, 'success', `${json.message}`);
 }
 
 export default post_stats;
