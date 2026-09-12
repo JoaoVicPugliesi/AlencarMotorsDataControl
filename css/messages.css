@@ -30,6 +30,10 @@
     font-family: var(--text-font-1);
     text-transform: uppercase;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .success-message-icon,

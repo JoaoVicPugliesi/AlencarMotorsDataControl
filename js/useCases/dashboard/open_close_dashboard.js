@@ -1,6 +1,7 @@
 import get_stats from "../../infra/use_cases/stat/get_stats.js";
 import filter_dashboard_header from "./filter_dashboard_header.js";
 import make_dashboard_header from "./make_dashboard_header.js";
+import show_message from '../../helpers/show_message.js';
 
 function open_dashboard(employees, type) {
     const dashboard_command = document.querySelector(
@@ -9,11 +10,20 @@ function open_dashboard(employees, type) {
     const dashboard = document.querySelector(
         `.dashboard[data-dashboard="${type}"]`
     );
+    const main_painel = document.querySelector(
+        `.${type}-main-painel`
+    );
     const dashboard_header_period = dashboard.querySelector(
         '.dashboard-header-period h3'
     );
     dashboard_command.addEventListener('click', async () => {
+         const loading_message = show_message(
+            main_painel,
+            'loading',
+            'Carregando Dashboard'
+        );
         const { json } = await get_stats('period', null, null, null);
+        loading_message.remove();
         const { stats, initial_day, final_day } = json;
         make_dashboard_header(stats, type);
         filter_dashboard_header(
