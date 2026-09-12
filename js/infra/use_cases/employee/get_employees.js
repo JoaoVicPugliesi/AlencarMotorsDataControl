@@ -1,5 +1,7 @@
+import base_URL from "../../base_URL";
+
 async function get_employees() {
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/get_employees', {
+    const request = await fetch(`${base_URL}/get_employees`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

@@ -1,5 +1,7 @@
+import base_URL from "../../base_URL";
+
 async function get_goal() {
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/get_goal', {
+    const request = await fetch(`${base_URL}/get_goal`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

@@ -1,5 +1,6 @@
 import show_message from "../../../helpers/show_message.js";
 import get_current_date from '../../../helpers/get_current_date.js';
+import base_URL from "../../base_URL.js";
 
 async function post_stats(id) {
     const employees_main_painel = document.querySelector('.employees-main-painel');
@@ -20,7 +21,7 @@ async function post_stats(id) {
             body[counter_code] = value;
         });
     }
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_stats', {
+    const request = await fetch(`${base_URL}/post_stats`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -37,7 +38,7 @@ async function post_stats(id) {
         return;
     }
 
-    show_message(employees_main_painel, 'success', `${json.message}`);
+    show_message(employees_main_painel, 'loading', `${json.message}`);
 }
 
 export default post_stats;

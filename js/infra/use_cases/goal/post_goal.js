@@ -1,4 +1,5 @@
 import show_message from "../../../helpers/show_message.js";
+import base_URL from "../../base_URL.js";
 
 async function post_goal() {
     const admins_main_painel_goals = document.querySelector('.admins-main-painel-goals');
@@ -33,7 +34,7 @@ async function post_goal() {
         same_month: same_month,
         goal_object: goal_object
     }
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_goal', {
+    const request = await fetch(`${base_URL}/post_goal`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

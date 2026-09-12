@@ -1,34 +1,44 @@
-import success from "../components/messages/success.js";
+import loading from "../components/messages/loading.js";
 import error from "../components/messages/error.js";
+import success from "../components/messages/success.js";
 
-async function show_message(parent, mode, message) {
-    let component;
-    if (mode === 'success') {
-        component = `
-        <div class="message-holder">
-            ${success(message)}
-        </div>
-        `;
-    }
-    if (mode === 'error') {
-        component = `
-        <div class="message-holder">
-            ${error(message)}
-        </div>
-        `;
-    }
-    if (!component) return;
-    parent.insertAdjacentHTML('beforeend', component);
-    const message_element = parent.lastElementChild;
-    requestAnimationFrame(() => {
-        message_element.classList.add('active');
-    });
-    setTimeout(() => {
+function show_message(parent, mode, message, delay = 3000) {
+    const message_holder = document.createElement('div');
+
+    message_holder.classList.add('message-holder');
+
+    if (mode === 'loading') {
+        message_holder.innerHTML = loading(message);
+
+        parent.append(message_holder);
+
         requestAnimationFrame(() => {
-            message_element.classList.remove('active');
+            message_holder.classList.add('active');
         });
-        setTimeout(() => { message_element.remove(); }, 1000);
-    }, 3000);
+
+        return message_holder;
+    }
+
+    message_holder.innerHTML =
+        mode === 'success'
+            ? success(message)
+            : error(message);
+
+    parent.append(message_holder);
+
+    requestAnimationFrame(() => {
+        message_holder.classList.add('active');
+    });
+
+    setTimeout(() => {
+        message_holder.classList.remove('active');
+
+        setTimeout(() => {
+            message_holder.remove();
+        }, 300);
+    }, delay);
+
+    return message_holder;
 }
 
 export default show_message;

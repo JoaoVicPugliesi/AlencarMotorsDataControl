@@ -1,5 +1,6 @@
 import get_current_date from "../../../helpers/get_current_date.js";
 import show_message from "../../../helpers/show_message.js";
+import base_URL from "../../base_URL.js";
 
 async function post_stats_diary(id, diary) {
     const diary_container = document.querySelector(
@@ -43,7 +44,7 @@ async function post_stats_diary(id, diary) {
         }
     };
     
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_stats_diary', {
+    const request = await fetch(`${base_URL}/post_stats_diary`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -58,7 +59,8 @@ async function post_stats_diary(id, diary) {
         show_message(
             diary_container,
             'error',
-            json.message
+            json.message,
+            3000
         );
         return false;
     }
@@ -66,7 +68,8 @@ async function post_stats_diary(id, diary) {
     show_message(
         diary_container,
         'success',
-        json.message
+        json.message,
+        3000
     );
 
     return true;

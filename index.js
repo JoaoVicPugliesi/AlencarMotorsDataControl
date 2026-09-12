@@ -12,13 +12,21 @@ import save_in_storage_goal from "./js/useCases/dashboard/save_in_storage_goal.j
 import display_cards_caller from "./js/helpers/display_cards.js";
 import open_close_spreadsheets from "./js/useCases/admins/open_close_spreadsheets.js";
 import display_spreadsheets_options from "./js/helpers/display_spreadsheets_options.js";
+import show_message from "./js/helpers/show_message.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
     localStorage.clear();
-    scroll_to_section('employees');
     open_sandwich();
+    const home_main = document.querySelector('.home-main');
+    const loading_message = show_message(
+        home_main,
+        'loading',
+        'Carregando Perfis'
+    );
     const { employees, status } = await get_employees();
+    loading_message.remove();
     if(status == 200) {
+        scroll_to_section('employees');
         await save_in_storage_goal();
         display_cards_caller(employees);
         display_dashboards(employees);

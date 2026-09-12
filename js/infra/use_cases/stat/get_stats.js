@@ -1,4 +1,5 @@
 import handle_period from "../../../helpers/handle_period.js";
+import base_URL from "../../base_URL.js";
 
 async function get_stats(mode, initial_day, final_day, id) {
     const {
@@ -13,7 +14,7 @@ async function get_stats(mode, initial_day, final_day, id) {
     }
 
     const query = new URLSearchParams(params).toString();
-    const request = await fetch(`https://alencarmotorsdatacontrolwebservice.onrender.com/get_stats?${query}`, {
+    const request = await fetch(`${base_URL}/get_stats?${query}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

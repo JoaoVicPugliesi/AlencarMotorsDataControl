@@ -24,7 +24,8 @@
 }
 
 .success-message,
-.error-message {
+.error-message,
+.loading-message {
     text-align: center;  
     font-family: var(--text-font-1);
     text-transform: uppercase;
@@ -32,11 +33,16 @@
 }
 
 .success-message-icon,
-.error-message-icon {
+.error-message-icon,
+.loading-message-icon {
     width: 75px;
     height: 75px;
     display: block;
     margin: 0 auto;
+}
+
+.loading-message-icon {
+    animation: loading-message-rotate 900ms linear infinite;
 }
 
 .success-message-icon circle,
@@ -66,7 +72,8 @@
 }
 
 .success-message-title,
-.error-message-title {
+.error-message-title,
+.loading-message-title {
     color: var(--background-color);
     transform: translateY(25px);
     opacity: 0;
@@ -77,6 +84,13 @@
     font-size: 1rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
+}
+
+
+.loading-message-title {
+    background: var(--btn-color);
+    transition-delay: 150ms;
+    margin-top: 1rem;
 }
 
 .success-message-title {
@@ -99,7 +113,22 @@
 }
 
 .message-holder.active .success-message .success-message-title,
-.message-holder.active .error-message .error-message-title {
+.message-holder.active .error-message .error-message-title,
+.message-holder.active .loading-message .loading-message-title  {
     transform: translateY(0);
     opacity: 1;
+}
+
+.loading-message-spinner {
+    fill: none;
+    stroke: var(--btn-color);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 150 70;
+}
+
+@keyframes loading-message-rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }

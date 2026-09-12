@@ -1,5 +1,7 @@
+import base_URL from "../../base_URL";
+
 async function post_login_employee(params) {
-    const request = await fetch('https://alencarmotorsdatacontrolwebservice.onrender.com/post_login_employee', {
+    const request = await fetch(`${base_URL}/post_login_employee`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -9,7 +9,7 @@ function open_close_diary(id, el, mode, data, date, container, painel) {
     el.addEventListener('click', () => {
         const daily_data = data.find(item => item.date === date);
         if (!daily_data) {
-            show_message(painel, 'error', `Não há dados para ${date.split('-').reverse().join('-')}`);
+            show_message(painel, 'error', `Não há dados para ${date.split('-').reverse().join('-')}`, 3000);
             return;
         }
         container.innerHTML = employee_diary_component(
